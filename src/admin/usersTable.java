@@ -16,6 +16,7 @@ public class usersTable extends javax.swing.JFrame {
      */
     public usersTable() {
         initComponents();
+         this.setLocationRelativeTo(null); // Make Jframe Center allighnment
         
       
     }
@@ -35,11 +36,10 @@ public class usersTable extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         navbar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        petadoption = new javax.swing.JLabel();
-        header1 = new javax.swing.JPanel();
-        CanUsers = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
         users = new javax.swing.JButton();
+        header1 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        Admin = new javax.swing.JButton();
 
         body.setBackground(new java.awt.Color(255, 255, 255));
         body.setLayout(null);
@@ -55,38 +55,10 @@ public class usersTable extends javax.swing.JFrame {
         navbar.setBackground(new java.awt.Color(0, 102, 102));
         navbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/petAdopt-removebg-preview.png"))); // NOI18N
-        navbar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 370));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user_group.png"))); // NOI18N
+        navbar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 250, 260));
 
-        petadoption.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        petadoption.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        petadoption.setText("PET ADOPTION");
-        navbar.add(petadoption, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 480, -1));
-
-        getContentPane().add(navbar);
-        navbar.setBounds(170, 52, 480, 370);
-
-        header1.setBackground(new java.awt.Color(204, 204, 204));
-        header1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        CanUsers.setBackground(new java.awt.Color(204, 204, 204));
-        CanUsers.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        CanUsers.setText("X");
-        CanUsers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CanUsersActionPerformed(evt);
-            }
-        });
-        header1.add(CanUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 12, -1, 30));
-
-        getContentPane().add(header1);
-        header1.setBounds(0, 0, 620, 50);
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        users.setBackground(new java.awt.Color(0, 204, 255));
+        users.setBackground(new java.awt.Color(0, 51, 255));
         users.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         users.setForeground(new java.awt.Color(255, 255, 255));
         users.setText("USERS");
@@ -95,7 +67,29 @@ public class usersTable extends javax.swing.JFrame {
                 usersActionPerformed(evt);
             }
         });
-        jPanel1.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 140, 70));
+        navbar.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 170, 60));
+
+        getContentPane().add(navbar);
+        navbar.setBounds(170, 50, 450, 370);
+
+        header1.setBackground(new java.awt.Color(204, 204, 204));
+        header1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(header1);
+        header1.setBounds(0, 0, 620, 50);
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Admin.setBackground(new java.awt.Color(51, 51, 255));
+        Admin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Admin.setForeground(new java.awt.Color(255, 255, 255));
+        Admin.setText("ADMIN");
+        Admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 150, 60));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 50, 170, 370);
@@ -104,19 +98,17 @@ public class usersTable extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersActionPerformed
+    private void AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminActionPerformed
             
-        
-          adminDashboard adb = new adminDashboard();
-                adb.setVisible(true);
-                this.dispose();
                 
         
-    }//GEN-LAST:event_usersActionPerformed
+    }//GEN-LAST:event_AdminActionPerformed
 
-    private void CanUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanUsersActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CanUsersActionPerformed
+    private void usersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersActionPerformed
+       adminDashboard adb = new adminDashboard();
+                adb.setVisible(true);
+                this.dispose();
+    }//GEN-LAST:event_usersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,14 +146,13 @@ public class usersTable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CanUsers;
+    private javax.swing.JButton Admin;
     private javax.swing.JPanel body;
     private javax.swing.JPanel header1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel navbar;
-    private javax.swing.JLabel petadoption;
     private javax.swing.JButton users;
     // End of variables declaration//GEN-END:variables
 }

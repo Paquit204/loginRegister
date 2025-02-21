@@ -1,5 +1,10 @@
 
+
+import admin.UsersDashboard;
 import admin.usersTable;
+import config.dbConnect;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /*
@@ -20,8 +25,27 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null); // Make Jframe Center allighnment
+    } 
+     static String status; 
+       static String atype; 
+     
+    public static boolean LoginAcc(String username, String password ){
+        dbConnect  connect = new dbConnect();
+        try{
+        String query = "SELECT * FROM accounts WHERE username ='"+username+ "' AND password = '"+password+"'";
+            ResultSet resultSet = connect.getData(query);
+            if(resultSet.next()){
+                status = resultSet.getString("status");
+                  atype = resultSet.getString("type");
+             return true;
+            }else{
+            return false;}
+             
+                
+        }catch(SQLException ex){
+            return false ;
     }
-
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -161,26 +185,40 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-
-        
-         if (uname.getText().isEmpty() || ps.getText().isEmpty()) {
-              
-           JOptionPane.showMessageDialog(null,"The password you've entered is incorrect!"); //validation for login...
-           
-         }   
      
-            usersTable adb = new usersTable();
-        adb.setVisible(true);
-        this.dispose();
-    
+        if (LoginAcc(uname.getText(),ps.getText() ) ){
+               if (!status.equals("Active")){
+               JOptionPane.showMessageDialog(null,"Only active User can login");
+      
+             }else{
+                  JOptionPane.showMessageDialog(null, "Login Succesfully!");
+                     if (atype.equals("Admin")){
+                           usersTable ut = new usersTable();
+                           ut.setVisible(true);
+                           this.dispose(); 
+                     }else if (atype.equals("User")){
+                         UsersDashboard adb = new UsersDashboard();
+                           adb.setVisible(true);
+                           this.dispose(); 
+                     }else {
+                           JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin");
+                     }
+                 
+        }   
+         }else if (uname.getText().isEmpty() || ps.getText().isEmpty()) {
+              
+           JOptionPane.showMessageDialog(null,"please fill out all fields!"); //validation for login...
+        
+         }else {
+                JOptionPane.showMessageDialog(null," Login Failed!");
+         }     
     }//GEN-LAST:event_loginActionPerformed
 
     private void jLabel2RegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2RegistrationMouseClicked
    
         Register rg = new Register();
         rg.show(); // to display ang register dre dapita nga code....
-        
-        dispose(); //ma close ang current jframe or log in... 
+         dispose(); //ma close ang current jframe or log in... 
     }//GEN-LAST:event_jLabel2RegistrationMouseClicked
 
     /**

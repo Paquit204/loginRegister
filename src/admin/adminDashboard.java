@@ -21,6 +21,7 @@ public class adminDashboard extends javax.swing.JFrame {
      */
     public adminDashboard() {
         initComponents();
+         this.setLocationRelativeTo(null); // Make Jframe Center allighnment
         displayData();
        
     } 
@@ -28,7 +29,7 @@ public class adminDashboard extends javax.swing.JFrame {
         try{
             dbConnect dbc = new dbConnect();
             ResultSet rs = dbc.getData("SELECT * FROM accounts");
-            people.setModel(DbUtils.resultSetToTableModel(rs));
+            users.setModel(DbUtils.resultSetToTableModel(rs));
              rs.close();
         }catch(SQLException ex){
             System.out.println("Errors: "+ex.getMessage());
@@ -51,18 +52,17 @@ public class adminDashboard extends javax.swing.JFrame {
         header = new javax.swing.JPanel();
         body = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        people = new javax.swing.JTable();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        users = new javax.swing.JTable();
         add = new javax.swing.JButton();
         edit = new javax.swing.JButton();
         delete1 = new javax.swing.JButton();
         navbar = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        petadoption = new javax.swing.JLabel();
+        utable2 = new javax.swing.JButton();
         header1 = new javax.swing.JPanel();
-        CanAdmin = new javax.swing.JButton();
+        Unavbar = new javax.swing.JPanel();
+        uback = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         header.setBackground(new java.awt.Color(204, 204, 204));
         header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,81 +77,92 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         body.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jScrollPane1.setViewportView(users);
 
-        people.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        people.setRequestFocusEnabled(false);
-        jScrollPane2.setViewportView(people);
+        body.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 32, 400, 330));
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 390, 310));
-
-        add.setBackground(new java.awt.Color(0, 204, 255));
+        add.setBackground(new java.awt.Color(0, 51, 255));
         add.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        add.setForeground(new java.awt.Color(255, 255, 255));
         add.setText("ADD");
+        add.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(add);
-        add.setBounds(30, 10, 100, 30);
+        body.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 100, 30));
 
-        edit.setBackground(new java.awt.Color(0, 204, 255));
+        edit.setBackground(new java.awt.Color(0, 51, 255));
         edit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        edit.setForeground(new java.awt.Color(255, 255, 255));
         edit.setText("EDIT");
+        edit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(edit);
-        edit.setBounds(150, 10, 100, 30);
+        body.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 100, 30));
 
-        delete1.setBackground(new java.awt.Color(0, 204, 255));
+        delete1.setBackground(new java.awt.Color(0, 51, 255));
         delete1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        delete1.setForeground(new java.awt.Color(255, 255, 255));
         delete1.setText("DELETE");
+        delete1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         delete1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delete1ActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(delete1);
-        delete1.setBounds(270, 10, 100, 30);
-
-        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 370));
-
-        body.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 370));
+        body.add(delete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 100, 30));
 
         getContentPane().add(body);
-        body.setBounds(210, 50, 440, 370);
+        body.setBounds(200, 50, 420, 370);
 
         navbar.setBackground(new java.awt.Color(0, 102, 102));
-        navbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        navbar.setLayout(null);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/petAdopt-removebg-preview.png"))); // NOI18N
-        navbar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 370));
-
-        petadoption.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        petadoption.setText("PET ADOPTION");
-        navbar.add(petadoption, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 190, -1));
-
-        getContentPane().add(navbar);
-        navbar.setBounds(0, 52, 210, 370);
-
-        header1.setBackground(new java.awt.Color(204, 204, 204));
-        header1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        CanAdmin.setBackground(new java.awt.Color(204, 204, 204));
-        CanAdmin.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        CanAdmin.setText("X");
-        CanAdmin.addActionListener(new java.awt.event.ActionListener() {
+        utable2.setBackground(new java.awt.Color(0, 51, 255));
+        utable2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        utable2.setForeground(new java.awt.Color(255, 255, 255));
+        utable2.setText("USERS");
+        utable2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CanAdminActionPerformed(evt);
+                utable2ActionPerformed(evt);
             }
         });
-        header1.add(CanAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 12, -1, 30));
+        navbar.add(utable2);
+        utable2.setBounds(20, 30, 150, 60);
+
+        getContentPane().add(navbar);
+        navbar.setBounds(0, 52, 200, 370);
+
+        header1.setBackground(new java.awt.Color(204, 204, 204));
+        header1.setLayout(null);
+
+        Unavbar.setBackground(new java.awt.Color(0, 51, 255));
+        Unavbar.setForeground(new java.awt.Color(255, 255, 255));
+        Unavbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        uback.setBackground(new java.awt.Color(0, 102, 255));
+        uback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        uback.setForeground(new java.awt.Color(255, 255, 255));
+        uback.setText("BACK");
+        uback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubackActionPerformed(evt);
+            }
+        });
+        Unavbar.add(uback, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 70, 50));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("USERS FORM");
+        Unavbar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
+
+        header1.add(Unavbar);
+        Unavbar.setBounds(0, 0, 620, 50);
 
         getContentPane().add(header1);
         header1.setBounds(0, 0, 620, 50);
@@ -160,22 +171,29 @@ public class adminDashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addActionPerformed
+    private void ubackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubackActionPerformed
+       usersTable ut = new usersTable();
+                 ut.setVisible(true);
+                  this.dispose();         
+       
+        
+    }//GEN-LAST:event_ubackActionPerformed
 
-    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
+    private void utable2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_utable2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_editActionPerformed
+    }//GEN-LAST:event_utable2ActionPerformed
 
     private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_delete1ActionPerformed
 
-    private void CanAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanAdminActionPerformed
-       
-        
-    }//GEN-LAST:event_CanAdminActionPerformed
+    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editActionPerformed
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,20 +231,19 @@ public class adminDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CanAdmin;
+    private javax.swing.JPanel Unavbar;
     private javax.swing.JButton add;
     private javax.swing.JPanel body;
     private javax.swing.JButton delete1;
     private javax.swing.JButton edit;
     private javax.swing.JPanel header;
     private javax.swing.JPanel header1;
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel navbar;
-    private javax.swing.JTable people;
-    private javax.swing.JLabel petadoption;
+    private javax.swing.JButton uback;
+    private javax.swing.JTable users;
+    private javax.swing.JButton utable2;
     // End of variables declaration//GEN-END:variables
 }

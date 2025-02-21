@@ -1,5 +1,7 @@
 
 import config.dbConnect;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /*
@@ -21,7 +23,34 @@ public class Register extends javax.swing.JFrame {
         initComponents();
           this.setLocationRelativeTo(null); // Make Jframe Center allighnment
     }
-
+   public static  String email,usname;
+      public boolean duplicateCheck(){
+          dbConnect dbc =  new dbConnect();
+          
+          try{ String query = "SELECT * FROM accounts WHERE username ='"+uname.getText()+ "' OR  email = '"+em.getText()+"'";
+                ResultSet resultSet = dbc.getData(query);
+              
+                 if (resultSet.next()){
+                     email=resultSet.getString("email");
+                        if(email.equals(em.getText())){
+                            JOptionPane.showMessageDialog(null,"Email is already used!");
+                            em.setText("");
+                        }
+                        usname=resultSet.getString("username");
+                          if(usname.equals(uname.getText())){
+                            JOptionPane.showMessageDialog(null,"Username is already used!");}
+                             uname.setText("");
+                     return true;
+                 }else{
+                     return false;
+                 }
+                
+                }catch(SQLException ex){
+                  System.out.println("" + ex);
+                     return false;
+                 }
+      
+      }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,12 +76,10 @@ public class Register extends javax.swing.JFrame {
         fname = new javax.swing.JTextField();
         lastname = new javax.swing.JLabel();
         lname = new javax.swing.JTextField();
-        em = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
+        jpanelEmail = new javax.swing.JLabel();
+        em = new javax.swing.JTextField();
         usertype = new javax.swing.JLabel();
         ULform1 = new javax.swing.JLabel();
-        cpass = new javax.swing.JPasswordField();
-        cp = new javax.swing.JLabel();
         ut = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,31 +108,42 @@ public class Register extends javax.swing.JFrame {
         username.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username.setText("Password:");
-        body.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 90, 20));
+        body.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 90, 20));
 
         uname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 unameActionPerformed(evt);
             }
         });
-        body.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 180, -1));
+        body.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 180, -1));
 
         username1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         username1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username1.setText("Username:");
-        body.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
-        body.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 180, -1));
+        body.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        body.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 180, -1));
 
         cancel.setBackground(new java.awt.Color(255, 51, 51));
         cancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cancel.setForeground(new java.awt.Color(255, 255, 255));
         cancel.setText("Cancel");
+        cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelMouseClicked(evt);
+            }
+        });
         cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelActionPerformed(evt);
             }
         });
-        body.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 100, -1));
+        body.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 100, -1));
 
         login1.setBackground(new java.awt.Color(0, 204, 255));
         login1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -116,62 +154,56 @@ public class Register extends javax.swing.JFrame {
                 login1ActionPerformed(evt);
             }
         });
-        body.add(login1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 100, -1));
+        body.add(login1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 100, -1));
 
         firstname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         firstname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         firstname.setText("First Name:");
-        body.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        body.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fnameActionPerformed(evt);
             }
         });
-        body.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 180, -1));
+        body.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 180, -1));
 
         lastname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lastname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lastname.setText("Last Name:");
-        body.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        body.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         lname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lnameActionPerformed(evt);
             }
         });
-        body.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 180, -1));
+        body.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 180, -1));
 
-        em.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        em.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        em.setText("Email:");
-        body.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        jpanelEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jpanelEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jpanelEmail.setText("Email:");
+        body.add(jpanelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
-        email.addActionListener(new java.awt.event.ActionListener() {
+        em.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
+                emActionPerformed(evt);
             }
         });
-        body.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 180, -1));
+        body.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 180, -1));
 
         usertype.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         usertype.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         usertype.setText("UserType:");
-        body.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 20));
+        body.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 20));
 
         ULform1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         ULform1.setText("REGISTRATION FORM");
         body.add(ULform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
-        body.add(cpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 180, -1));
-
-        cp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        cp.setText("Confirm pass:");
-        body.add(cp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 100, 20));
 
         ut.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select UserType", "User", "Admin" }));
-        body.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 180, -1));
+        body.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 180, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,34 +242,45 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_unameActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        
-        Login lg = new Login();
-        lg.show(); // to display ang register dre dapita nga code....
-        
-        dispose(); //ma close ang current jframe or log in... 
+
     }//GEN-LAST:event_cancelActionPerformed
 
     private void login1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login1ActionPerformed
-       if (fname.getText().isEmpty() || lname.getText().isEmpty() 
-               || email.getText().isEmpty() 
+      
+            
+         dbConnect dbc=new dbConnect(); 
+         
+           if  
+               (fname.getText().isEmpty() || lname.getText().isEmpty() 
+               || em.getText().isEmpty() 
                 || ut.getSelectedIndex()==0
                || uname.getText().isEmpty() 
-               || password.getText().isEmpty() 
-               || cpass.getText().isEmpty()){
-           JOptionPane.showMessageDialog(null,"All fields are required!"); //validation for register...
-           
-       } else{
-             dbConnect dbc=new dbConnect();
-            if (dbc. insertData("INSERT INTO accounts(firstname, lastname, email, type, username, password, status) "
+               || password.getText().isEmpty() ){
+                JOptionPane.showMessageDialog(null,"All fields are required!"); //validation for register...  
+                
+               }else if (password.getText().length()< 8){
+                          JOptionPane.showMessageDialog(null," Password should contain atleast 8 character above!"); 
+                          password.setText("");
+                        }
+               else if(duplicateCheck()){
+                         System.out.println("Duplicate Exist!");}
+                   else if (dbc. insertData("INSERT INTO accounts(firstname, lastname, email, type, username, password, status) "
                     + "VALUES('"+fname.getText()+"',"
                     + "'"+lname.getText()+"',"
-                    + "'"+email.getText()+"',"
+                    + "'"+em.getText()+"',"
                     + "'"+ut.getSelectedItem()+"',"
                     + "'"+uname.getText()+"',"
-                    + "'"+ password.getText()+"','Pending')") ==1){
+                    + "'"+ password.getText()+"','Pending')") ==1)
+           {
                 JOptionPane.showMessageDialog(null, "Succesfully Register");
-            }
-       }
+                  Login lrg = new Login();
+                  lrg.show();
+                  this.dispose();
+          
+            } else {
+                    JOptionPane.showMessageDialog(null,"Connection error!!");
+                   }
+             
     }//GEN-LAST:event_login1ActionPerformed
 
     private void fnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnameActionPerformed
@@ -248,10 +291,21 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lnameActionPerformed
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void emActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_emActionPerformed
 
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+  
+   
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
+         Login lrg = new Login();
+                  lrg.show();
+                  this.dispose();
+    }//GEN-LAST:event_cancelMouseClicked
+    
     /**
      * @param args the command line arguments
      */
@@ -291,15 +345,13 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel ULform1;
     private javax.swing.JPanel body;
     private javax.swing.JButton cancel;
-    private javax.swing.JLabel cp;
-    private javax.swing.JPasswordField cpass;
-    private javax.swing.JLabel em;
-    private javax.swing.JTextField email;
+    private javax.swing.JTextField em;
     private javax.swing.JLabel firstname;
     private javax.swing.JTextField fname;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jpanelEmail;
     private javax.swing.JLabel lastname;
     private javax.swing.JTextField lname;
     private javax.swing.JButton login1;
