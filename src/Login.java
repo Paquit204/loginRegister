@@ -1,7 +1,7 @@
 
 
 import admin.UsersDashboard;
-import admin.usersTable;
+import admin.AdminDashboard;
 import config.dbConnect;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,7 +62,6 @@ public class Login extends javax.swing.JFrame {
         uname = new javax.swing.JTextField();
         username1 = new javax.swing.JLabel();
         ps = new javax.swing.JPasswordField();
-        cancel = new javax.swing.JButton();
         login = new javax.swing.JButton();
         ULform1 = new javax.swing.JLabel();
         jLabel2Registration = new javax.swing.JLabel();
@@ -111,17 +110,6 @@ public class Login extends javax.swing.JFrame {
         body.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
         body.add(ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 180, -1));
 
-        cancel.setBackground(new java.awt.Color(255, 51, 51));
-        cancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cancel.setForeground(new java.awt.Color(255, 255, 255));
-        cancel.setText("Cancel");
-        cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelActionPerformed(evt);
-            }
-        });
-        body.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 80, -1));
-
         login.setBackground(new java.awt.Color(0, 204, 255));
         login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,7 +119,7 @@ public class Login extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
-        body.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 80, -1));
+        body.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 90, -1));
 
         ULform1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         ULform1.setText("USER LOGIN FORM");
@@ -148,7 +136,7 @@ public class Login extends javax.swing.JFrame {
                 jLabel2RegistrationMouseClicked(evt);
             }
         });
-        body.add(jLabel2Registration, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 240, -1));
+        body.add(jLabel2Registration, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 240, -1));
 
         getContentPane().add(body);
         body.setBounds(320, 40, 330, 380);
@@ -180,10 +168,6 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_unameActionPerformed
 
-    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cancelActionPerformed
-
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
      
         if (LoginAcc(uname.getText(),ps.getText() ) ){
@@ -193,7 +177,7 @@ public class Login extends javax.swing.JFrame {
              }else{
                   JOptionPane.showMessageDialog(null, "Login Succesfully!");
                      if (atype.equals("Admin")){
-                           usersTable ut = new usersTable();
+                           AdminDashboard ut = new AdminDashboard();
                            ut.setVisible(true);
                            this.dispose(); 
                      }else if (atype.equals("User")){
@@ -209,9 +193,9 @@ public class Login extends javax.swing.JFrame {
               
            JOptionPane.showMessageDialog(null,"please fill out all fields!"); //validation for login...
         
-         }else {
+         }  else {
                 JOptionPane.showMessageDialog(null," Login Failed!");
-         }     
+         }   
     }//GEN-LAST:event_loginActionPerformed
 
     private void jLabel2RegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2RegistrationMouseClicked
@@ -259,7 +243,6 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ULform1;
     private javax.swing.JPanel body;
-    private javax.swing.JButton cancel;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2Registration;

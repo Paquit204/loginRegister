@@ -242,7 +242,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_unameActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-
+  
     }//GEN-LAST:event_cancelActionPerformed
 
     private void login1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login1ActionPerformed
@@ -273,8 +273,8 @@ public class Register extends javax.swing.JFrame {
                     + "'"+ password.getText()+"','Pending')") ==1)
            {
                 JOptionPane.showMessageDialog(null, "Succesfully Register");
-                  Login lrg = new Login();
-                  lrg.show();
+                  Login lg = new Login();
+                  lg.show();
                   this.dispose();
           
             } else {
@@ -301,8 +301,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordActionPerformed
 
     private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
-         Login lrg = new Login();
-                  lrg.show();
+         Login lg = new Login();
+                  lg.show();
                   this.dispose();
     }//GEN-LAST:event_cancelMouseClicked
     
