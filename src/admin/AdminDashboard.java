@@ -44,7 +44,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         Adoption = new javax.swing.JButton();
         header1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        Alogout = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -109,21 +108,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         header1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 50));
 
-        Alogout.setBackground(new java.awt.Color(204, 204, 204));
-        Alogout.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        Alogout.setText("LOGOUT");
-        Alogout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AlogoutMouseClicked(evt);
-            }
-        });
-        Alogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlogoutActionPerformed(evt);
-            }
-        });
-        header1.add(Alogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 6, 100, 40));
-
         getContentPane().add(header1);
         header1.setBounds(0, 0, 620, 50);
 
@@ -158,14 +142,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     private void AdoptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdoptionActionPerformed
       
     }//GEN-LAST:event_AdoptionActionPerformed
-
-    private void AlogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlogoutMouseClicked
-
-    }//GEN-LAST:event_AlogoutMouseClicked
-
-    private void AlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlogoutActionPerformed
-
-    }//GEN-LAST:event_AlogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,7 +181,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Adoption;
-    private javax.swing.JButton Alogout;
     private javax.swing.JPanel body;
     private javax.swing.JPanel header1;
     private javax.swing.JLabel jLabel1;

@@ -39,7 +39,6 @@ public class UsersDashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         header1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        Ulogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,21 +111,6 @@ public class UsersDashboard extends javax.swing.JFrame {
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         header1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 50));
 
-        Ulogout.setBackground(new java.awt.Color(204, 204, 204));
-        Ulogout.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        Ulogout.setText("LOGOUT");
-        Ulogout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                UlogoutMouseClicked(evt);
-            }
-        });
-        Ulogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UlogoutActionPerformed(evt);
-            }
-        });
-        header1.add(Ulogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 6, 100, 40));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,15 +151,6 @@ public class UsersDashboard extends javax.swing.JFrame {
     private void users1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_users1ActionPerformed
       
     }//GEN-LAST:event_users1ActionPerformed
-
-    private void UlogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UlogoutMouseClicked
- 
-        
-    }//GEN-LAST:event_UlogoutMouseClicked
-
-    private void UlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UlogoutActionPerformed
-
-    }//GEN-LAST:event_UlogoutActionPerformed
 
     private void users1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_users1MouseClicked
        UsersForm adb = new UsersForm();
@@ -220,7 +195,6 @@ public class UsersDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Adoption;
-    private javax.swing.JButton Ulogout;
     private javax.swing.JPanel header1;
     private javax.swing.JLabel iconUser;
     private javax.swing.JLabel jLabel1;

@@ -45,7 +45,7 @@ public class Login extends javax.swing.JFrame {
         }catch(SQLException ex){
             return false ;
     }
-    }
+    }    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -175,12 +175,14 @@ public class Login extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(null,"Only active User can login");
       
              }else{
-                  JOptionPane.showMessageDialog(null, "Login Succesfully!");
+                 
                      if (atype.equals("Admin")){
+                          JOptionPane.showMessageDialog(null, "Login Succesfully!");
                            AdminDashboard ut = new AdminDashboard();
                            ut.setVisible(true);
                            this.dispose(); 
                      }else if (atype.equals("User")){
+                          JOptionPane.showMessageDialog(null, "Login Succesfully!");
                          UsersDashboard adb = new UsersDashboard();
                            adb.setVisible(true);
                            this.dispose(); 
