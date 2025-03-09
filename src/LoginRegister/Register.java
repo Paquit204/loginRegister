@@ -29,15 +29,9 @@ public class Register extends javax.swing.JFrame {
     }
     
    public static  String email,usname;
+   
       public boolean duplicateCheck(){
-          dbConnect dbc =  new dbConnect();
-           
-          
-            
-           
-                
-             
-          try{ String query = "SELECT * FROM accounts WHERE username ='"+uname.getText()+ "' OR  email = '"+em.getText()+"'";
+          dbConnect dbc =  new dbConnect();try{ String query = "SELECT * FROM accounts WHERE username ='"+uname.getText()+ "' OR  email = '"+em.getText()+"'";
                 ResultSet resultSet = dbc.getData(query);
               
                  if (resultSet.next()){

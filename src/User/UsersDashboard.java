@@ -43,8 +43,8 @@ public class UsersDashboard extends javax.swing.JFrame {
         Adoption1 = new javax.swing.JLabel();
         location = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        Acc_ulname = new javax.swing.JLabel();
-        Acc_uname = new javax.swing.JLabel();
+        Acc_lname = new javax.swing.JLabel();
+        Acc_fname = new javax.swing.JLabel();
         header6 = new javax.swing.JPanel();
         header7 = new javax.swing.JPanel();
         header10 = new javax.swing.JPanel();
@@ -151,19 +151,19 @@ public class UsersDashboard extends javax.swing.JFrame {
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         header2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 110));
 
-        Acc_ulname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Acc_ulname.setForeground(new java.awt.Color(255, 255, 255));
-        Acc_ulname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Acc_ulname.setText("LastName:");
-        Acc_ulname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(Acc_ulname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 140, 40));
+        Acc_lname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Acc_lname.setForeground(new java.awt.Color(255, 255, 255));
+        Acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Acc_lname.setText("LastName:");
+        Acc_lname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header2.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 140, 40));
 
-        Acc_uname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Acc_uname.setForeground(new java.awt.Color(255, 255, 255));
-        Acc_uname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Acc_uname.setText("FirstName:");
-        Acc_uname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(Acc_uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 140, 40));
+        Acc_fname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Acc_fname.setForeground(new java.awt.Color(255, 255, 255));
+        Acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Acc_fname.setText("FirstName:");
+        Acc_fname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header2.add(Acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 140, 40));
 
         getContentPane().add(header2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 140, 420));
 
@@ -231,8 +231,8 @@ public class UsersDashboard extends javax.swing.JFrame {
            this.dispose();
         }else{
             
-       Acc_uname.setText(""+ses.getFirstame());
-        Acc_ulname.setText(""+ses.getLastnmae());
+       Acc_fname.setText(""+ses.getFirstame());
+        Acc_lname.setText(""+ses.getLastnmae());
     } 
         
     }//GEN-LAST:event_formWindowActivated
@@ -273,8 +273,8 @@ public class UsersDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Acc_ulname;
-    private javax.swing.JLabel Acc_uname;
+    private javax.swing.JLabel Acc_fname;
+    private javax.swing.JLabel Acc_lname;
     private javax.swing.JLabel Adoption1;
     private javax.swing.JLabel Ausers;
     private javax.swing.JLabel Pets1;

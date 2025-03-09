@@ -7,8 +7,11 @@ package admin;
 
 import config.Session;
 import config.dbConnect;
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
 
@@ -31,12 +34,14 @@ public class UsersForm extends javax.swing.JFrame {
         
     } 
                   
-    
+       Color nc=new Color( 0,0,153);
+       Color hc=new Color(77,85,204);
+       
         void displayData(){
         try{
             dbConnect dbc = new dbConnect();
             ResultSet rst = dbc.getData("SELECT * FROM accounts");
-            users.setModel(DbUtils.resultSetToTableModel(rst));
+            usersTable.setModel(DbUtils.resultSetToTableModel(rst));
              rst.close();
         }catch(SQLException ex){
             System.out.println("Errors: "+ex.getMessage());
@@ -66,14 +71,15 @@ public class UsersForm extends javax.swing.JFrame {
         body = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        users = new javax.swing.JTable();
+        usersTable = new javax.swing.JTable();
         header6 = new javax.swing.JPanel();
         U_id = new javax.swing.JLabel();
-        edit = new javax.swing.JLabel();
-        delete = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        add1 = new javax.swing.JLabel();
+        p_add = new javax.swing.JPanel();
         U_id1 = new javax.swing.JLabel();
+        U_id2 = new javax.swing.JLabel();
+        edit = new javax.swing.JPanel();
+        U_id3 = new javax.swing.JLabel();
         header1 = new javax.swing.JPanel();
 
         header.setBackground(new java.awt.Color(204, 204, 204));
@@ -117,7 +123,7 @@ public class UsersForm extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         body.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        users.setModel(new javax.swing.table.DefaultTableModel(
+        usersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -125,16 +131,17 @@ public class UsersForm extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(users);
+        jScrollPane2.setViewportView(usersTable);
 
         body.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 590, 400));
 
-        header6.setBackground(new java.awt.Color(0, 48, 98));
+        header6.setBackground(new java.awt.Color(77, 85, 204));
         header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         U_id.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         U_id.setForeground(new java.awt.Color(255, 255, 255));
         U_id.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        U_id.setText("ID");
         U_id.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         U_id.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -143,58 +150,78 @@ public class UsersForm extends javax.swing.JFrame {
         });
         header6.add(U_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 130, 40));
 
-        edit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        edit.setForeground(new java.awt.Color(255, 255, 255));
-        edit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        edit.setText("Edit");
-        edit.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        edit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editMouseClicked(evt);
-            }
-        });
-        header6.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 130, 40));
-
-        delete.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        delete.setForeground(new java.awt.Color(255, 255, 255));
-        delete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        delete.setText("Delete");
-        delete.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        delete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteMouseClicked(evt);
-            }
-        });
-        header6.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 130, 40));
-
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user-removebg-preview (1).png"))); // NOI18N
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         header6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 100));
 
-        add1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        add1.setForeground(new java.awt.Color(255, 255, 255));
-        add1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        add1.setText("Add");
-        add1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        add1.addMouseListener(new java.awt.event.MouseAdapter() {
+        p_add.setBackground(new java.awt.Color(77, 85, 204));
+        p_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                add1MouseClicked(evt);
+                p_addMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                p_addMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                p_addMouseExited(evt);
             }
         });
-        header6.add(add1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 130, 40));
+        p_add.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         U_id1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         U_id1.setForeground(new java.awt.Color(255, 255, 255));
         U_id1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        U_id1.setText("Current User ID");
+        U_id1.setText("ADD");
         U_id1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         U_id1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 U_id1MouseClicked(evt);
             }
         });
-        header6.add(U_id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 40));
+        p_add.add(U_id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 80, 10));
+
+        header6.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 130, 30));
+
+        U_id2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        U_id2.setForeground(new java.awt.Color(255, 255, 255));
+        U_id2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        U_id2.setText("Current User ID");
+        U_id2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        U_id2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                U_id2MouseClicked(evt);
+            }
+        });
+        header6.add(U_id2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 40));
+
+        edit.setBackground(new java.awt.Color(77, 85, 204));
+        edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editMouseExited(evt);
+            }
+        });
+        edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        U_id3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        U_id3.setForeground(new java.awt.Color(255, 255, 255));
+        U_id3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        U_id3.setText("EDIT");
+        U_id3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        U_id3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                U_id3MouseClicked(evt);
+            }
+        });
+        edit.add(U_id3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 80, 10));
+
+        header6.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 130, 30));
 
         body.add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 420));
 
@@ -220,21 +247,9 @@ public class UsersForm extends javax.swing.JFrame {
              
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteMouseClicked
-
     private void U_idMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_U_idMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_U_idMouseClicked
-
-    private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editMouseClicked
-
-    private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_add1MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         
@@ -244,8 +259,76 @@ public class UsersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void U_id1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_U_id1MouseClicked
-        // TODO add your handling code here:
+        AddUsersForm af=new AddUsersForm();
+                af.setVisible(true);
+                this.dispose();
     }//GEN-LAST:event_U_id1MouseClicked
+
+    private void p_addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseEntered
+        
+        
+       
+        
+        p_add.setBackground(nc);
+    }//GEN-LAST:event_p_addMouseEntered
+
+    private void p_addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseExited
+        p_add.setBackground(hc);
+    }//GEN-LAST:event_p_addMouseExited
+
+    private void U_id2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_U_id2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_U_id2MouseClicked
+
+    private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
+       
+    }//GEN-LAST:event_p_addMouseClicked
+
+    private void U_id3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_U_id3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_U_id3MouseClicked
+
+    private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
+        
+          int rowIndex  = usersTable.getSelectedRow();
+           if(rowIndex < 0){
+               JOptionPane.showMessageDialog(null,"Please Select Item!");
+           }else{
+               
+               try{
+               dbConnect dbc = new dbConnect();
+                 TableModel tbl= usersTable.getModel();
+              ResultSet rs=dbc.getData("SELECT * FROM accounts WHERE a_id ='"+tbl.getValueAt(rowIndex, 0)+"'"); 
+            if(rs.next()){  
+                 AddUsersForm adf = new AddUsersForm();
+              adf.u_id.setText(""+rs.getInt("a_id"));
+              adf.fname.setText(""+rs.getString("firstname"));
+              adf.lname.setText(""+rs.getString("lastname"));
+              adf.em.setText(""+rs.getString("email"));
+              adf.utype.setSelectedItem(""+rs.getString("status"));
+              adf.utype.setSelectedItem(""+rs.getString("type"));
+              adf.password.setText(""+rs.getString("password"));
+              adf.uname.setText(""+rs.getString("username"));
+              adf.u_add.setEnabled(false);
+               adf.u_update.setEnabled(true);
+              adf.setVisible(true);
+              this.dispose();
+            }
+               }catch(SQLException ex){
+                   System.out.println(""+ex);
+               }
+           }
+       
+        
+    }//GEN-LAST:event_editMouseClicked
+
+    private void editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseEntered
+         edit.setBackground(nc);
+    }//GEN-LAST:event_editMouseEntered
+
+    private void editMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseExited
+         edit.setBackground(hc);
+    }//GEN-LAST:event_editMouseExited
 
     /**
      * @param args the command line arguments
@@ -286,11 +369,11 @@ public class UsersForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel U_id;
     private javax.swing.JLabel U_id1;
+    private javax.swing.JLabel U_id2;
+    private javax.swing.JLabel U_id3;
     private javax.swing.JPanel Uback;
-    private javax.swing.JLabel add1;
     private javax.swing.JPanel body;
-    private javax.swing.JLabel delete;
-    private javax.swing.JLabel edit;
+    private javax.swing.JPanel edit;
     private javax.swing.JPanel header;
     private javax.swing.JPanel header1;
     private javax.swing.JPanel header6;
@@ -299,6 +382,7 @@ public class UsersForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable users;
+    private javax.swing.JPanel p_add;
+    private javax.swing.JTable usersTable;
     // End of variables declaration//GEN-END:variables
 }
