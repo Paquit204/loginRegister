@@ -38,7 +38,6 @@ public class UsersDashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         header2 = new javax.swing.JPanel();
         account = new javax.swing.JLabel();
-        Ausers = new javax.swing.JLabel();
         Pets1 = new javax.swing.JLabel();
         Adoption1 = new javax.swing.JLabel();
         location = new javax.swing.JLabel();
@@ -50,6 +49,8 @@ public class UsersDashboard extends javax.swing.JFrame {
         header10 = new javax.swing.JPanel();
         header8 = new javax.swing.JPanel();
         header9 = new javax.swing.JPanel();
+        Ausers = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -77,9 +78,9 @@ public class UsersDashboard extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("USER DASHBOARD");
+        jLabel4.setText("ACCOUNT DETAILS");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 60));
+        header1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 180, 60));
 
         getContentPane().add(header1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 60));
 
@@ -97,18 +98,6 @@ public class UsersDashboard extends javax.swing.JFrame {
             }
         });
         header2.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 100, 40));
-
-        Ausers.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        Ausers.setForeground(new java.awt.Color(255, 255, 255));
-        Ausers.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Ausers.setText("Users");
-        Ausers.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        Ausers.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AusersMouseClicked(evt);
-            }
-        });
-        header2.add(Ausers, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 100, 40));
 
         Pets1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         Pets1.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,11 +168,36 @@ public class UsersDashboard extends javax.swing.JFrame {
 
         header8.setBackground(new java.awt.Color(102, 102, 255));
         header8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        header7.add(header8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 120, 90));
+        header7.add(header8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 370, 100));
 
         header9.setBackground(new java.awt.Color(102, 102, 255));
-        header9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        header7.add(header9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 120, 90));
+        header9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                header9MouseClicked(evt);
+            }
+        });
+        header9.setLayout(null);
+
+        Ausers.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Ausers.setForeground(new java.awt.Color(255, 255, 255));
+        Ausers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Ausers.setText("Account");
+        Ausers.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Ausers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AusersMouseClicked(evt);
+            }
+        });
+        header9.add(Ausers);
+        Ausers.setBounds(10, 70, 100, 30);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user-removebg-preview (1).png"))); // NOI18N
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header9.add(jLabel3);
+        jLabel3.setBounds(10, 0, 100, 80);
+
+        header7.add(header9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 120, 100));
 
         header6.add(header7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 590, 400));
 
@@ -237,6 +251,14 @@ public class UsersDashboard extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowActivated
 
+    private void header9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_header9MouseClicked
+         
+         accountDetails acd = new accountDetails();
+           acd.setVisible(true);
+           this.dispose();
+        
+    }//GEN-LAST:event_header9MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -287,6 +309,7 @@ public class UsersDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel header8;
     private javax.swing.JPanel header9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel location;

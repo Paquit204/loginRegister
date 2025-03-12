@@ -6,6 +6,8 @@ import User.UsersDashboard;
 import admin.AdminDashboard;
 import config.Session;
 import config.dbConnect;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -27,20 +29,28 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        this.setLocationRelativeTo(null); // Make Jframe Center allighnment
+        this.setLocationRelativeTo(null); 
     } 
      static String status; 
        static String atype; 
      
-    public static boolean LoginAcc(String username, String password ){
+    public static boolean LoginAcc(String username, String pass){
         dbConnect  connect = new dbConnect();
         
         try{
-        String query = "SELECT * FROM accounts WHERE username ='"+username+ "' AND password = '"+password+"'";
+        String query = "SELECT * FROM accounts WHERE username ='"+username+ "' ";
             ResultSet resultSet = connect.getData(query);
             if(resultSet.next()){
-                status = resultSet.getString("status");
-                atype = resultSet.getString("type");
+                
+             
+                String hashedPass= resultSet.getString("password");
+                String rehashedPass = passwordHasher.hashPassword(pass);
+                
+                  
+                     
+                  if ( hashedPass.equals(rehashedPass )){
+                       status = resultSet.getString("status");
+                        atype = resultSet.getString("type");
                    
                     Session ses = Session.getInstance();
                     ses.setA_id(resultSet.getInt("a_id") );
@@ -49,17 +59,21 @@ public class Login extends javax.swing.JFrame {
                     ses.setEmail(resultSet.getString("email") );
                     ses.setType(resultSet.getString("type") );
                     ses.setUsername(resultSet.getString("username") );
-                    ses.setStatus(resultSet.getString("username") );
+                    ses.setStatus(resultSet.getString("status") );
               
-                 return true;}
-                 else{
-                 return false;}
-             
-                
-        }catch(SQLException ex){
+                 return true;
+                  }else{
+                  return false;
+                  }
+                  
+                } else{
+                 return false;
+            }
+            
+        }catch(SQLException | NoSuchAlgorithmException ex){
             return false ;
-    }
-    }    
+        }
+    }   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,7 +93,6 @@ public class Login extends javax.swing.JFrame {
         Unavbar = new javax.swing.JPanel();
         uback = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         login = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -103,7 +116,7 @@ public class Login extends javax.swing.JFrame {
         ULform1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ULform1.setText("USER LOGIN FORM");
         ULform1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(ULform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 370, 100));
+        getContentPane().add(ULform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 380, 100));
 
         username1.setBackground(new java.awt.Color(204, 204, 204));
         username1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -163,12 +176,6 @@ public class Login extends javax.swing.JFrame {
         Unavbar.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
 
         getContentPane().add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 380, 400));
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 760, 20));
 
         login.setBackground(new java.awt.Color(0, 204, 255));
         login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -230,7 +237,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"please fill out all fields!"); //validation for login...
 
         }  else {
-            JOptionPane.showMessageDialog(null," Login Failed!");
+            JOptionPane.showMessageDialog(null,"Invalid Account!");
         }
     }//GEN-LAST:event_loginActionPerformed
 
@@ -279,7 +286,6 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ULform1;
     private javax.swing.JPanel Unavbar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel2Registration;
     private javax.swing.JLabel jLabel3;

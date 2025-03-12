@@ -2,6 +2,8 @@ package LoginRegister;
 
 
 import config.dbConnect;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
@@ -73,11 +75,11 @@ public class Register extends javax.swing.JFrame {
         username1 = new javax.swing.JLabel();
         uname = new javax.swing.JTextField();
         username = new javax.swing.JLabel();
-        password = new javax.swing.JPasswordField();
         usertype = new javax.swing.JLabel();
         firstname = new javax.swing.JLabel();
         ut = new javax.swing.JComboBox<>();
         fname = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
         ULform1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -164,14 +166,6 @@ public class Register extends javax.swing.JFrame {
         username.setText("Password:");
         Unavbar.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 90, 20));
 
-        password.setBackground(new java.awt.Color(204, 204, 204));
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
-        Unavbar.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 280, -1));
-
         usertype.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         usertype.setForeground(new java.awt.Color(255, 255, 255));
         usertype.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -196,6 +190,13 @@ public class Register extends javax.swing.JFrame {
             }
         });
         Unavbar.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 211, -1));
+
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        Unavbar.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 280, -1));
 
         getContentPane().add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 540, 380));
 
@@ -226,7 +227,7 @@ public class Register extends javax.swing.JFrame {
 
     private void login1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login1ActionPerformed
 
-        dbConnect dbc=new dbConnect();
+        
 
         if
 
@@ -258,15 +259,21 @@ public class Register extends javax.swing.JFrame {
 
         else if(duplicateCheck()){
             System.out.println("Duplicate Exist!");
-
+      
         }
-        else if (dbc. insertData("INSERT INTO accounts(firstname, lastname, email, type, username, password, status) "
+        else {
+              dbConnect dbc=new dbConnect();
+            
+            try {
+            String pass=passwordHasher.hashPassword(password.getText());
+        
+          if (dbc. insertData("INSERT INTO accounts(firstname, lastname, email, type, username, password, status) "
             + "VALUES('"+fname.getText()+"',"
             + "'"+lname.getText()+"',"
             + "'"+em.getText()+"',"
             + "'"+ut.getSelectedItem()+"',"
             + "'"+uname.getText()+"',"
-            + "'"+ password.getText()+"','Pending')") ==1)
+            + "'"+ pass+"','Pending')") ==1)
 
     {
         JOptionPane.showMessageDialog(null, "Succesfully Register");
@@ -277,8 +284,11 @@ public class Register extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null,"Connection error!!");
         }
+    }catch(NoSuchAlgorithmException ex){
+                System.out.println(""+ex);
+                }
     }//GEN-LAST:event_login1ActionPerformed
-
+    }
     private void lnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lnameActionPerformed
@@ -291,13 +301,13 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_unameActionPerformed
 
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-
-    }//GEN-LAST:event_passwordActionPerformed
-
     private void fnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fnameActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
     
     /**
      * @param args the command line arguments
