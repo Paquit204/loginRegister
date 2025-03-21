@@ -185,7 +185,7 @@ public class UsersDashboard extends javax.swing.JFrame {
         header6.add(header10);
         header10.setBounds(0, 410, 600, 10);
 
-        getContentPane().add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 600, 420));
+        getContentPane().add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 570, 400));
 
         pack();
         setLocationRelativeTo(null);

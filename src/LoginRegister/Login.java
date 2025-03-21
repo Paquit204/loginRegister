@@ -2,6 +2,7 @@ package LoginRegister;
 
 
 
+import ForgotPassword.forgotPassword;
 import User.UsersDashboard;
 import admin.AdminDashboard;
 import config.Session;
@@ -183,6 +184,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel2Registration);
         jLabel2Registration.setBounds(70, 370, 180, 20);
 
+        showpass.setBackground(new java.awt.Color(0,0,0,60));
         showpass.setText("Show Password");
         showpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,10 +233,10 @@ public class Login extends javax.swing.JFrame {
                 usersMouseClicked(evt);
             }
         });
-        fpass.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, 20));
+        fpass.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
 
         getContentPane().add(fpass);
-        fpass.setBounds(90, 250, 110, 60);
+        fpass.setBounds(90, 270, 100, 30);
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -324,14 +326,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_psActionPerformed
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-
+    forgotPassword fp=new forgotPassword ();
+        fp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_usersMouseClicked
 
     private void fpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fpassMouseClicked
 
-        forgotPassword fp=new forgotPassword ();
-        fp.setVisible(true);
-        this.dispose();
+     
 
     }//GEN-LAST:event_fpassMouseClicked
 

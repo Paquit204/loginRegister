@@ -271,47 +271,37 @@ public class changePass extends javax.swing.JFrame {
     private void save2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_save2MouseClicked
         
         
-      try {
-    dbConnect dbc = new dbConnect();
+     try {
+    dbConnect con = new dbConnect();
     Session ses = Session.getInstance();
 
-    String query = "SELECT password from accounts WHERE a_id = '" + ses.getA_id() + "'"; // Only select the password
-    ResultSet rs = dbc.getData(query);
+    String query = "SELECT * from accounts WHERE a_id = '" + ses.getA_id() + "'";
+    ResultSet rs = con.getData(query);
 
     if (rs.next()) {
         String olddbpass = rs.getString("password");
         String oldhash = passwordHasher.hashPassword(oldpass.getText());
 
-        if (oldpass != null && newpass != null && oldpass.getText() != null && newpass.getText() != null) {
-            if (!olddbpass.equals(oldhash)) { // Corrected logic, check if they don't match
-                JOptionPane.showMessageDialog(this, "You Password does not match!");
-            } else {
-                String npass = passwordHasher.hashPassword(newpass.getText());
-                String updateQuery = "UPDATE accounts SET password = '" + npass + "' WHERE a_id = '" + ses.getA_id() + "'";
-                dbc.updateData(updateQuery); // No Parameters
-                JOptionPane.showMessageDialog(null, "Updates Successfully!");
-                Login lg = new Login();
-                lg.setVisible(true);
-                // Optionally close current window here.
+        if (olddbpass.equals(oldhash)) {
+            // Validation: Check if newpass and confirmpass match
+            if (!newpass.getText().equals(confirmpass.getText())) {
+                JOptionPane.showMessageDialog(null, "Passwords do not match!");
+                return; // Exit the function if passwords don't match
             }
+
+            String npass = passwordHasher.hashPassword(newpass.getText());
+            con.updateData("UPDATE accounts SET password = '" + npass + "'");
+            JOptionPane.showMessageDialog(null, "wohoah Updates Succesfully!");
+            Login lg = new Login();
+            lg.setVisible(true);
+            this.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "Please fill in both old and new passwords.");
+            JOptionPane.showMessageDialog(null, "Old password is incorrect!");
         }
-
-    } else {
-        JOptionPane.showMessageDialog(null, "Account not found.");
     }
-
-        } catch (SQLException ex) {
-            System.out.println("" + ex);
-            JOptionPane.showMessageDialog(null, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (NoSuchAlgorithmException ex) {
-            System.out.println("" + ex);
-            JOptionPane.showMessageDialog(null, "Hashing error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception ex) {
-            System.out.println("" + ex);
-            JOptionPane.showMessageDialog(null, "An unexpected error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
+} catch (SQLException | NoSuchAlgorithmException ex) {
+    System.out.println("" + ex);
+}
 
 
 

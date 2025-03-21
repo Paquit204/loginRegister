@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package LoginRegister;
+package ForgotPassword;
 
 
+import LoginRegister.Login;
 import config.Session;
 import java.awt.Color;
 
@@ -102,9 +103,9 @@ public class forgotPassword extends javax.swing.JFrame {
                 users1MouseClicked(evt);
             }
         });
-        logout.add(users1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 13, 40, -1));
+        logout.add(users1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 40, -1));
 
-        header1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 80, 40));
+        header1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 100, 40));
 
         getContentPane().add(header1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 60));
 
