@@ -309,8 +309,9 @@ public class UsersForm extends javax.swing.JFrame {
               adf.utype.setSelectedItem(""+rs.getString("type"));
               adf.password.setText(""+rs.getString("password"));
               adf.uname.setText(""+rs.getString("username"));
+              
               adf.u_add.setEnabled(false);
-               adf.u_update.setEnabled(true);
+              adf.u_update.setEnabled(true);
               adf.setVisible(true);
               this.dispose();
             }

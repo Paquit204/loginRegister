@@ -80,16 +80,18 @@ public class Register extends javax.swing.JFrame {
         ut = new javax.swing.JComboBox<>();
         fname = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
+        showpass = new javax.swing.JCheckBox();
         ULform1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        header9 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(760, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Unavbar.setBackground(new java.awt.Color(0,0,0,60));
+        Unavbar.setBackground(new java.awt.Color(255, 255, 255));
         Unavbar.setForeground(new java.awt.Color(102, 102, 102));
-        Unavbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Unavbar.setLayout(null);
 
         cancel.setBackground(new java.awt.Color(255, 51, 51));
         cancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -105,13 +107,14 @@ public class Register extends javax.swing.JFrame {
                 cancelActionPerformed(evt);
             }
         });
-        Unavbar.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 100, -1));
+        Unavbar.add(cancel);
+        cancel.setBounds(50, 290, 100, 37);
 
-        lastname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lastname.setForeground(new java.awt.Color(255, 255, 255));
+        lastname.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lastname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lastname.setText("Last Name:");
-        Unavbar.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
+        Unavbar.add(lastname);
+        lastname.setBounds(170, 40, 90, 17);
 
         login1.setBackground(new java.awt.Color(0, 204, 255));
         login1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -122,7 +125,8 @@ public class Register extends javax.swing.JFrame {
                 login1ActionPerformed(evt);
             }
         });
-        Unavbar.add(login1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 100, -1));
+        Unavbar.add(login1);
+        login1.setBounds(200, 290, 100, 37);
 
         lname.setBackground(new java.awt.Color(204, 204, 204));
         lname.addActionListener(new java.awt.event.ActionListener() {
@@ -130,13 +134,14 @@ public class Register extends javax.swing.JFrame {
                 lnameActionPerformed(evt);
             }
         });
-        Unavbar.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 230, -1));
+        Unavbar.add(lname);
+        lname.setBounds(170, 60, 170, 30);
 
-        jpanelEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jpanelEmail.setForeground(new java.awt.Color(255, 255, 255));
+        jpanelEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jpanelEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jpanelEmail.setText("Email:");
-        Unavbar.add(jpanelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        Unavbar.add(jpanelEmail);
+        jpanelEmail.setBounds(50, 170, 50, 17);
 
         em.setBackground(new java.awt.Color(204, 204, 204));
         em.addActionListener(new java.awt.event.ActionListener() {
@@ -144,13 +149,14 @@ public class Register extends javax.swing.JFrame {
                 emActionPerformed(evt);
             }
         });
-        Unavbar.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 280, -1));
+        Unavbar.add(em);
+        em.setBounds(130, 170, 170, 30);
 
-        username1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        username1.setForeground(new java.awt.Color(255, 255, 255));
+        username1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         username1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        username1.setText("Username:");
-        Unavbar.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        username1.setText("User Name:");
+        Unavbar.add(username1);
+        username1.setBounds(10, 100, 80, 17);
 
         uname.setBackground(new java.awt.Color(204, 204, 204));
         uname.addActionListener(new java.awt.event.ActionListener() {
@@ -158,30 +164,32 @@ public class Register extends javax.swing.JFrame {
                 unameActionPerformed(evt);
             }
         });
-        Unavbar.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 211, -1));
+        Unavbar.add(uname);
+        uname.setBounds(10, 120, 150, 30);
 
-        username.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        username.setForeground(new java.awt.Color(255, 255, 255));
+        username.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username.setText("Password:");
-        Unavbar.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 90, 20));
+        Unavbar.add(username);
+        username.setBounds(40, 220, 100, 20);
 
-        usertype.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        usertype.setForeground(new java.awt.Color(255, 255, 255));
+        usertype.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         usertype.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        usertype.setText("UserType:");
-        Unavbar.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, 20));
+        usertype.setText("User Type:");
+        Unavbar.add(usertype);
+        usertype.setBounds(170, 100, 80, 20);
 
-        firstname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        firstname.setForeground(new java.awt.Color(255, 255, 255));
+        firstname.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         firstname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         firstname.setText("First Name:");
-        Unavbar.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        Unavbar.add(firstname);
+        firstname.setBounds(10, 40, 90, 17);
 
         ut.setBackground(new java.awt.Color(204, 204, 204));
         ut.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select UserType", "User", "Admin" }));
-        Unavbar.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 230, -1));
+        Unavbar.add(ut);
+        ut.setBounds(170, 120, 170, 30);
 
         fname.setBackground(new java.awt.Color(204, 204, 204));
         fname.addActionListener(new java.awt.event.ActionListener() {
@@ -189,28 +197,53 @@ public class Register extends javax.swing.JFrame {
                 fnameActionPerformed(evt);
             }
         });
-        Unavbar.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 211, -1));
+        Unavbar.add(fname);
+        fname.setBounds(10, 60, 150, 30);
 
+        password.setBackground(new java.awt.Color(204, 204, 204));
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
             }
         });
-        Unavbar.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 280, -1));
+        Unavbar.add(password);
+        password.setBounds(130, 220, 170, 30);
 
-        getContentPane().add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 540, 380));
+        showpass.setText("Show Password");
+        showpass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showpassActionPerformed(evt);
+            }
+        });
+        Unavbar.add(showpass);
+        showpass.setBounds(180, 260, 120, 20);
 
-        ULform1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        ULform1.setForeground(new java.awt.Color(255, 204, 51));
+        getContentPane().add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 345, 360));
+
+        ULform1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        ULform1.setForeground(new java.awt.Color(255, 204, 0));
         ULform1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ULform1.setText("REGISTRATION FORM");
         ULform1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(ULform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 60));
+        getContentPane().add(ULform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 750, 50));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pet.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 300, 380));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/GuiPetBackground.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgound (1) (1).png"))); // NOI18N
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 440));
+
+        header9.setBackground(new java.awt.Color(0, 51, 102));
+        header9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                header9MouseClicked(evt);
+            }
+        });
+        header9.setLayout(null);
+        getContentPane().add(header9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -308,6 +341,20 @@ public class Register extends javax.swing.JFrame {
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
+
+    private void header9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_header9MouseClicked
+
+    }//GEN-LAST:event_header9MouseClicked
+
+    private void showpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpassActionPerformed
+
+        if (showpass.isSelected()){
+            password.setEchoChar((char)0);
+        }else{
+            password.setEchoChar('*');
+        }
+
+    }//GEN-LAST:event_showpassActionPerformed
     
     /**
      * @param args the command line arguments
@@ -351,12 +398,15 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField em;
     private javax.swing.JLabel firstname;
     private javax.swing.JTextField fname;
+    private javax.swing.JPanel header9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jpanelEmail;
     private javax.swing.JLabel lastname;
     private javax.swing.JTextField lname;
     private javax.swing.JButton login1;
     private javax.swing.JPasswordField password;
+    private javax.swing.JCheckBox showpass;
     private javax.swing.JTextField uname;
     private javax.swing.JLabel username;
     private javax.swing.JLabel username1;

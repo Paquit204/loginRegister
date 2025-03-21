@@ -30,7 +30,7 @@ public class Session {
         return instance;
     }
 
-    public static boolean isIntanceEEmpty() {
+    public static boolean isInstanceEEmpty() {
        return instance == null;
     }
       public int getA_id() {

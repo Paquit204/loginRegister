@@ -7,6 +7,7 @@ package User;
 
 import LoginRegister.Login;
 import config.Session;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 
@@ -23,7 +24,8 @@ public class UsersDashboard extends javax.swing.JFrame {
         initComponents();
            this.setLocationRelativeTo(null); // Make Jframe Center allighnment
     }
-
+        Color nc=new Color(0,0,60);
+       Color hc=new Color( 0,48,96);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,20 +39,16 @@ public class UsersDashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         header2 = new javax.swing.JPanel();
-        account = new javax.swing.JLabel();
-        Pets1 = new javax.swing.JLabel();
-        Adoption1 = new javax.swing.JLabel();
-        location = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         Acc_lname = new javax.swing.JLabel();
         Acc_fname = new javax.swing.JLabel();
+        account = new javax.swing.JPanel();
+        users1 = new javax.swing.JLabel();
+        view_pet = new javax.swing.JPanel();
+        users = new javax.swing.JLabel();
         header6 = new javax.swing.JPanel();
-        header7 = new javax.swing.JPanel();
-        header10 = new javax.swing.JPanel();
-        header8 = new javax.swing.JPanel();
         header9 = new javax.swing.JPanel();
-        Ausers = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        header10 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -60,7 +58,7 @@ public class UsersDashboard extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        header1.setBackground(new java.awt.Color(0, 48, 96));
+        header1.setBackground(new java.awt.Color(0, 102, 153));
         header1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -78,97 +76,94 @@ public class UsersDashboard extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("ACCOUNT DETAILS");
+        jLabel4.setText("MY ACCOUNT");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         header1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 180, 60));
 
         getContentPane().add(header1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 60));
 
-        header2.setBackground(new java.awt.Color(5, 92, 157));
+        header2.setBackground(new java.awt.Color(0, 48, 96));
         header2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        account.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        account.setForeground(new java.awt.Color(255, 255, 255));
-        account.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        account.setText("Account");
-        account.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        account.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                accountMouseClicked(evt);
-            }
-        });
-        header2.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 100, 40));
-
-        Pets1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        Pets1.setForeground(new java.awt.Color(255, 255, 255));
-        Pets1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Pets1.setText("Pets");
-        Pets1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        Pets1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Pets1MouseClicked(evt);
-            }
-        });
-        header2.add(Pets1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, 40));
-
-        Adoption1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        Adoption1.setForeground(new java.awt.Color(255, 255, 255));
-        Adoption1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Adoption1.setText("Adoption");
-        Adoption1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        Adoption1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Adoption1MouseClicked(evt);
-            }
-        });
-        header2.add(Adoption1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, 40));
-
-        location.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        location.setForeground(new java.awt.Color(255, 255, 255));
-        location.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        location.setText("Location");
-        location.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        location.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                locationMouseClicked(evt);
-            }
-        });
-        header2.add(location, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 100, 40));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user-removebg-preview (1).png"))); // NOI18N
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 110));
+        header2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 90));
 
         Acc_lname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Acc_lname.setForeground(new java.awt.Color(255, 255, 255));
         Acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Acc_lname.setText("LastName:");
         Acc_lname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 140, 40));
+        header2.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 160, 40));
 
         Acc_fname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Acc_fname.setForeground(new java.awt.Color(255, 255, 255));
         Acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Acc_fname.setText("FirstName:");
         Acc_fname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(Acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 140, 40));
+        header2.add(Acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 160, 40));
 
-        getContentPane().add(header2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 140, 420));
+        account.setBackground(new java.awt.Color(0, 48, 96));
+        account.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accountMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                accountMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                accountMouseExited(evt);
+            }
+        });
+        account.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        users1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        users1.setForeground(new java.awt.Color(255, 255, 255));
+        users1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        users1.setText("ACCOUNT");
+        users1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        users1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                users1MouseClicked(evt);
+            }
+        });
+        account.add(users1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 20));
+
+        header2.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 160, 40));
+
+        view_pet.setBackground(new java.awt.Color(0, 48, 96));
+        view_pet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                view_petMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                view_petMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                view_petMouseExited(evt);
+            }
+        });
+        view_pet.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        users.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        users.setForeground(new java.awt.Color(255, 255, 255));
+        users.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        users.setText("VIEW PET");
+        users.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        users.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usersMouseClicked(evt);
+            }
+        });
+        view_pet.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 20));
+
+        header2.add(view_pet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 160, 40));
+
+        getContentPane().add(header2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 160, 420));
 
         header6.setBackground(new java.awt.Color(126, 200, 227));
-        header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        header7.setBackground(new java.awt.Color(0, 12, 102));
-        header7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        header10.setBackground(new java.awt.Color(102, 102, 255));
-        header10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        header7.add(header10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 570, 190));
-
-        header8.setBackground(new java.awt.Color(102, 102, 255));
-        header8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        header7.add(header8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 370, 100));
+        header6.setLayout(null);
 
         header9.setBackground(new java.awt.Color(102, 102, 255));
         header9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -177,31 +172,20 @@ public class UsersDashboard extends javax.swing.JFrame {
             }
         });
         header9.setLayout(null);
+        header6.add(header9);
+        header9.setBounds(0, 0, 600, 10);
 
-        Ausers.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        Ausers.setForeground(new java.awt.Color(255, 255, 255));
-        Ausers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Ausers.setText("Account");
-        Ausers.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Ausers.addMouseListener(new java.awt.event.MouseAdapter() {
+        header10.setBackground(new java.awt.Color(102, 102, 255));
+        header10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AusersMouseClicked(evt);
+                header10MouseClicked(evt);
             }
         });
-        header9.add(Ausers);
-        Ausers.setBounds(10, 70, 100, 30);
+        header10.setLayout(null);
+        header6.add(header10);
+        header10.setBounds(0, 410, 600, 10);
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user-removebg-preview (1).png"))); // NOI18N
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header9.add(jLabel3);
-        jLabel3.setBounds(10, 0, 100, 80);
-
-        header7.add(header9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 120, 100));
-
-        header6.add(header7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 590, 400));
-
-        getContentPane().add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 620, 420));
+        getContentPane().add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 600, 420));
 
         pack();
         setLocationRelativeTo(null);
@@ -212,27 +196,6 @@ public class UsersDashboard extends javax.swing.JFrame {
         lg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseClicked
-
-
-    }//GEN-LAST:event_accountMouseClicked
-
-    private void Pets1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pets1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Pets1MouseClicked
-
-    private void Adoption1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Adoption1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Adoption1MouseClicked
-
-    private void locationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_locationMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_locationMouseClicked
-
-    private void AusersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AusersMouseClicked
-         
-    }//GEN-LAST:event_AusersMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Session ses = Session.getInstance();
@@ -251,13 +214,51 @@ public class UsersDashboard extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowActivated
 
+    private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
+
+    }//GEN-LAST:event_usersMouseClicked
+
+    private void view_petMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_view_petMouseClicked
+ 
+
+    }//GEN-LAST:event_view_petMouseClicked
+
+    private void view_petMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_view_petMouseEntered
+
+        view_pet.setBackground(nc);
+    }//GEN-LAST:event_view_petMouseEntered
+
+    private void view_petMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_view_petMouseExited
+        view_pet.setBackground(hc);
+    }//GEN-LAST:event_view_petMouseExited
+
     private void header9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_header9MouseClicked
-         
-         accountDetails acd = new accountDetails();
-           acd.setVisible(true);
-           this.dispose();
+
         
+
     }//GEN-LAST:event_header9MouseClicked
+
+    private void users1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_users1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_users1MouseClicked
+
+    private void accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseClicked
+          accountDetails acd = new accountDetails();
+        acd.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_accountMouseClicked
+
+    private void accountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseEntered
+          account.setBackground(nc);
+    }//GEN-LAST:event_accountMouseEntered
+
+    private void accountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseExited
+          account.setBackground(hc);
+    }//GEN-LAST:event_accountMouseExited
+
+    private void header10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_header10MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_header10MouseClicked
 
     /**
      * @param args the command line arguments
@@ -297,21 +298,17 @@ public class UsersDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Acc_fname;
     private javax.swing.JLabel Acc_lname;
-    private javax.swing.JLabel Adoption1;
-    private javax.swing.JLabel Ausers;
-    private javax.swing.JLabel Pets1;
-    private javax.swing.JLabel account;
+    private javax.swing.JPanel account;
     private javax.swing.JPanel header1;
     private javax.swing.JPanel header10;
     private javax.swing.JPanel header2;
     private javax.swing.JPanel header6;
-    private javax.swing.JPanel header7;
-    private javax.swing.JPanel header8;
     private javax.swing.JPanel header9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel location;
+    private javax.swing.JLabel users;
+    private javax.swing.JLabel users1;
+    private javax.swing.JPanel view_pet;
     // End of variables declaration//GEN-END:variables
 }
