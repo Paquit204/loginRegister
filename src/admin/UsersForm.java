@@ -33,6 +33,8 @@ public class UsersForm extends javax.swing.JFrame {
        
         
     } 
+    
+      
                   
        Color nc=new Color( 0,0,153);
        Color hc=new Color(77,85,204);
@@ -78,6 +80,8 @@ public class UsersForm extends javax.swing.JFrame {
         p_add = new javax.swing.JPanel();
         U_id1 = new javax.swing.JLabel();
         U_id2 = new javax.swing.JLabel();
+        print = new javax.swing.JPanel();
+        U_id4 = new javax.swing.JLabel();
         edit = new javax.swing.JPanel();
         U_id3 = new javax.swing.JLabel();
         header1 = new javax.swing.JPanel();
@@ -151,7 +155,7 @@ public class UsersForm extends javax.swing.JFrame {
         header6.add(U_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 130, 40));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user-removebg-preview (1).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user-removebg-preview (1).png"))); // NOI18N
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         header6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 100));
 
@@ -194,6 +198,34 @@ public class UsersForm extends javax.swing.JFrame {
             }
         });
         header6.add(U_id2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 40));
+
+        print.setBackground(new java.awt.Color(77, 85, 204));
+        print.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                printMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                printMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                printMouseExited(evt);
+            }
+        });
+        print.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        U_id4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        U_id4.setForeground(new java.awt.Color(255, 255, 255));
+        U_id4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        U_id4.setText("PRINT");
+        U_id4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        U_id4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                U_id4MouseClicked(evt);
+            }
+        });
+        print.add(U_id4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 50, 10));
+
+        header6.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 130, 30));
 
         edit.setBackground(new java.awt.Color(77, 85, 204));
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -262,6 +294,7 @@ public class UsersForm extends javax.swing.JFrame {
         AddUsersForm af=new AddUsersForm();
                 af.setVisible(true);
                 this.dispose();
+                
     }//GEN-LAST:event_U_id1MouseClicked
 
     private void p_addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseEntered
@@ -281,7 +314,13 @@ public class UsersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_U_id2MouseClicked
 
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
-       
+        
+        AddUsersForm adf=new   AddUsersForm ();
+        adf.setVisible(true);
+        
+        adf.remove.setEnabled(false);
+        adf.select.setEnabled(true);
+         this.dispose();
     }//GEN-LAST:event_p_addMouseClicked
 
     private void U_id3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_U_id3MouseClicked
@@ -305,18 +344,32 @@ public class UsersForm extends javax.swing.JFrame {
               adf.fname.setText(""+rs.getString("firstname"));
               adf.lname.setText(""+rs.getString("lastname"));
               adf.em.setText(""+rs.getString("email"));
-              adf.utype.setSelectedItem(""+rs.getString("status"));
+              adf.ustatus.setSelectedItem(""+rs.getString("status"));
               adf.utype.setSelectedItem(""+rs.getString("type"));
               adf.password.setText(""+rs.getString("password"));
               adf.uname.setText(""+rs.getString("username"));
-              
+              adf.nu.setText(""+rs.getString("contact"));
+              adf.image.setIcon(adf.ResizeImage(rs.getString("u_image"), null, adf.image));
+              adf.oldpath = rs.getString("u_image");
+              adf.path = rs.getString("u_image");
+              adf.destination = rs.getString("u_image");
+               
+               
               adf.u_add.setEnabled(false);
               adf.u_update.setEnabled(true);
               adf.setVisible(true);
               this.dispose();
-            }
+              
+               if(rs.getString("u_image").isEmpty()){
+                   adf.select.setEnabled(true);
+                     adf.remove.setEnabled(false);
+               }else{
+                 adf.select.setEnabled(false);
+                     adf.remove.setEnabled(true);   
+               }   
+               }
                }catch(SQLException ex){
-                   System.out.println(""+ex);
+                   System.out.println("Connection Error!"+ex);
                }
            }
        
@@ -330,6 +383,50 @@ public class UsersForm extends javax.swing.JFrame {
     private void editMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseExited
          edit.setBackground(hc);
     }//GEN-LAST:event_editMouseExited
+
+    private void U_id4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_U_id4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_U_id4MouseClicked
+
+    private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
+        int rowIndex  = usersTable.getSelectedRow();
+           if(rowIndex < 0){
+               JOptionPane.showMessageDialog(null,"Please Select Item!");
+           }else{
+               
+               try{
+               dbConnect dbc = new dbConnect();
+                 TableModel tbl= usersTable.getModel();
+              ResultSet rs=dbc.getData("SELECT * FROM accounts WHERE a_id ='"+tbl.getValueAt(rowIndex, 0)+"'"); 
+            if(rs.next()){  
+                 individualPrinting ipt = new individualPrinting();
+            ipt.id.setText(""+rs.getInt("a_id"));
+            ipt.fname.setText(""+rs.getString("firstname"));
+            ipt.lname.setText(""+rs.getString("lastname"));
+             ipt.em.setText(""+rs.getString("email"));
+              ipt.status.setText(""+rs.getString("status"));
+              ipt.utype.setText(""+rs.getString("type")); 
+              ipt.uname.setText(""+rs.getString("username"));
+              
+              
+              ipt.image.setIcon(ipt.ResizeImage(rs.getString("u_image"), null, ipt.image));
+              ipt.setVisible(true);
+              this.dispose();
+             
+               }
+               }catch(SQLException ex){
+                   System.out.println("Connection Error!"+ex);
+               }
+           }
+    }//GEN-LAST:event_printMouseClicked
+
+    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
+        print.setBackground(nc);
+    }//GEN-LAST:event_printMouseEntered
+
+    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
+         print.setBackground(nc);
+    }//GEN-LAST:event_printMouseExited
 
     /**
      * @param args the command line arguments
@@ -372,6 +469,7 @@ public class UsersForm extends javax.swing.JFrame {
     private javax.swing.JLabel U_id1;
     private javax.swing.JLabel U_id2;
     private javax.swing.JLabel U_id3;
+    private javax.swing.JLabel U_id4;
     private javax.swing.JPanel Uback;
     private javax.swing.JPanel body;
     private javax.swing.JPanel edit;
@@ -384,6 +482,7 @@ public class UsersForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel p_add;
+    private javax.swing.JPanel print;
     private javax.swing.JTable usersTable;
     // End of variables declaration//GEN-END:variables
 }

@@ -52,9 +52,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         header2 = new javax.swing.JPanel();
         header14 = new javax.swing.JPanel();
         Acc_lname = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         Acc_fname = new javax.swing.JLabel();
         Profile = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         Contact = new javax.swing.JPanel();
         a_request2 = new javax.swing.JLabel();
         Report = new javax.swing.JPanel();
@@ -139,12 +139,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         Acc_lname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         header14.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 150, 40));
 
-        jLabel6.setBackground(new java.awt.Color(0,0,0,60));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Manager (1) (1).png"))); // NOI18N
-        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header14.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 70));
-
         Acc_fname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Acc_fname.setForeground(new java.awt.Color(255, 255, 255));
         Acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -162,6 +156,12 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
         Profile.setLayout(null);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Manager (1) (1).png"))); // NOI18N
+        Profile.add(jLabel1);
+        jLabel1.setBounds(10, 10, 150, 70);
+
         header14.add(Profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 170, 160));
 
         header2.add(header14);
@@ -576,8 +576,8 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel header3;
     private javax.swing.JPanel header4;
     private javax.swing.JPanel header6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel logout;
     private javax.swing.JPanel p_add;

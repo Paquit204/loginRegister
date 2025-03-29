@@ -81,6 +81,8 @@ public class Register extends javax.swing.JFrame {
         fname = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         showpass = new javax.swing.JCheckBox();
+        jLabel23 = new javax.swing.JLabel();
+        nu = new javax.swing.JTextField();
         ULform1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -108,7 +110,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         Unavbar.add(cancel);
-        cancel.setBounds(50, 290, 100, 37);
+        cancel.setBounds(60, 290, 100, 37);
 
         lastname.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lastname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -126,7 +128,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         Unavbar.add(login1);
-        login1.setBounds(200, 290, 100, 37);
+        login1.setBounds(180, 290, 100, 37);
 
         lname.setBackground(new java.awt.Color(204, 204, 204));
         lname.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +143,7 @@ public class Register extends javax.swing.JFrame {
         jpanelEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jpanelEmail.setText("Email:");
         Unavbar.add(jpanelEmail);
-        jpanelEmail.setBounds(50, 170, 50, 17);
+        jpanelEmail.setBounds(170, 160, 50, 17);
 
         em.setBackground(new java.awt.Color(204, 204, 204));
         em.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +152,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         Unavbar.add(em);
-        em.setBounds(130, 170, 170, 30);
+        em.setBounds(170, 180, 170, 30);
 
         username1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         username1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -171,7 +173,7 @@ public class Register extends javax.swing.JFrame {
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username.setText("Password:");
         Unavbar.add(username);
-        username.setBounds(40, 220, 100, 20);
+        username.setBounds(0, 220, 100, 20);
 
         usertype.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         usertype.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -207,7 +209,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         Unavbar.add(password);
-        password.setBounds(130, 220, 170, 30);
+        password.setBounds(10, 240, 150, 30);
 
         showpass.setText("Show Password");
         showpass.addActionListener(new java.awt.event.ActionListener() {
@@ -216,7 +218,17 @@ public class Register extends javax.swing.JFrame {
             }
         });
         Unavbar.add(showpass);
-        showpass.setBounds(180, 260, 120, 20);
+        showpass.setBounds(170, 240, 120, 30);
+
+        jLabel23.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel23.setText("Contact #:");
+        Unavbar.add(jLabel23);
+        jLabel23.setBounds(10, 160, 70, 20);
+
+        nu.setBackground(new java.awt.Color(204, 204, 204));
+        Unavbar.add(nu);
+        nu.setBounds(10, 180, 150, 30);
 
         getContentPane().add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 345, 360));
 
@@ -232,7 +244,7 @@ public class Register extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 300, 380));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgound (1) (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/backgound (1) (1).png"))); // NOI18N
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 440));
 
@@ -268,6 +280,7 @@ public class Register extends javax.swing.JFrame {
             || em.getText().isEmpty()
             || ut.getSelectedIndex()==0
             || uname.getText().isEmpty()
+            ||nu.getText().isEmpty()
             || password.getText().isEmpty() ){
             JOptionPane.showMessageDialog(null,"All fields are required!"); //validation for register...
 
@@ -300,15 +313,15 @@ public class Register extends javax.swing.JFrame {
             try {
             String pass=passwordHasher.hashPassword(password.getText());
         
-          if (dbc. insertData("INSERT INTO accounts(firstname, lastname, email, type, username, password, status) "
-            + "VALUES('"+fname.getText()+"',"
-            + "'"+lname.getText()+"',"
-            + "'"+em.getText()+"',"
-            + "'"+ut.getSelectedItem()+"',"
-            + "'"+uname.getText()+"',"
-            + "'"+ pass+"','Pending')") ==1)
-
-    {
+        if (dbc.insertData("INSERT INTO accounts(firstname, lastname, email, type, username, password, contact, status) "
+        + "VALUES('"+fname.getText()+"',"
+        + "'"+lname.getText()+"',"
+        + "'"+em.getText()+"',"
+        + "'"+ut.getSelectedItem()+"',"
+        + "'"+uname.getText()+"',"
+        + "'"+ pass+"'," 
+        + "'"+nu.getText()+"','Pending')") == 1)
+{
         JOptionPane.showMessageDialog(null, "Succesfully Register");
         Login lg = new Login();
         lg.show();
@@ -401,10 +414,12 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel header9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jpanelEmail;
     private javax.swing.JLabel lastname;
     private javax.swing.JTextField lname;
     private javax.swing.JButton login1;
+    private javax.swing.JTextField nu;
     private javax.swing.JPasswordField password;
     private javax.swing.JCheckBox showpass;
     private javax.swing.JTextField uname;

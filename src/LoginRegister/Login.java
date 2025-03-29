@@ -206,7 +206,7 @@ public class Login extends javax.swing.JFrame {
         login.setBounds(140, 320, 90, 30);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pet.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pet.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(330, 60, 390, 370);
 
@@ -241,7 +241,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgound (1).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/backgound (1).png"))); // NOI18N
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel2);
         jLabel2.setBounds(20, 20, 720, 450);

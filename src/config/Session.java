@@ -18,6 +18,7 @@ public class Session {
     private String type;
     private String username;
     private String status;     
+    private String contact;
     
     private Session(){
      // privatecon. prevent instance
@@ -37,6 +38,14 @@ public class Session {
         return a_id;
     }
 
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+  
     public void setA_id(int a_id) {
         this.a_id = a_id;
     }

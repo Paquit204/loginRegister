@@ -59,6 +59,8 @@ public class accountDetails extends javax.swing.JFrame {
         jpanelEmail1 = new javax.swing.JLabel();
         changepass = new javax.swing.JPanel();
         a_request = new javax.swing.JLabel();
+        nu = new javax.swing.JTextField();
+        jpanelEmail2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -96,7 +98,7 @@ public class accountDetails extends javax.swing.JFrame {
         header2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user-removebg-preview (1).png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user-removebg-preview (1).png"))); // NOI18N
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         header2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 110));
 
@@ -130,7 +132,7 @@ public class accountDetails extends javax.swing.JFrame {
         lastname.setForeground(new java.awt.Color(255, 255, 255));
         lastname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lastname.setText("Last Name:");
-        Unavbar.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        Unavbar.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         lname.setBackground(new java.awt.Color(204, 204, 204));
         lname.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +140,7 @@ public class accountDetails extends javax.swing.JFrame {
                 lnameActionPerformed(evt);
             }
         });
-        Unavbar.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 230, -1));
+        Unavbar.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 230, 30));
 
         email.setBackground(new java.awt.Color(204, 204, 204));
         email.addActionListener(new java.awt.event.ActionListener() {
@@ -146,13 +148,13 @@ public class accountDetails extends javax.swing.JFrame {
                 emailActionPerformed(evt);
             }
         });
-        Unavbar.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 280, -1));
+        Unavbar.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 230, 30));
 
         username1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         username1.setForeground(new java.awt.Color(255, 255, 255));
         username1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username1.setText("Username:");
-        Unavbar.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
+        Unavbar.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         uname.setBackground(new java.awt.Color(204, 204, 204));
         uname.addActionListener(new java.awt.event.ActionListener() {
@@ -160,24 +162,24 @@ public class accountDetails extends javax.swing.JFrame {
                 unameActionPerformed(evt);
             }
         });
-        Unavbar.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 230, -1));
+        Unavbar.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 230, 30));
 
         usertype.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         usertype.setForeground(new java.awt.Color(255, 255, 255));
         usertype.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         usertype.setText("UserType:");
-        Unavbar.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 20));
+        Unavbar.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 20));
 
         firstname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         firstname.setForeground(new java.awt.Color(255, 255, 255));
         firstname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         firstname.setText("First Name:");
-        Unavbar.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
+        Unavbar.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
 
         utype.setBackground(new java.awt.Color(204, 204, 204));
         utype.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         utype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select UserType", "User", "Admin" }));
-        Unavbar.add(utype, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 230, -1));
+        Unavbar.add(utype, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 230, 30));
 
         fname.setBackground(new java.awt.Color(204, 204, 204));
         fname.addActionListener(new java.awt.event.ActionListener() {
@@ -185,24 +187,24 @@ public class accountDetails extends javax.swing.JFrame {
                 fnameActionPerformed(evt);
             }
         });
-        Unavbar.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 230, -1));
+        Unavbar.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 230, 30));
 
         ustatus.setBackground(new java.awt.Color(204, 204, 204));
         ustatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ustatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
-        Unavbar.add(ustatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 230, -1));
+        Unavbar.add(ustatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 230, 30));
 
         User_status.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         User_status.setForeground(new java.awt.Color(255, 255, 255));
         User_status.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         User_status.setText("User Status:");
-        Unavbar.add(User_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, -1, 20));
+        Unavbar.add(User_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, 20));
 
         uid.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         uid.setForeground(new java.awt.Color(255, 255, 255));
         uid.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         uid.setText("User ID:");
-        Unavbar.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 100, -1));
+        Unavbar.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 100, -1));
 
         u_id.setBackground(new java.awt.Color(204, 204, 204));
         u_id.setEnabled(false);
@@ -211,13 +213,13 @@ public class accountDetails extends javax.swing.JFrame {
                 u_idActionPerformed(evt);
             }
         });
-        Unavbar.add(u_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 230, -1));
+        Unavbar.add(u_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 230, 30));
 
         jpanelEmail1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jpanelEmail1.setForeground(new java.awt.Color(255, 255, 255));
         jpanelEmail1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jpanelEmail1.setText("Email:");
-        Unavbar.add(jpanelEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+        Unavbar.add(jpanelEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
 
         changepass.setBackground(new java.awt.Color(0,0,0,60));
         changepass.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -253,9 +255,23 @@ public class accountDetails extends javax.swing.JFrame {
 
         Unavbar.add(changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 200, 40));
 
-        header7.add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 540, 360));
+        nu.setBackground(new java.awt.Color(204, 204, 204));
+        nu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuActionPerformed(evt);
+            }
+        });
+        Unavbar.add(nu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 230, 30));
 
-        header6.add(header7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 590, 400));
+        jpanelEmail2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jpanelEmail2.setForeground(new java.awt.Color(255, 255, 255));
+        jpanelEmail2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jpanelEmail2.setText("Contact:");
+        Unavbar.add(jpanelEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+
+        header7.add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 540, 360));
+
+        header6.add(header7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 620, 400));
 
         getContentPane().add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 620, 420));
 
@@ -277,6 +293,7 @@ public class accountDetails extends javax.swing.JFrame {
         lname.setText(""+ses.getLastnmae());
         uname.setText(""+ses.getUsername());
         email.setText(""+ses.getEmail());
+         nu.setText(""+ses.getContact());
         
          Acc_fname.setText(""+ses.getFirstame());
         Acc_lname.setText(""+ses.getLastnmae());
@@ -330,6 +347,10 @@ public class accountDetails extends javax.swing.JFrame {
     private void changepassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassMouseExited
         changepass.setBackground(hc);
     }//GEN-LAST:event_changepassMouseExited
+
+    private void nuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,8 +406,10 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jpanelEmail1;
+    private javax.swing.JLabel jpanelEmail2;
     private javax.swing.JLabel lastname;
     public javax.swing.JTextField lname;
+    public javax.swing.JTextField nu;
     public javax.swing.JTextField u_id;
     private javax.swing.JLabel uid;
     public javax.swing.JTextField uname;
