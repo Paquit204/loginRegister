@@ -384,12 +384,16 @@ public class UsersForm extends javax.swing.JFrame {
          edit.setBackground(hc);
     }//GEN-LAST:event_editMouseExited
 
-    private void U_id4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_U_id4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_U_id4MouseClicked
+    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
+        print.setBackground(hc);
+    }//GEN-LAST:event_printMouseExited
+
+    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
+        print.setBackground(nc);
+    }//GEN-LAST:event_printMouseEntered
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-        int rowIndex  = usersTable.getSelectedRow();
+     int rowIndex  = usersTable.getSelectedRow();
            if(rowIndex < 0){
                JOptionPane.showMessageDialog(null,"Please Select Item!");
            }else{
@@ -399,34 +403,30 @@ public class UsersForm extends javax.swing.JFrame {
                  TableModel tbl= usersTable.getModel();
               ResultSet rs=dbc.getData("SELECT * FROM accounts WHERE a_id ='"+tbl.getValueAt(rowIndex, 0)+"'"); 
             if(rs.next()){  
-                 individualPrinting ipt = new individualPrinting();
-            ipt.id.setText(""+rs.getInt("a_id"));
-            ipt.fname.setText(""+rs.getString("firstname"));
-            ipt.lname.setText(""+rs.getString("lastname"));
-             ipt.em.setText(""+rs.getString("email"));
-              ipt.status.setText(""+rs.getString("status"));
-              ipt.utype.setText(""+rs.getString("type")); 
+                 individualPrinting ipt = new individualPrinting ();
+              ipt.u_id.setText(""+rs.getInt("a_id"));
+              ipt.fname.setText(""+rs.getString("firstname"));
+              ipt.lname.setText(""+rs.getString("lastname"));
+              ipt.em.setText(""+rs.getString("email"));
+              ipt.ustatus.setText(""+rs.getString("status"));
+              ipt.utype.setText(""+rs.getString("type"));
               ipt.uname.setText(""+rs.getString("username"));
-              
-              
-              ipt.image.setIcon(ipt.ResizeImage(rs.getString("u_image"), null, ipt.image));
-              ipt.setVisible(true);
-              this.dispose();
              
+              ipt.image.setIcon(ipt.ResizeImage(rs.getString("u_image"), null, ipt.image));
+              
+              ipt.setVisible(true);
+               this.dispose();
                }
                }catch(SQLException ex){
                    System.out.println("Connection Error!"+ex);
                }
            }
+       
     }//GEN-LAST:event_printMouseClicked
 
-    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
-        print.setBackground(nc);
-    }//GEN-LAST:event_printMouseEntered
-
-    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
-         print.setBackground(nc);
-    }//GEN-LAST:event_printMouseExited
+    private void U_id4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_U_id4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_U_id4MouseClicked
 
     /**
      * @param args the command line arguments
