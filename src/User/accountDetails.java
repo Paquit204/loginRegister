@@ -33,15 +33,11 @@ public class accountDetails extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        header1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        header2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        Acc_lname = new javax.swing.JLabel();
-        Acc_fname = new javax.swing.JLabel();
         header6 = new javax.swing.JPanel();
-        header7 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        Acc_fname = new javax.swing.JLabel();
+        Acc_lname = new javax.swing.JLabel();
         Unavbar = new javax.swing.JPanel();
         lastname = new javax.swing.JLabel();
         lname = new javax.swing.JTextField();
@@ -61,6 +57,8 @@ public class accountDetails extends javax.swing.JFrame {
         a_request = new javax.swing.JLabel();
         nu = new javax.swing.JTextField();
         jpanelEmail2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -70,11 +68,11 @@ public class accountDetails extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        header1.setBackground(new java.awt.Color(0, 48, 96));
-        header1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        header6.setBackground(new java.awt.Color(51, 102, 255));
+        header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Back");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -83,46 +81,24 @@ public class accountDetails extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        header1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, -4, 110, 70));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("ACCOUNT INFORMATION");
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 250, 60));
-
-        getContentPane().add(header1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 60));
-
-        header2.setBackground(new java.awt.Color(5, 92, 157));
-        header2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        header6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 110, 80));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user-removebg-preview (1).png"))); // NOI18N
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 110));
-
-        Acc_lname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Acc_lname.setForeground(new java.awt.Color(255, 255, 255));
-        Acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Acc_lname.setText("LastName:");
-        Acc_lname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 140, 40));
+        header6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 110, 80));
 
         Acc_fname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Acc_fname.setForeground(new java.awt.Color(255, 255, 255));
         Acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Acc_fname.setText("FirstName:");
         Acc_fname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(Acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 140, 40));
+        header6.add(Acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 110, 40));
 
-        getContentPane().add(header2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 140, 420));
-
-        header6.setBackground(new java.awt.Color(126, 200, 227));
-        header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        header7.setBackground(new java.awt.Color(0, 12, 102));
-        header7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Acc_lname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Acc_lname.setText("LastName:");
+        Acc_lname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header6.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 110, 40));
 
         Unavbar.setBackground(new java.awt.Color(0,0,0,60));
         Unavbar.setForeground(new java.awt.Color(102, 102, 102));
@@ -269,11 +245,17 @@ public class accountDetails extends javax.swing.JFrame {
         jpanelEmail2.setText("Contact:");
         Unavbar.add(jpanelEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
-        header7.add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 540, 360));
+        header6.add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 530, 380));
+        header6.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 750, -1));
 
-        header6.add(header7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 620, 400));
+        jLabel4.setBackground(new java.awt.Color(0,0,0,60));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("ACCOUNT INFORMATION");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 250, 60));
 
-        getContentPane().add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 620, 420));
+        getContentPane().add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 480));
 
         pack();
         setLocationRelativeTo(null);
@@ -300,37 +282,18 @@ public class accountDetails extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowActivated
 
-    private void lnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnameActionPerformed
+    private void nuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lnameActionPerformed
+    }//GEN-LAST:event_nuActionPerformed
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void changepassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassMouseExited
+        changepass.setBackground(hc);
+    }//GEN-LAST:event_changepassMouseExited
 
-    }//GEN-LAST:event_emailActionPerformed
+    private void changepassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassMouseEntered
 
-    private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_unameActionPerformed
-
-    private void fnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fnameActionPerformed
-
-    private void u_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_u_idActionPerformed
-
-    private void a_requestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_requestMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_requestMouseClicked
-
-    private void a_requestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_requestMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_requestMouseEntered
-
-    private void a_requestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_requestMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_requestMouseExited
+        changepass.setBackground(nc);
+    }//GEN-LAST:event_changepassMouseEntered
 
     private void changepassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassMouseClicked
         changePass cp = new changePass();
@@ -338,19 +301,37 @@ public class accountDetails extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_changepassMouseClicked
 
-    private void changepassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassMouseEntered
-
-        changepass.setBackground(nc);
-
-    }//GEN-LAST:event_changepassMouseEntered
-
-    private void changepassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassMouseExited
-        changepass.setBackground(hc);
-    }//GEN-LAST:event_changepassMouseExited
-
-    private void nuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuActionPerformed
+    private void a_requestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_requestMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_nuActionPerformed
+    }//GEN-LAST:event_a_requestMouseExited
+
+    private void a_requestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_requestMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_a_requestMouseEntered
+
+    private void a_requestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_requestMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_a_requestMouseClicked
+
+    private void u_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_u_idActionPerformed
+
+    private void fnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fnameActionPerformed
+
+    private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unameActionPerformed
+
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+
+    }//GEN-LAST:event_emailActionPerformed
+
+    private void lnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lnameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -398,13 +379,11 @@ public class accountDetails extends javax.swing.JFrame {
     public javax.swing.JTextField email;
     private javax.swing.JLabel firstname;
     public javax.swing.JTextField fname;
-    private javax.swing.JPanel header1;
-    private javax.swing.JPanel header2;
     private javax.swing.JPanel header6;
-    private javax.swing.JPanel header7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel jpanelEmail1;
     private javax.swing.JLabel jpanelEmail2;
     private javax.swing.JLabel lastname;

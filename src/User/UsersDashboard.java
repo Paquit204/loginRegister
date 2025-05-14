@@ -24,8 +24,8 @@ public class UsersDashboard extends javax.swing.JFrame {
         initComponents();
            this.setLocationRelativeTo(null); // Make Jframe Center allighnment
     }
-        Color nc=new Color(0,0,60);
-       Color hc=new Color( 0,48,96);
+        Color nc=new Color(255,255,255);
+       Color hc=new Color( 102,102,255);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,11 +37,7 @@ public class UsersDashboard extends javax.swing.JFrame {
 
         header1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         header2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        Acc_lname = new javax.swing.JLabel();
-        Acc_fname = new javax.swing.JLabel();
         account = new javax.swing.JPanel();
         users1 = new javax.swing.JLabel();
         view_pet = new javax.swing.JPanel();
@@ -49,8 +45,29 @@ public class UsersDashboard extends javax.swing.JFrame {
         header6 = new javax.swing.JPanel();
         header9 = new javax.swing.JPanel();
         header10 = new javax.swing.JPanel();
+        header4 = new javax.swing.JPanel();
+        header5 = new javax.swing.JPanel();
+        header11 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        header12 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        header13 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        header7 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        header14 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        header8 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        header15 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        Acc_fname = new javax.swing.JLabel();
+        Acc_lname = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -73,38 +90,12 @@ public class UsersDashboard extends javax.swing.JFrame {
         });
         header1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, -4, 110, 70));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("MY ACCOUNT");
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 180, 60));
-
         getContentPane().add(header1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 60));
 
-        header2.setBackground(new java.awt.Color(0, 48, 96));
+        header2.setBackground(new java.awt.Color(102, 102, 255));
         header2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user-removebg-preview (1).png"))); // NOI18N
-        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 90));
-
-        Acc_lname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Acc_lname.setForeground(new java.awt.Color(255, 255, 255));
-        Acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Acc_lname.setText("LastName:");
-        Acc_lname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 160, 40));
-
-        Acc_fname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Acc_fname.setForeground(new java.awt.Color(255, 255, 255));
-        Acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Acc_fname.setText("FirstName:");
-        Acc_fname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(Acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 160, 40));
-
-        account.setBackground(new java.awt.Color(0, 48, 96));
+        account.setBackground(new java.awt.Color(102, 102, 255));
         account.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 accountMouseClicked(evt);
@@ -119,7 +110,6 @@ public class UsersDashboard extends javax.swing.JFrame {
         account.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         users1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        users1.setForeground(new java.awt.Color(255, 255, 255));
         users1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         users1.setText("ACCOUNT");
         users1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -128,11 +118,11 @@ public class UsersDashboard extends javax.swing.JFrame {
                 users1MouseClicked(evt);
             }
         });
-        account.add(users1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 20));
+        account.add(users1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 70, 20));
 
-        header2.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 160, 40));
+        header2.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 160, 40));
 
-        view_pet.setBackground(new java.awt.Color(0, 48, 96));
+        view_pet.setBackground(new java.awt.Color(102, 102, 255));
         view_pet.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 view_petMouseClicked(evt);
@@ -147,7 +137,6 @@ public class UsersDashboard extends javax.swing.JFrame {
         view_pet.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         users.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        users.setForeground(new java.awt.Color(255, 255, 255));
         users.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         users.setText("VIEW PET");
         users.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -156,9 +145,9 @@ public class UsersDashboard extends javax.swing.JFrame {
                 usersMouseClicked(evt);
             }
         });
-        view_pet.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 20));
+        view_pet.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 70, 20));
 
-        header2.add(view_pet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 160, 40));
+        header2.add(view_pet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 160, 40));
 
         getContentPane().add(header2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 160, 420));
 
@@ -173,7 +162,7 @@ public class UsersDashboard extends javax.swing.JFrame {
         });
         header9.setLayout(null);
         header6.add(header9);
-        header9.setBounds(0, 0, 600, 10);
+        header9.setBounds(0, 0, 570, 10);
 
         header10.setBackground(new java.awt.Color(102, 102, 255));
         header10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -184,6 +173,117 @@ public class UsersDashboard extends javax.swing.JFrame {
         header10.setLayout(null);
         header6.add(header10);
         header10.setBounds(0, 410, 600, 10);
+
+        header4.setBackground(new java.awt.Color(0, 0, 51));
+        header4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        header5.setBackground(new java.awt.Color(255, 255, 255));
+        header5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        header11.setBackground(new java.awt.Color(0, 0, 51));
+        header11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pet (1).png"))); // NOI18N
+        header11.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 170, 150));
+
+        header12.setBackground(new java.awt.Color(102, 102, 255));
+        header12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        header11.add(header12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 10));
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("PET ");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        header11.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 170, 50));
+
+        header5.add(header11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 170, 200));
+
+        header13.setBackground(new java.awt.Color(0, 0, 51));
+        header13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        header13.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 20, 170));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/setting__1_-removebg-preview.png"))); // NOI18N
+        header13.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 160, 140));
+
+        header7.setBackground(new java.awt.Color(102, 102, 255));
+        header7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        header13.add(header7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 10));
+
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("SETTINGS");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
+        header13.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 160, 50));
+
+        header5.add(header13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 160, 200));
+
+        header14.setBackground(new java.awt.Color(0, 0, 51));
+        header14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/accounts__1_-removebg-preview (1).png"))); // NOI18N
+        header14.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 140));
+
+        header8.setBackground(new java.awt.Color(102, 102, 255));
+        header8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        header14.add(header8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 10));
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("ACCOUNT");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+        header14.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 160, 50));
+
+        header5.add(header14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 160, 200));
+
+        header4.add(header5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 180, 560, 220));
+
+        header15.setBackground(new java.awt.Color(83, 203, 209));
+        header15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        header4.add(header15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 10));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user__1_-removebg-preview.png"))); // NOI18N
+        header4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, 160));
+
+        Acc_fname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Acc_fname.setForeground(new java.awt.Color(255, 255, 255));
+        Acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Acc_fname.setText("FirstName:");
+        Acc_fname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header4.add(Acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 160, 40));
+
+        Acc_lname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Acc_lname.setForeground(new java.awt.Color(255, 255, 255));
+        Acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Acc_lname.setText("LastName:");
+        Acc_lname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header4.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 160, 40));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("MY ACCOUNT");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, 60));
+
+        header6.add(header4);
+        header4.setBounds(0, 0, 570, 400);
 
         getContentPane().add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 570, 400));
 
@@ -260,6 +360,23 @@ public class UsersDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_header10MouseClicked
 
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+
+        
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+      
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -301,12 +418,28 @@ public class UsersDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel account;
     private javax.swing.JPanel header1;
     private javax.swing.JPanel header10;
+    private javax.swing.JPanel header11;
+    private javax.swing.JPanel header12;
+    private javax.swing.JPanel header13;
+    private javax.swing.JPanel header14;
+    private javax.swing.JPanel header15;
     private javax.swing.JPanel header2;
+    private javax.swing.JPanel header4;
+    private javax.swing.JPanel header5;
     private javax.swing.JPanel header6;
+    private javax.swing.JPanel header7;
+    private javax.swing.JPanel header8;
     private javax.swing.JPanel header9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel users;
     private javax.swing.JLabel users1;
     private javax.swing.JPanel view_pet;

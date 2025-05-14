@@ -101,7 +101,7 @@ public class individualPrinting extends javax.swing.JFrame {
         header8.add(header7);
         header7.setBounds(0, 0, 560, 50);
 
-        page.setBackground(new java.awt.Color(0, 0, 204));
+        page.setBackground(new java.awt.Color(0, 153, 255));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));

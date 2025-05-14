@@ -199,8 +199,6 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         u_clear = new javax.swing.JButton();
         header6 = new javax.swing.JPanel();
         u_refresh = new javax.swing.JButton();
-        u_id = new javax.swing.JTextField();
-        uid = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
         User_status = new javax.swing.JLabel();
         ustatus = new javax.swing.JComboBox<>();
@@ -218,6 +216,8 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         username1 = new javax.swing.JLabel();
         nu = new javax.swing.JTextField();
         username2 = new javax.swing.JLabel();
+        u_id = new javax.swing.JTextField();
+        uid = new javax.swing.JLabel();
         remove = new javax.swing.JButton();
         select = new javax.swing.JButton();
 
@@ -316,52 +316,37 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         });
         header6.add(u_refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 110, 40));
 
-        header4.add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 110, 410));
-
-        u_id.setBackground(new java.awt.Color(204, 204, 204));
-        u_id.setEnabled(false);
-        u_id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                u_idActionPerformed(evt);
-            }
-        });
-        header4.add(u_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, 30));
-
-        uid.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        uid.setForeground(new java.awt.Color(255, 255, 255));
-        uid.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        uid.setText("User ID:");
-        header4.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 90, 30));
+        header4.add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 120, 410));
 
         username.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
         username.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         username.setText("Password:");
-        header4.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 90, 30));
+        header4.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 90, 30));
 
         User_status.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         User_status.setForeground(new java.awt.Color(255, 255, 255));
         User_status.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         User_status.setText("User Status:");
-        header4.add(User_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 120, 30));
+        header4.add(User_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 120, 30));
 
         ustatus.setBackground(new java.awt.Color(204, 204, 204));
         ustatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ustatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
-        header4.add(ustatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 180, 30));
+        header4.add(ustatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 180, 30));
 
         usertype.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         usertype.setForeground(new java.awt.Color(255, 255, 255));
         usertype.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         usertype.setText("UserType:");
-        header4.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 100, 30));
+        header4.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 100, 30));
 
         utype.setBackground(new java.awt.Color(204, 204, 204));
         utype.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         utype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select UserType", "User", "Admin" }));
-        header4.add(utype, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 180, 30));
+        header4.add(utype, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 180, 30));
 
-        header9.setBackground(new java.awt.Color(0, 12, 102));
+        header9.setBackground(new java.awt.Color(126, 200, 227));
         header9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         em.setBackground(new java.awt.Color(204, 204, 204));
@@ -373,7 +358,6 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         header9.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 180, 30));
 
         password.setBackground(new java.awt.Color(204, 204, 204));
-        password.setEnabled(false);
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
@@ -443,7 +427,22 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         username2.setText("Contact");
         header9.add(username2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 100, 30));
 
-        header4.add(header9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 320, 390));
+        u_id.setBackground(new java.awt.Color(204, 204, 204));
+        u_id.setEnabled(false);
+        u_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                u_idActionPerformed(evt);
+            }
+        });
+        header9.add(u_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 180, 30));
+
+        uid.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        uid.setForeground(new java.awt.Color(255, 255, 255));
+        uid.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        uid.setText("User ID:");
+        header9.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 30));
+
+        header4.add(header9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 320, 390));
 
         remove.setBackground(new java.awt.Color(0, 204, 255));
         remove.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -460,6 +459,11 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         select.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         select.setForeground(new java.awt.Color(255, 255, 255));
         select.setText("SELECT");
+        select.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selectMouseClicked(evt);
+            }
+        });
         select.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectActionPerformed(evt);
@@ -686,6 +690,12 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         
     }//GEN-LAST:event_selectActionPerformed
 
+    private void selectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectMouseClicked
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_selectMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -711,6 +721,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AddUsersForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
