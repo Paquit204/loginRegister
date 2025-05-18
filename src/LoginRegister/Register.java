@@ -7,6 +7,9 @@ import config.dbConnect;
 import config.passwordHasher;
 import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
@@ -24,6 +27,9 @@ import javax.swing.JOptionPane;
  * @author CYBER SECURITY
  */
 public class Register extends javax.swing.JFrame {
+     private static final String DB_URL = "jdbc:mysql://localhost:3306/pet_adoption";
+    private static final String DB_USER = "root";
+    private static final String DB_PASSWORD = "";
 
     /**
      * Creates new form Register
@@ -92,6 +98,9 @@ public class Register extends javax.swing.JFrame {
         lname = new javax.swing.JTextField();
         lastname = new javax.swing.JLabel();
         ULform1 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        sq = new javax.swing.JComboBox<>();
+        ans = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,7 +148,7 @@ public class Register extends javax.swing.JFrame {
         nv.add(sip, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 100, 40));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LoginImage/logo pet (1) (2).png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo pet (1) (2).png"))); // NOI18N
         nv.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 240, 230));
 
         jLabel2Registration2.setBackground(new java.awt.Color(0, 204, 204));
@@ -162,7 +171,7 @@ public class Register extends javax.swing.JFrame {
         Unavbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         em.setBackground(new java.awt.Color(204, 204, 204));
-        Unavbar.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 170, 30));
+        Unavbar.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 150, 30));
 
         showpass.setText("Show Password");
         showpass.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -170,10 +179,10 @@ public class Register extends javax.swing.JFrame {
                 showpassMouseClicked(evt);
             }
         });
-        Unavbar.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 120, 30));
+        Unavbar.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 80, 20));
 
         password.setBackground(new java.awt.Color(204, 204, 204));
-        Unavbar.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 150, 30));
+        Unavbar.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 150, 30));
 
         Register.setBackground(new java.awt.Color(0, 204, 255));
         Register.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -190,12 +199,12 @@ public class Register extends javax.swing.JFrame {
                 RegisterMouseExited(evt);
             }
         });
-        Unavbar.add(Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 100, 40));
+        Unavbar.add(Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 120, 40));
 
         username.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username.setText("Password:");
-        Unavbar.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 100, 20));
+        Unavbar.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 100, 20));
 
         nu.setBackground(new java.awt.Color(204, 204, 204));
         nu.addActionListener(new java.awt.event.ActionListener() {
@@ -203,51 +212,51 @@ public class Register extends javax.swing.JFrame {
                 nuActionPerformed(evt);
             }
         });
-        Unavbar.add(nu, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 150, 30));
+        Unavbar.add(nu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 150, 30));
 
         jLabel23.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel23.setText("Contact #:");
-        Unavbar.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, 20));
+        Unavbar.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 20));
 
         jpanelEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jpanelEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jpanelEmail.setText("Email:");
-        Unavbar.add(jpanelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 50, -1));
+        Unavbar.add(jpanelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 50, -1));
 
         ut.setBackground(new java.awt.Color(204, 204, 204));
         ut.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select UserType", "User", "Admin" }));
-        Unavbar.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 170, 30));
+        Unavbar.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 170, 30));
 
         usertype.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         usertype.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         usertype.setText("User Type:");
-        Unavbar.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 80, 20));
+        Unavbar.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 80, 20));
 
         uname.setBackground(new java.awt.Color(204, 204, 204));
-        Unavbar.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 150, 30));
+        Unavbar.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 150, 30));
 
         username1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         username1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username1.setText("User Name:");
-        Unavbar.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        Unavbar.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         fname.setBackground(new java.awt.Color(204, 204, 204));
-        Unavbar.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 150, 30));
+        Unavbar.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 150, 30));
 
         firstname.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         firstname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         firstname.setText("First Name:");
-        Unavbar.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 90, -1));
+        Unavbar.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 90, -1));
 
         lname.setBackground(new java.awt.Color(204, 204, 204));
-        Unavbar.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 170, 30));
+        Unavbar.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 170, 30));
 
         lastname.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lastname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lastname.setText("Last Name:");
-        Unavbar.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 90, -1));
+        Unavbar.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 90, -1));
 
         ULform1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         ULform1.setForeground(new java.awt.Color(0, 153, 204));
@@ -255,6 +264,15 @@ public class Register extends javax.swing.JFrame {
         ULform1.setText("REGISTER");
         ULform1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Unavbar.add(ULform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 130, 60));
+
+        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Advanced Security");
+        Unavbar.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 180, 20));
+
+        sq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What's your favorite food?", "What's your hobby?", "Who is your mother?", "What is your favorite place?", "What is your Code name?" }));
+        Unavbar.add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 170, 30));
+        Unavbar.add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 170, 30));
 
         getContentPane().add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 430));
 
@@ -333,7 +351,8 @@ public class Register extends javax.swing.JFrame {
             || ut.getSelectedIndex()==0
             || uname.getText().isEmpty()
             ||nu.getText().isEmpty()
-            || password.getText().isEmpty() ){
+            || password.getText().isEmpty()
+                 || sq.getSelectedItem() == null || ans.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"All fields are required!"); //validation for register...
 
             return ;
@@ -363,33 +382,50 @@ public class Register extends javax.swing.JFrame {
               dbConnect dbc=new dbConnect();
             
             try {
-            String pass=passwordHasher.hashPassword(password.getText());
-        
-        if (dbc.insertData("INSERT INTO accounts(firstname, lastname, email, type, username, password, contact, status) "
-        + "VALUES('"+fname.getText()+"',"
-        + "'"+lname.getText()+"',"
-        + "'"+em.getText()+"',"
-        + "'"+ut.getSelectedItem()+"',"
-        + "'"+uname.getText()+"',"
-        + "'"+ pass+"'," 
-        + "'"+nu.getText()+"','Pending')") == 1)
-{
-        JOptionPane.showMessageDialog(null, "Succesfully Register");
-        Login lg = new Login();
-        lg.show();
-        this.dispose();
+            String pass = passwordHasher.hashPassword(password.getText());
+            String sql = "INSERT INTO accounts(firstname, lastname, email, type, username, password, contact, sq, ans,status) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        } else {
-            JOptionPane.showMessageDialog(null,"Connection error!!");
-        }
-    }catch(NoSuchAlgorithmException ex){
-                System.out.println(""+ex);
+            try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+                pstmt.setString(1, fname.getText());
+                pstmt.setString(2, lname.getText());
+                pstmt.setString(3, em.getText());
+                pstmt.setObject(4, ut.getSelectedItem());
+                pstmt.setString(5, uname.getText());
+                pstmt.setString(6, pass);
+                pstmt.setString(7, nu.getText());
+                pstmt.setObject(8, sq.getSelectedItem());
+                pstmt.setString(9, ans.getText());
+                pstmt.setString(10, "Pending");
+
+                int rowsAffected = pstmt.executeUpdate();
+
+                if (rowsAffected == 1) {
+                    JOptionPane.showMessageDialog(null, "Successfully Registered");
+                    Login lg = new Login();
+                    lg.setVisible(true); // Use setVisible(true) to show the frame
+                    // this.dispose(); // Make sure 'this' refers to the current JFrame
+                    if (getParent() instanceof javax.swing.JFrame) {
+                        ((javax.swing.JFrame) getParent()).dispose();
+                    } else if (this instanceof javax.swing.JFrame) {
+                        this.dispose();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Registration failed!");
                 }
-    }  
-        
-        
-    }//GEN-LAST:event_RegisterMouseClicked
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Database Error: " + ex.getMessage());
+            }
 
+        } catch (NoSuchAlgorithmException ex) {
+            System.out.println("" + ex);
+            JOptionPane.showMessageDialog(null, "Hashing Error: " + ex.getMessage());
+        }
+        } 
+    }//GEN-LAST:event_RegisterMouseClicked
+    
     private void showpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showpassMouseClicked
    if (showpass.isSelected()){
             password.setEchoChar((char)0);
@@ -466,9 +502,11 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JButton Register;
     private javax.swing.JLabel ULform1;
     private javax.swing.JPanel Unavbar;
+    private javax.swing.JTextField ans;
     private javax.swing.JTextField em;
     private javax.swing.JLabel firstname;
     private javax.swing.JTextField fname;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel2Registration1;
     private javax.swing.JLabel jLabel2Registration2;
@@ -481,6 +519,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPasswordField password;
     private javax.swing.JCheckBox showpass;
     private javax.swing.JButton sip;
+    private javax.swing.JComboBox<String> sq;
     private javax.swing.JTextField uname;
     private javax.swing.JLabel username;
     private javax.swing.JLabel username1;

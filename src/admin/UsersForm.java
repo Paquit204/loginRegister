@@ -339,7 +339,7 @@ public class UsersForm extends javax.swing.JFrame {
               adf.destination = rs.getString("u_image");
                
                
-              adf.u_add.setEnabled(false);
+              adf.a_add.setEnabled(false);
               adf.u_update.setEnabled(true);
               adf.setVisible(true);
               this.dispose();

@@ -2,8 +2,8 @@ package LoginRegister;
 
 
 
-import ForgotPassword.forgotPassword;
-import User.UsersDashboard;
+import Adopters.ForgotPassword;
+import Adopters.UsersDashboard;
 import admin.AdminDashboard;
 import config.Session;
 import config.dbConnect;
@@ -296,7 +296,7 @@ public class Login extends javax.swing.JFrame {
         nv.add(sip, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 90, 40));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LoginImage/logo pet (1) (2).png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo pet (1) (2).png"))); // NOI18N
         nv.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 240, 230));
 
         jLabel2Registration2.setBackground(new java.awt.Color(0, 0, 0));
@@ -382,9 +382,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_psActionPerformed
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-        forgotPassword fp=new forgotPassword ();
-        fp.setVisible(true);
-        this.dispose();
+       ForgotPassword fp = new ForgotPassword();
+       fp.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_usersMouseClicked
 
     private void siginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siginActionPerformed

@@ -7,6 +7,7 @@ package admin;
 
 import static LoginRegister.Register.email;
 import static LoginRegister.Register.usname;
+import Config.Logs;
 import config.dbConnect;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -16,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
@@ -198,7 +200,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         u_cancel = new javax.swing.JButton();
         u_delete = new javax.swing.JButton();
         u_update = new javax.swing.JButton();
-        u_add = new javax.swing.JButton();
+        a_add = new javax.swing.JButton();
         header9 = new javax.swing.JPanel();
         em = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
@@ -305,16 +307,16 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         });
         header6.add(u_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 110, 40));
 
-        u_add.setBackground(new java.awt.Color(0, 153, 153));
-        u_add.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        u_add.setForeground(new java.awt.Color(255, 255, 255));
-        u_add.setText("ADD");
-        u_add.addActionListener(new java.awt.event.ActionListener() {
+        a_add.setBackground(new java.awt.Color(0, 153, 153));
+        a_add.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        a_add.setForeground(new java.awt.Color(255, 255, 255));
+        a_add.setText("ADD");
+        a_add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                u_addActionPerformed(evt);
+                a_addActionPerformed(evt);
             }
         });
-        header6.add(u_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 110, 40));
+        header6.add(a_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 110, 40));
 
         header4.add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 130, 410));
 
@@ -624,75 +626,77 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         // TODO add your handling code here:
     }//GEN-LAST:event_u_refreshActionPerformed
 
-    private void u_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_addActionPerformed
+    private void a_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a_addActionPerformed
 
-        dbConnect dbc=new dbConnect();
+        dbConnect conf=new dbConnect();
 
-        if
+       
+        if(fname.getText().isEmpty()
+                || lname.getText().isEmpty()
+                || em.getText().isEmpty()
+                || uname.getText().isEmpty()
+                || password.getText().isEmpty()
+                || nu.getText().isEmpty()) {
 
-        (fname.getText().isEmpty() || lname.getText().isEmpty()
-            || em.getText().isEmpty()
-            || utype.getSelectedIndex()==0
-            || uname.getText().isEmpty()
-            || nu.getText().isEmpty()
-            || password.getText().isEmpty() ){
-            JOptionPane.showMessageDialog(null,"All fields are required!");
 
-            return ;
+            JOptionPane.showMessageDialog(null, "All Fields are Required!");
+            return;
+        }
 
-        }else if (password.getText().length()< 8){
-            JOptionPane.showMessageDialog(null," Password should contain atleast 8 character above!");
+        if(password.getText().length() < 8) {
             password.setText("");
-            return;}
-    
-        String email = this.em.getText();
-        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
-        Pattern patternEmail = Pattern.compile(emailRegex);
-        Matcher matcherEmail = patternEmail.matcher(email);
 
-        if (!matcherEmail.matches()) {
+            JOptionPane.showMessageDialog(null, "Password Must be longer than 8!");
+            return;
+        }
+
+        String emailss = this.em.getText();
+        String emailRegexs = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        Pattern patternEmails = Pattern.compile(emailRegexs);
+        Matcher matcherEmails = patternEmails.matcher(emailss);
+
+        if (!matcherEmails.matches()) {
+
             JOptionPane.showMessageDialog(this, "Invalid email format. Please use a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
             this.em.setText("");
             this.em.requestFocus();
-
+            return;
         }
 
-        else if(duplicateCheck()){
+        
+
+        if (duplicateCheck()) {
+
             System.out.println("Duplicate Exist!");
-
+            return;
         }
+  
+     int results = conf.insertData("INSERT INTO accounts (firstname, lastname, type, email, username, password, contact, status, u_image) "
+        + "VALUES ('"+fname.getText()+"', '"+lname.getText()+"', '"
+        + utype.getSelectedItem() + "', '" + em.getText() + "', '" + uname.getText() + "', '"
+        + password.getText() + "', '" + nu.getText() + "', '" + ustatus.getSelectedItem() + "', '" + destination + "')");
+     
+     
+     
+        if (results == 1) {
+            try {
+                Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
 
-        else if (dbc. insertData("INSERT INTO accounts(firstname, lastname, email, type, username, password,contact, status,u_image) "
-                
-            + "VALUES('"+fname.getText()+"',"
-            + "'"+lname.getText()+"',"
-            + "'"+this.em.getText()+"',"
-            + "'"+utype.getSelectedItem()+"',"
-            + "'"+uname.getText()+"',"
-            + "'"+ password.getText()+"',"
-            + "'"+nu.getText()+"',"
-            + "'"+ustatus.getSelectedItem()+"','"+destination+"')") ==1)
-            
-            
 
-            
-    {
-        try{
-            Files.copy(selectedFile.toPath(),new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING );
+                Logs.logFunctionCall("Admin Registered a user succesfully" + fname);
+                JOptionPane.showMessageDialog(null, "Registered Successfully!");
+                UsersForm login = new UsersForm();
+                login.setVisible(true);
+                this.dispose();
 
-            JOptionPane.showMessageDialog(null, " User Succesfully Added");
-            UsersForm uf= new UsersForm();
-            uf.setVisible(true);
-            this.dispose();
-
-        }catch(IOException ex){
-            System.out.println("Connection Error! "+ ex );
-        }
-
+            } catch (IOException ex) {
+                Logs.logFunctionCall("File Copy Error");
+                System.out.println("Insert Error: " + ex);
+            }
         } else {
-            JOptionPane.showMessageDialog(null,"Connection error!!");
+            Logs.logFunctionCall("a_addActionPerformed- Insert Failed");
         }
-    }//GEN-LAST:event_u_addActionPerformed
+    }//GEN-LAST:event_a_addActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
 
@@ -736,6 +740,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel User_status;
+    public javax.swing.JButton a_add;
     public javax.swing.JTextField em;
     private javax.swing.JLabel firstname;
     public javax.swing.JTextField fname;
@@ -753,7 +758,6 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
     public javax.swing.JPasswordField password;
     public javax.swing.JButton remove;
     public javax.swing.JButton select;
-    public javax.swing.JButton u_add;
     private javax.swing.JButton u_cancel;
     private javax.swing.JButton u_clear;
     private javax.swing.JButton u_delete;

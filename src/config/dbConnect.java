@@ -18,8 +18,12 @@ import javax.swing.JOptionPane;
  * @author CYBER SECURITY
  */
 public class dbConnect {
-    
+          
     private Connection connect;
+             public Connection getConnection() {
+        return connect;
+    }
+       
        // constructor to connect to our database
         public dbConnect(){
             try{

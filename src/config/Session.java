@@ -19,11 +19,42 @@ public class Session {
     private String username;
     private String status;     
     private String contact;
+        private String password;
+            private String sq;
+            private String ans;
+    
     
     private Session(){
      // privatecon. prevent instance
         
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSq() {
+        return sq;
+    }
+
+    public void setSq(String sq) {
+        this.sq = sq;
+    }
+
+    public String getAns() {
+        return ans;
+    }
+
+    public void setAns(String ans) {
+        this.ans = ans;
+    }
+    
+    
+    
     public static synchronized Session getInstance() {
         if (instance == null){
             instance = new Session();
