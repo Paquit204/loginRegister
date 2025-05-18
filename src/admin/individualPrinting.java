@@ -75,10 +75,10 @@ public class individualPrinting extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        header8.setBackground(new java.awt.Color(0, 12, 102));
+        header8.setBackground(new java.awt.Color(255, 255, 255));
         header8.setLayout(null);
 
-        header7.setBackground(new java.awt.Color(126, 200, 227));
+        header7.setBackground(new java.awt.Color(80, 101, 91));
         header7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -101,7 +101,7 @@ public class individualPrinting extends javax.swing.JFrame {
         header8.add(header7);
         header7.setBounds(0, 0, 560, 50);
 
-        page.setBackground(new java.awt.Color(0, 153, 255));
+        page.setBackground(new java.awt.Color(80, 101, 91));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));

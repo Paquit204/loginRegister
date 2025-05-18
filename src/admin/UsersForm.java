@@ -36,8 +36,8 @@ public class UsersForm extends javax.swing.JFrame {
     
       
                   
-       Color nc=new Color( 0,0,153);
-       Color hc=new Color(77,85,204);
+       Color nc=new Color( 83,203,209);
+       Color hc=new Color(0,0,51);
        
         void displayData(){
         try{
@@ -79,7 +79,6 @@ public class UsersForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         p_add = new javax.swing.JPanel();
         U_id1 = new javax.swing.JLabel();
-        U_id2 = new javax.swing.JLabel();
         print = new javax.swing.JPanel();
         U_id4 = new javax.swing.JLabel();
         edit = new javax.swing.JPanel();
@@ -97,7 +96,7 @@ public class UsersForm extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        Uback.setBackground(new java.awt.Color(5, 92, 147));
+        Uback.setBackground(new java.awt.Color(83, 203, 209));
         Uback.setForeground(new java.awt.Color(5, 92, 157));
         Uback.setPreferredSize(new java.awt.Dimension(760, 60));
         Uback.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,7 +109,7 @@ public class UsersForm extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        Uback.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 60, 60));
+        Uback.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 60, 60));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 0));
@@ -118,9 +117,9 @@ public class UsersForm extends javax.swing.JFrame {
         Uback.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 170, 60));
 
         getContentPane().add(Uback);
-        Uback.setBounds(0, 0, 760, 60);
+        Uback.setBounds(0, 0, 730, 60);
 
-        body.setBackground(new java.awt.Color(0, 51, 102));
+        body.setBackground(new java.awt.Color(0, 0, 51));
         body.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -137,9 +136,9 @@ public class UsersForm extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(usersTable);
 
-        body.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 590, 400));
+        body.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 560, 280));
 
-        header6.setBackground(new java.awt.Color(77, 85, 204));
+        header6.setBackground(new java.awt.Color(0, 0, 51));
         header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         U_id.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -152,14 +151,14 @@ public class UsersForm extends javax.swing.JFrame {
                 U_idMouseClicked(evt);
             }
         });
-        header6.add(U_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 130, 40));
+        header6.add(U_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 130, 40));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user-removebg-preview (1).png"))); // NOI18N
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 100));
+        header6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 130, 100));
 
-        p_add.setBackground(new java.awt.Color(77, 85, 204));
+        p_add.setBackground(new java.awt.Color(0, 0, 51));
         p_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 p_addMouseClicked(evt);
@@ -185,21 +184,9 @@ public class UsersForm extends javax.swing.JFrame {
         });
         p_add.add(U_id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 80, 10));
 
-        header6.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 130, 30));
+        header6.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 130, 30));
 
-        U_id2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        U_id2.setForeground(new java.awt.Color(255, 255, 255));
-        U_id2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        U_id2.setText("Current User ID");
-        U_id2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        U_id2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                U_id2MouseClicked(evt);
-            }
-        });
-        header6.add(U_id2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 40));
-
-        print.setBackground(new java.awt.Color(77, 85, 204));
+        print.setBackground(new java.awt.Color(0, 0, 51));
         print.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 printMouseClicked(evt);
@@ -225,9 +212,9 @@ public class UsersForm extends javax.swing.JFrame {
         });
         print.add(U_id4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 50, 10));
 
-        header6.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 130, 30));
+        header6.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 130, 30));
 
-        edit.setBackground(new java.awt.Color(77, 85, 204));
+        edit.setBackground(new java.awt.Color(0, 0, 51));
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editMouseClicked(evt);
@@ -253,19 +240,19 @@ public class UsersForm extends javax.swing.JFrame {
         });
         edit.add(U_id3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 80, 10));
 
-        header6.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 130, 30));
+        header6.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 130, 30));
 
-        body.add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 420));
+        body.add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 150, 280));
 
         getContentPane().add(body);
-        body.setBounds(0, 60, 760, 420);
+        body.setBounds(0, 60, 730, 310);
 
         header1.setBackground(new java.awt.Color(204, 204, 204));
         header1.setLayout(null);
         getContentPane().add(header1);
         header1.setBounds(0, 0, 760, 50);
 
-        setSize(new java.awt.Dimension(770, 520));
+        setSize(new java.awt.Dimension(742, 409));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -309,10 +296,6 @@ public class UsersForm extends javax.swing.JFrame {
         p_add.setBackground(hc);
     }//GEN-LAST:event_p_addMouseExited
 
-    private void U_id2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_U_id2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_U_id2MouseClicked
-
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
         
         AddUsersForm adf=new   AddUsersForm ();
@@ -333,13 +316,14 @@ public class UsersForm extends javax.swing.JFrame {
            if(rowIndex < 0){
                JOptionPane.showMessageDialog(null,"Please Select Item!");
            }else{
-               
+                    TableModel model= usersTable.getModel();
+                      AddUsersForm adf = new AddUsersForm();
                try{
                dbConnect dbc = new dbConnect();
                  TableModel tbl= usersTable.getModel();
               ResultSet rs=dbc.getData("SELECT * FROM accounts WHERE a_id ='"+tbl.getValueAt(rowIndex, 0)+"'"); 
             if(rs.next()){  
-                 AddUsersForm adf = new AddUsersForm();
+                  
               adf.u_id.setText(""+rs.getInt("a_id"));
               adf.fname.setText(""+rs.getString("firstname"));
               adf.lname.setText(""+rs.getString("lastname"));
@@ -467,7 +451,6 @@ public class UsersForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel U_id;
     private javax.swing.JLabel U_id1;
-    private javax.swing.JLabel U_id2;
     private javax.swing.JLabel U_id3;
     private javax.swing.JLabel U_id4;
     private javax.swing.JPanel Uback;

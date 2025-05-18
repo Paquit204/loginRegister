@@ -30,7 +30,7 @@ public class AdminDashboard extends javax.swing.JFrame {
       
     }       
          
-        Color nc=new Color( 0,204,204);
+        Color nc=new Color( 80,101,91);
        Color hc=new Color(28,155,143);
      
 
@@ -49,8 +49,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         logout = new javax.swing.JPanel();
         users1 = new javax.swing.JLabel();
         header2 = new javax.swing.JPanel();
-        Contact = new javax.swing.JPanel();
-        a_request2 = new javax.swing.JLabel();
         Report = new javax.swing.JPanel();
         a_request1 = new javax.swing.JLabel();
         Request = new javax.swing.JPanel();
@@ -65,7 +63,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         header9 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         header12 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        pet = new javax.swing.JLabel();
         header11 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -133,41 +131,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         header2.setBackground(new java.awt.Color(28, 155, 142));
         header2.setLayout(null);
 
-        Contact.setBackground(new java.awt.Color(28, 155, 142));
-        Contact.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ContactMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ContactMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ContactMouseExited(evt);
-            }
-        });
-        Contact.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        a_request2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        a_request2.setForeground(new java.awt.Color(255, 255, 255));
-        a_request2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        a_request2.setText("CONTACT");
-        a_request2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        a_request2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                a_request2MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                a_request2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                a_request2MouseExited(evt);
-            }
-        });
-        Contact.add(a_request2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 120, -1));
-
-        header2.add(Contact);
-        Contact.setBounds(0, 320, 170, 40);
-
         Report.setBackground(new java.awt.Color(28, 155, 142));
         Report.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -201,7 +164,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         Report.add(a_request1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 120, -1));
 
         header2.add(Report);
-        Report.setBounds(0, 260, 170, 40);
+        Report.setBounds(0, 370, 170, 50);
 
         Request.setBackground(new java.awt.Color(28, 155, 142));
         Request.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -236,7 +199,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         Request.add(a_request, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, 20));
 
         header2.add(Request);
-        Request.setBounds(0, 200, 170, 40);
+        Request.setBounds(0, 240, 170, 50);
 
         addoption.setBackground(new java.awt.Color(28, 155, 142));
         addoption.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -271,7 +234,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         addoption.add(adoption, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, -1));
 
         header2.add(addoption);
-        addoption.setBounds(0, 150, 170, 40);
+        addoption.setBounds(0, 190, 170, 50);
 
         p_add.setBackground(new java.awt.Color(28, 155, 142));
         p_add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -300,7 +263,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         p_add.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 20));
 
         header2.add(p_add);
-        p_add.setBounds(0, 90, 170, 40);
+        p_add.setBounds(0, 140, 170, 50);
 
         getContentPane().add(header2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 170, 420));
 
@@ -324,16 +287,22 @@ public class AdminDashboard extends javax.swing.JFrame {
         header12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         header9.add(header12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 10));
 
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("PET ");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        pet.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        pet.setForeground(new java.awt.Color(255, 255, 255));
+        pet.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pet.setText("PET ");
+        pet.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
+                petMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                petMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                petMouseExited(evt);
             }
         });
-        header9.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 170, 50));
+        header9.add(pet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 170, 50));
 
         header5.add(header9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 170, 200));
 
@@ -562,44 +531,20 @@ public class AdminDashboard extends javax.swing.JFrame {
           logout.setBackground(nc);
     }//GEN-LAST:event_logoutMouseExited
 
-    private void a_request2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_request2MouseClicked
-
-    private void a_request2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request2MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_request2MouseEntered
-
-    private void a_request2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request2MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_request2MouseExited
-
-    private void ContactMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContactMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ContactMouseClicked
-
-    private void ContactMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContactMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ContactMouseEntered
-
-    private void ContactMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContactMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ContactMouseExited
-
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
          petForm pf = new petForm();
          pf.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+    private void petMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_petMouseClicked
 
         petForm pf = new petForm();
                 pf.setVisible(true);
                 this.dispose();
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel8MouseClicked
+    }//GEN-LAST:event_petMouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
   
@@ -608,6 +553,14 @@ public class AdminDashboard extends javax.swing.JFrame {
                this.dispose();
               // TODO add your handling code here:
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void petMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_petMouseEntered
+          pet.setBackground(hc);
+    }//GEN-LAST:event_petMouseEntered
+       
+    private void petMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_petMouseExited
+          pet.setBackground(nc);
+    }//GEN-LAST:event_petMouseExited
         
     /**
      * @param args the command line arguments
@@ -648,12 +601,10 @@ public class AdminDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel Acc_fname;
     public javax.swing.JLabel Acc_lname;
-    private javax.swing.JPanel Contact;
     private javax.swing.JPanel Report;
     private javax.swing.JPanel Request;
     public javax.swing.JLabel a_request;
     public javax.swing.JLabel a_request1;
-    public javax.swing.JLabel a_request2;
     private javax.swing.JPanel addoption;
     public javax.swing.JLabel adoption;
     private javax.swing.JPanel body;
@@ -676,11 +627,11 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel logout;
     private javax.swing.JPanel p_add;
+    private javax.swing.JLabel pet;
     private javax.swing.JLabel users;
     private javax.swing.JLabel users1;
     // End of variables declaration//GEN-END:variables

@@ -71,7 +71,7 @@ public class Register extends javax.swing.JFrame {
 
         nv = new javax.swing.JPanel();
         jLabel2Registration1 = new javax.swing.JLabel();
-        cancel = new javax.swing.JButton();
+        sip = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel2Registration2 = new javax.swing.JLabel();
         Unavbar = new javax.swing.JPanel();
@@ -119,16 +119,24 @@ public class Register extends javax.swing.JFrame {
         });
         nv.add(jLabel2Registration1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 250, 70));
 
-        cancel.setBackground(new java.awt.Color(0, 255, 255));
-        cancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cancel.setForeground(new java.awt.Color(255, 255, 255));
-        cancel.setText("Sign in");
-        cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelActionPerformed(evt);
+        sip.setBackground(new java.awt.Color(0, 255, 255));
+        sip.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        sip.setForeground(new java.awt.Color(255, 255, 255));
+        sip.setText("Sign in");
+        sip.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sipMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sipMouseExited(evt);
             }
         });
-        nv.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 100, 40));
+        sip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sipActionPerformed(evt);
+            }
+        });
+        nv.add(sip, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 100, 40));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LoginImage/logo pet (1) (2).png"))); // NOI18N
@@ -175,8 +183,14 @@ public class Register extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RegisterMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RegisterMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RegisterMouseExited(evt);
+            }
         });
-        Unavbar.add(Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 100, 40));
+        Unavbar.add(Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 100, 40));
 
         username.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -253,11 +267,11 @@ public class Register extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cancelMouseClicked
 
-    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+    private void sipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sipActionPerformed
         Login lg = new Login();
         lg.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_cancelActionPerformed
+    }//GEN-LAST:event_sipActionPerformed
 
     private void login1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login1ActionPerformed
 
@@ -389,6 +403,26 @@ public class Register extends javax.swing.JFrame {
     private void jLabel2Registration2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2Registration2MouseClicked
 
     }//GEN-LAST:event_jLabel2Registration2MouseClicked
+
+    private void sipMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sipMouseEntered
+ 
+      sip.setBackground(hc);
+        
+    }//GEN-LAST:event_sipMouseEntered
+
+    private void sipMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sipMouseExited
+
+
+         sip.setBackground(nc);
+    }//GEN-LAST:event_sipMouseExited
+
+    private void RegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterMouseEntered
+         Register.setBackground(nc);
+    }//GEN-LAST:event_RegisterMouseEntered
+
+    private void RegisterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterMouseExited
+        Register.setBackground(hc);
+    }//GEN-LAST:event_RegisterMouseExited
     
     /**
      * @param args the command line arguments
@@ -432,7 +466,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JButton Register;
     private javax.swing.JLabel ULform1;
     private javax.swing.JPanel Unavbar;
-    private javax.swing.JButton cancel;
     private javax.swing.JTextField em;
     private javax.swing.JLabel firstname;
     private javax.swing.JTextField fname;
@@ -447,6 +480,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel nv;
     private javax.swing.JPasswordField password;
     private javax.swing.JCheckBox showpass;
+    private javax.swing.JButton sip;
     private javax.swing.JTextField uname;
     private javax.swing.JLabel username;
     private javax.swing.JLabel username1;

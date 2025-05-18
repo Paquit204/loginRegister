@@ -38,11 +38,6 @@ public class changePass extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        header2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        Acc_lname = new javax.swing.JLabel();
-        Acc_fname = new javax.swing.JLabel();
-        u_id = new javax.swing.JLabel();
         header6 = new javax.swing.JPanel();
         Unavbar = new javax.swing.JPanel();
         confirmpass = new javax.swing.JTextField();
@@ -57,6 +52,10 @@ public class changePass extends javax.swing.JFrame {
         back = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        u_id = new javax.swing.JLabel();
+        Acc_fname = new javax.swing.JLabel();
+        Acc_lname = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -66,37 +65,7 @@ public class changePass extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        header2.setBackground(new java.awt.Color(0, 48, 96));
-        header2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user-removebg-preview (1).png"))); // NOI18N
-        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 110));
-
-        Acc_lname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Acc_lname.setForeground(new java.awt.Color(255, 255, 255));
-        Acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Acc_lname.setText("LastName:");
-        Acc_lname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 140, 40));
-
-        Acc_fname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Acc_fname.setForeground(new java.awt.Color(255, 255, 255));
-        Acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Acc_fname.setText("FirstName:");
-        Acc_fname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header2.add(Acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 140, 40));
-
-        u_id.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        u_id.setForeground(new java.awt.Color(255, 255, 255));
-        u_id.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        u_id.setText("User ID:");
-        header2.add(u_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 80, 60));
-
-        getContentPane().add(header2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 180, 420));
-
-        header6.setBackground(new java.awt.Color(153, 153, 153));
+        header6.setBackground(new java.awt.Color(102, 102, 255));
         header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Unavbar.setBackground(new java.awt.Color(0,0,0,60));
@@ -112,7 +81,6 @@ public class changePass extends javax.swing.JFrame {
         Unavbar.add(confirmpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 230, -1));
 
         username1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        username1.setForeground(new java.awt.Color(255, 255, 255));
         username1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username1.setText("Enter New Pass:");
         Unavbar.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 120, -1));
@@ -126,7 +94,6 @@ public class changePass extends javax.swing.JFrame {
         Unavbar.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 230, -1));
 
         firstname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        firstname.setForeground(new java.awt.Color(255, 255, 255));
         firstname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         firstname.setText("Type Old Pass:");
         Unavbar.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 130, -1));
@@ -140,7 +107,6 @@ public class changePass extends javax.swing.JFrame {
         Unavbar.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 230, -1));
 
         lastname1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lastname1.setForeground(new java.awt.Color(255, 255, 255));
         lastname1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lastname1.setText("Confirm Pass:");
         Unavbar.add(lastname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 110, -1));
@@ -193,7 +159,7 @@ public class changePass extends javax.swing.JFrame {
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Unavbar.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 250, 60));
 
-        header6.add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 550, 290));
+        header6.add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 540, 340));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,9 +171,34 @@ public class changePass extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        header6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 110, 70));
+        header6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 110, 50));
 
-        getContentPane().add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 480));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user-removebg-preview (1).png"))); // NOI18N
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 200, 120));
+
+        u_id.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        u_id.setForeground(new java.awt.Color(255, 255, 255));
+        u_id.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        u_id.setText("User ID:");
+        header6.add(u_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 80, 60));
+
+        Acc_fname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Acc_fname.setForeground(new java.awt.Color(255, 255, 255));
+        Acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Acc_fname.setText("FirstName:");
+        Acc_fname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header6.add(Acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 140, 40));
+
+        Acc_lname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Acc_lname.setForeground(new java.awt.Color(255, 255, 255));
+        Acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Acc_lname.setText("LastName:");
+        Acc_lname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header6.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 140, 40));
+
+        getContentPane().add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 420));
 
         pack();
         setLocationRelativeTo(null);
@@ -335,16 +326,15 @@ public class changePass extends javax.swing.JFrame {
     private javax.swing.JPanel Unavbar;
     private javax.swing.JLabel back;
     private javax.swing.JPanel backs;
-    private javax.swing.JTextField confirmpass;
+    public javax.swing.JTextField confirmpass;
     private javax.swing.JLabel firstname;
-    private javax.swing.JPanel header2;
     private javax.swing.JPanel header6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lastname1;
-    private javax.swing.JTextField newpass;
-    private javax.swing.JTextField oldpass;
+    public javax.swing.JTextField newpass;
+    public javax.swing.JTextField oldpass;
     private javax.swing.JPanel save;
     private javax.swing.JLabel save2;
     private javax.swing.JLabel u_id;

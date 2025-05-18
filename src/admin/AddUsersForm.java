@@ -192,18 +192,13 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         image = new javax.swing.JLabel();
         header7 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        u_add = new javax.swing.JButton();
-        u_update = new javax.swing.JButton();
-        u_delete = new javax.swing.JButton();
-        u_cancel = new javax.swing.JButton();
-        u_clear = new javax.swing.JButton();
         header6 = new javax.swing.JPanel();
         u_refresh = new javax.swing.JButton();
-        username = new javax.swing.JLabel();
-        User_status = new javax.swing.JLabel();
-        ustatus = new javax.swing.JComboBox<>();
-        usertype = new javax.swing.JLabel();
-        utype = new javax.swing.JComboBox<>();
+        u_clear = new javax.swing.JButton();
+        u_cancel = new javax.swing.JButton();
+        u_delete = new javax.swing.JButton();
+        u_update = new javax.swing.JButton();
+        u_add = new javax.swing.JButton();
         header9 = new javax.swing.JPanel();
         em = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
@@ -218,23 +213,28 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         username2 = new javax.swing.JLabel();
         u_id = new javax.swing.JTextField();
         uid = new javax.swing.JLabel();
+        ustatus = new javax.swing.JComboBox<>();
+        utype = new javax.swing.JComboBox<>();
+        username = new javax.swing.JLabel();
+        User_status = new javax.swing.JLabel();
+        usertype = new javax.swing.JLabel();
         remove = new javax.swing.JButton();
         select = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        header4.setBackground(new java.awt.Color(5, 10, 48));
+        header4.setBackground(new java.awt.Color(0, 0, 51));
         header4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        header8.setBackground(new java.awt.Color(0, 12, 102));
+        header8.setBackground(new java.awt.Color(0,0,0,60));
         header8.setLayout(null);
         header8.add(image);
         image.setBounds(10, 10, 270, 290);
 
         header4.add(header8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 290, 310));
 
-        header7.setBackground(new java.awt.Color(126, 200, 227));
+        header7.setBackground(new java.awt.Color(0, 102, 102));
         header7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -246,18 +246,54 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
 
         header4.add(header7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 50));
 
-        u_add.setBackground(new java.awt.Color(0, 204, 255));
-        u_add.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        u_add.setForeground(new java.awt.Color(255, 255, 255));
-        u_add.setText("ADD");
-        u_add.addActionListener(new java.awt.event.ActionListener() {
+        header6.setBackground(new java.awt.Color(0,0,0,60));
+        header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        u_refresh.setBackground(new java.awt.Color(0, 153, 153));
+        u_refresh.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        u_refresh.setForeground(new java.awt.Color(255, 255, 255));
+        u_refresh.setText("REFRESH");
+        u_refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                u_addActionPerformed(evt);
+                u_refreshActionPerformed(evt);
             }
         });
-        header4.add(u_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 110, 40));
+        header6.add(u_refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 110, 40));
 
-        u_update.setBackground(new java.awt.Color(0, 204, 255));
+        u_clear.setBackground(new java.awt.Color(0, 153, 153));
+        u_clear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        u_clear.setForeground(new java.awt.Color(255, 255, 255));
+        u_clear.setText("CLEAR");
+        u_clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                u_clearActionPerformed(evt);
+            }
+        });
+        header6.add(u_clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 110, 40));
+
+        u_cancel.setBackground(new java.awt.Color(0, 153, 153));
+        u_cancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        u_cancel.setForeground(new java.awt.Color(255, 255, 255));
+        u_cancel.setText("CANCEl");
+        u_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                u_cancelActionPerformed(evt);
+            }
+        });
+        header6.add(u_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 110, 40));
+
+        u_delete.setBackground(new java.awt.Color(0, 153, 153));
+        u_delete.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        u_delete.setForeground(new java.awt.Color(255, 255, 255));
+        u_delete.setText("DELETE");
+        u_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                u_deleteActionPerformed(evt);
+            }
+        });
+        header6.add(u_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 110, 40));
+
+        u_update.setBackground(new java.awt.Color(0, 153, 153));
         u_update.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         u_update.setForeground(new java.awt.Color(255, 255, 255));
         u_update.setText("UPDATE");
@@ -267,86 +303,22 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
                 u_updateActionPerformed(evt);
             }
         });
-        header4.add(u_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 110, 40));
+        header6.add(u_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 110, 40));
 
-        u_delete.setBackground(new java.awt.Color(0, 204, 255));
-        u_delete.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        u_delete.setForeground(new java.awt.Color(255, 255, 255));
-        u_delete.setText("DELETE");
-        u_delete.addActionListener(new java.awt.event.ActionListener() {
+        u_add.setBackground(new java.awt.Color(0, 153, 153));
+        u_add.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        u_add.setForeground(new java.awt.Color(255, 255, 255));
+        u_add.setText("ADD");
+        u_add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                u_deleteActionPerformed(evt);
+                u_addActionPerformed(evt);
             }
         });
-        header4.add(u_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 197, 110, 40));
+        header6.add(u_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 110, 40));
 
-        u_cancel.setBackground(new java.awt.Color(0, 204, 255));
-        u_cancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        u_cancel.setForeground(new java.awt.Color(255, 255, 255));
-        u_cancel.setText("CANCEl");
-        u_cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                u_cancelActionPerformed(evt);
-            }
-        });
-        header4.add(u_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 247, 110, 40));
+        header4.add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 130, 410));
 
-        u_clear.setBackground(new java.awt.Color(0, 204, 255));
-        u_clear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        u_clear.setForeground(new java.awt.Color(255, 255, 255));
-        u_clear.setText("CLEAR");
-        u_clear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                u_clearActionPerformed(evt);
-            }
-        });
-        header4.add(u_clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 297, 110, 40));
-
-        header6.setBackground(new java.awt.Color(0, 12, 102));
-        header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        u_refresh.setBackground(new java.awt.Color(0, 204, 255));
-        u_refresh.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        u_refresh.setForeground(new java.awt.Color(255, 255, 255));
-        u_refresh.setText("REFRESH");
-        u_refresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                u_refreshActionPerformed(evt);
-            }
-        });
-        header6.add(u_refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 110, 40));
-
-        header4.add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 120, 410));
-
-        username.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        username.setForeground(new java.awt.Color(255, 255, 255));
-        username.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        username.setText("Password:");
-        header4.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 90, 30));
-
-        User_status.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        User_status.setForeground(new java.awt.Color(255, 255, 255));
-        User_status.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        User_status.setText("User Status:");
-        header4.add(User_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 120, 30));
-
-        ustatus.setBackground(new java.awt.Color(204, 204, 204));
-        ustatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ustatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
-        header4.add(ustatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 180, 30));
-
-        usertype.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        usertype.setForeground(new java.awt.Color(255, 255, 255));
-        usertype.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        usertype.setText("UserType:");
-        header4.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 100, 30));
-
-        utype.setBackground(new java.awt.Color(204, 204, 204));
-        utype.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        utype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select UserType", "User", "Admin" }));
-        header4.add(utype, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 180, 30));
-
-        header9.setBackground(new java.awt.Color(126, 200, 227));
+        header9.setBackground(new java.awt.Color(0,0,0,60));
         header9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         em.setBackground(new java.awt.Color(204, 204, 204));
@@ -355,7 +327,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
                 emActionPerformed(evt);
             }
         });
-        header9.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 180, 30));
+        header9.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 180, 30));
 
         password.setBackground(new java.awt.Color(204, 204, 204));
         password.addActionListener(new java.awt.event.ActionListener() {
@@ -363,7 +335,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
                 passwordActionPerformed(evt);
             }
         });
-        header9.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, 30));
+        header9.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 180, 30));
 
         firstname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         firstname.setForeground(new java.awt.Color(255, 255, 255));
@@ -377,7 +349,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
                 fnameActionPerformed(evt);
             }
         });
-        header9.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 180, 30));
+        header9.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 180, 30));
 
         lname.setBackground(new java.awt.Color(204, 204, 204));
         lname.addActionListener(new java.awt.event.ActionListener() {
@@ -385,7 +357,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
                 lnameActionPerformed(evt);
             }
         });
-        header9.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 180, 30));
+        header9.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 180, 30));
 
         lastname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lastname.setForeground(new java.awt.Color(255, 255, 255));
@@ -405,7 +377,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
                 unameActionPerformed(evt);
             }
         });
-        header9.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 180, 30));
+        header9.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 180, 30));
 
         username1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         username1.setForeground(new java.awt.Color(255, 255, 255));
@@ -419,7 +391,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
                 nuActionPerformed(evt);
             }
         });
-        header9.add(nu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 180, 30));
+        header9.add(nu, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 180, 30));
 
         username2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         username2.setForeground(new java.awt.Color(255, 255, 255));
@@ -434,7 +406,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
                 u_idActionPerformed(evt);
             }
         });
-        header9.add(u_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 180, 30));
+        header9.add(u_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 180, 30));
 
         uid.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         uid.setForeground(new java.awt.Color(255, 255, 255));
@@ -442,9 +414,37 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         uid.setText("User ID:");
         header9.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 30));
 
-        header4.add(header9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 320, 390));
+        ustatus.setBackground(new java.awt.Color(204, 204, 204));
+        ustatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ustatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
+        header9.add(ustatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 180, 30));
 
-        remove.setBackground(new java.awt.Color(0, 204, 255));
+        utype.setBackground(new java.awt.Color(204, 204, 204));
+        utype.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        utype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select UserType", "User", "Admin" }));
+        header9.add(utype, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 180, 30));
+
+        username.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        username.setForeground(new java.awt.Color(255, 255, 255));
+        username.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        username.setText("Password:");
+        header9.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 90, 30));
+
+        User_status.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        User_status.setForeground(new java.awt.Color(255, 255, 255));
+        User_status.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        User_status.setText("User Status:");
+        header9.add(User_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 120, 30));
+
+        usertype.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        usertype.setForeground(new java.awt.Color(255, 255, 255));
+        usertype.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        usertype.setText("UserType:");
+        header9.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 100, 30));
+
+        header4.add(header9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 320, 390));
+
+        remove.setBackground(new java.awt.Color(0, 153, 153));
         remove.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         remove.setForeground(new java.awt.Color(255, 255, 255));
         remove.setText("REMOVE");
@@ -455,7 +455,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         });
         header4.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, 110, 40));
 
-        select.setBackground(new java.awt.Color(0, 204, 255));
+        select.setBackground(new java.awt.Color(0, 153, 153));
         select.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         select.setForeground(new java.awt.Color(255, 255, 255));
         select.setText("SELECT");
@@ -477,153 +477,6 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void u_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_addActionPerformed
-
-        dbConnect dbc=new dbConnect();
-
-        if
-
-        (fname.getText().isEmpty() || lname.getText().isEmpty()
-            || em.getText().isEmpty()
-            || utype.getSelectedIndex()==0
-            || uname.getText().isEmpty()
-            || nu.getText().isEmpty()
-            || password.getText().isEmpty() ){
-            JOptionPane.showMessageDialog(null,"All fields are required!");
-
-            return ;
-
-        }else if (password.getText().length()< 8){
-            JOptionPane.showMessageDialog(null," Password should contain atleast 8 character above!");
-            password.setText("");
-            return;}
-
-        String email = this.em.getText();
-        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
-        Pattern patternEmail = Pattern.compile(emailRegex);
-        Matcher matcherEmail = patternEmail.matcher(email);
-
-        if (!matcherEmail.matches()) {
-            JOptionPane.showMessageDialog(this, "Invalid email format. Please use a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-            this.em.setText("");
-            this.em.requestFocus();
-
-        }
-
-        else if(duplicateCheck()){
-            System.out.println("Duplicate Exist!");
-
-        }
-         
-      
-        
-        else if (dbc. insertData("INSERT INTO accounts(firstname, lastname, email, type, username, password,contact, status,u_image) "
-            + "VALUES('"+fname.getText()+"',"
-            + "'"+lname.getText()+"',"
-            + "'"+this.em.getText()+"',"
-            + "'"+utype.getSelectedItem()+"',"
-            + "'"+uname.getText()+"',"
-            + "'"+ password.getText()+"',"
-                     + "'"+nu.getText()+"',"
-                    + "'"+ustatus.getSelectedItem()+"','"+destination+"')") ==1)
-
-    {
-        try{
-        Files.copy(selectedFile.toPath(),new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING );
-       
-        JOptionPane.showMessageDialog(null, " User Succesfully Added");
-        UsersForm uf= new UsersForm();
-        uf.setVisible(true);
-        this.dispose();
-    
-        }catch(IOException ex){
-            System.out.println("Connection Error! "+ ex );
-        }
-        
-        } else {
-            JOptionPane.showMessageDialog(null,"Connection error!!");
-        }
-    }//GEN-LAST:event_u_addActionPerformed
-
-    private void u_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_updateActionPerformed
-
-        if
-
-        (fname.getText().isEmpty() || lname.getText().isEmpty()
-            || em.getText().isEmpty()
-            || utype.getSelectedIndex()==0
-            || uname.getText().isEmpty()
-                 || nu.getText().isEmpty()
-            || password.getText().isEmpty() ){
-            JOptionPane.showMessageDialog(null,"All fields are required!"); //validation for register...
-
-            return ;
-
-        }else if (password.getText().length()< 8){
-            JOptionPane.showMessageDialog(null," Password should contain atleast 8 character above!");
-            password.setText("");
-            return;}
-
-        String email = this.em.getText();
-        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
-        Pattern patternEmail = Pattern.compile(emailRegex);
-        Matcher matcherEmail = patternEmail.matcher(email);
-
-        if (!matcherEmail.matches()) {
-            JOptionPane.showMessageDialog(this, "Invalid email format. Please use a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-            this.em.setText("");
-            this.em.requestFocus();
-
-        }
-
-        else if(updateCheck()){
-            System.out.println("Duplicate Exist!");
-        }else{
-
-            dbConnect dbc = new dbConnect();
-            dbc.updateData("UPDATE accounts SET firstname='"+fname.getText()+"',lastname ='"+lname.getText()+"'"
-                    + ",email ='"+em.getText()+"'"
-                    + ",type ='"+utype.getSelectedItem()+"'"
-                    + ",username ='"+uname.getText()+"'"
-                    + ",contact ='"+nu.getText()+"'"
-                    + ",status ='"+ustatus.getSelectedItem()+"'"
-                    + ",u_image='"+destination+"' WHERE a_id = '"+u_id.getText()+"'  ");
-            
-            if (destination.isEmpty()){
-                File existingFile = new File (oldpath);
-               if(existingFile.exists()){
-                   existingFile.delete();
-               }
-            }else{
-                if(!(oldpath.equals(path))){
-                    imageUpdater(oldpath,path);
-                }
-            }
-
-            UsersForm uf= new UsersForm();
-            uf.setVisible(true);
-            this.dispose();
-        }
-    }//GEN-LAST:event_u_updateActionPerformed
-
-    private void u_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_deleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_u_deleteActionPerformed
-
-    private void u_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_cancelActionPerformed
-        UsersForm uf = new UsersForm();
-        uf.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_u_cancelActionPerformed
-
-    private void u_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_clearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_u_clearActionPerformed
-
-    private void u_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_refreshActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_u_refreshActionPerformed
-
     private void u_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_idActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_u_idActionPerformed
@@ -635,10 +488,6 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
     private void lnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lnameActionPerformed
-
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-
-    }//GEN-LAST:event_passwordActionPerformed
 
     private void emActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emActionPerformed
 
@@ -695,6 +544,159 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         
         
     }//GEN-LAST:event_selectMouseClicked
+
+    private void u_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_updateActionPerformed
+
+        if
+
+        (fname.getText().isEmpty() || lname.getText().isEmpty()
+            || em.getText().isEmpty()
+            || utype.getSelectedIndex()==0
+            || uname.getText().isEmpty()
+            || nu.getText().isEmpty()
+            || password.getText().isEmpty() ){
+            JOptionPane.showMessageDialog(null,"All fields are required!"); //validation for register...
+
+            return ;
+
+        }else if (password.getText().length()< 8){
+            JOptionPane.showMessageDialog(null," Password should contain atleast 8 character above!");
+            password.setText("");
+            return;}
+
+        String email = this.em.getText();
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        Pattern patternEmail = Pattern.compile(emailRegex);
+        Matcher matcherEmail = patternEmail.matcher(email);
+
+        if (!matcherEmail.matches()) {
+            JOptionPane.showMessageDialog(this, "Invalid email format. Please use a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+            this.em.setText("");
+            this.em.requestFocus();
+
+        }
+
+        else if(updateCheck()){
+            System.out.println("Duplicate Exist!");
+        }else{
+
+            dbConnect dbc = new dbConnect();
+            dbc.updateData("UPDATE accounts SET firstname='"+fname.getText()+"',lastname ='"+lname.getText()+"'"
+                + ",email ='"+em.getText()+"'"
+                + ",type ='"+utype.getSelectedItem()+"'"
+                + ",username ='"+uname.getText()+"'"
+                + ",contact ='"+nu.getText()+"'"
+                + ",status ='"+ustatus.getSelectedItem()+"'"
+                + ",u_image='"+destination+"' WHERE a_id = '"+u_id.getText()+"'  ");
+
+            if (destination.isEmpty()){
+                File existingFile = new File (oldpath);
+                if(existingFile.exists()){
+                    existingFile.delete();
+                }
+            }else{
+                if(!(oldpath.equals(path))){
+                    imageUpdater(oldpath,path);
+                }
+            }
+
+            UsersForm uf= new UsersForm();
+            uf.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_u_updateActionPerformed
+
+    private void u_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_deleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_u_deleteActionPerformed
+
+    private void u_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_cancelActionPerformed
+        UsersForm uf = new UsersForm();
+        uf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_u_cancelActionPerformed
+
+    private void u_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_clearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_u_clearActionPerformed
+
+    private void u_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_refreshActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_u_refreshActionPerformed
+
+    private void u_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_addActionPerformed
+
+        dbConnect dbc=new dbConnect();
+
+        if
+
+        (fname.getText().isEmpty() || lname.getText().isEmpty()
+            || em.getText().isEmpty()
+            || utype.getSelectedIndex()==0
+            || uname.getText().isEmpty()
+            || nu.getText().isEmpty()
+            || password.getText().isEmpty() ){
+            JOptionPane.showMessageDialog(null,"All fields are required!");
+
+            return ;
+
+        }else if (password.getText().length()< 8){
+            JOptionPane.showMessageDialog(null," Password should contain atleast 8 character above!");
+            password.setText("");
+            return;}
+    
+        String email = this.em.getText();
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        Pattern patternEmail = Pattern.compile(emailRegex);
+        Matcher matcherEmail = patternEmail.matcher(email);
+
+        if (!matcherEmail.matches()) {
+            JOptionPane.showMessageDialog(this, "Invalid email format. Please use a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+            this.em.setText("");
+            this.em.requestFocus();
+
+        }
+
+        else if(duplicateCheck()){
+            System.out.println("Duplicate Exist!");
+
+        }
+
+        else if (dbc. insertData("INSERT INTO accounts(firstname, lastname, email, type, username, password,contact, status,u_image) "
+                
+            + "VALUES('"+fname.getText()+"',"
+            + "'"+lname.getText()+"',"
+            + "'"+this.em.getText()+"',"
+            + "'"+utype.getSelectedItem()+"',"
+            + "'"+uname.getText()+"',"
+            + "'"+ password.getText()+"',"
+            + "'"+nu.getText()+"',"
+            + "'"+ustatus.getSelectedItem()+"','"+destination+"')") ==1)
+            
+            
+
+            
+    {
+        try{
+            Files.copy(selectedFile.toPath(),new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING );
+
+            JOptionPane.showMessageDialog(null, " User Succesfully Added");
+            UsersForm uf= new UsersForm();
+            uf.setVisible(true);
+            this.dispose();
+
+        }catch(IOException ex){
+            System.out.println("Connection Error! "+ ex );
+        }
+
+        } else {
+            JOptionPane.showMessageDialog(null,"Connection error!!");
+        }
+    }//GEN-LAST:event_u_addActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+
+    }//GEN-LAST:event_passwordActionPerformed
 
     /**
      * @param args the command line arguments

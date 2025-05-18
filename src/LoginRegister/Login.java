@@ -100,7 +100,7 @@ public class Login extends javax.swing.JFrame {
         users = new javax.swing.JLabel();
         showpass = new javax.swing.JCheckBox();
         jLabel2Registration = new javax.swing.JLabel();
-        login = new javax.swing.JButton();
+        sigin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -143,7 +143,7 @@ public class Login extends javax.swing.JFrame {
         hv.setLayout(null);
 
         ULform1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        ULform1.setForeground(new java.awt.Color(0, 153, 204));
+        ULform1.setForeground(new java.awt.Color(0, 204, 204));
         ULform1.setText("LOGIN ");
         ULform1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         hv.add(ULform1);
@@ -215,16 +215,24 @@ public class Login extends javax.swing.JFrame {
         hv.add(jLabel2Registration);
         jLabel2Registration.setBounds(10, 400, 150, 30);
 
-        login.setBackground(new java.awt.Color(0, 204, 255));
-        login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        login.setText("Sign in");
-        login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
+        sigin.setBackground(new java.awt.Color(0, 204, 255));
+        sigin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        sigin.setText("Sign in");
+        sigin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                siginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                siginMouseExited(evt);
             }
         });
-        hv.add(login);
-        login.setBounds(170, 320, 100, 40);
+        sigin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                siginActionPerformed(evt);
+            }
+        });
+        hv.add(sigin);
+        sigin.setBounds(160, 300, 100, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/faceboo__1_-removebg-preview (1).png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -264,7 +272,7 @@ public class Login extends javax.swing.JFrame {
                 jLabel2Registration1MouseClicked(evt);
             }
         });
-        nv.add(jLabel2Registration1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 250, 60));
+        nv.add(jLabel2Registration1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 250, 80));
 
         sip.setBackground(new java.awt.Color(0, 204, 255));
         sip.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -285,15 +293,15 @@ public class Login extends javax.swing.JFrame {
                 sipActionPerformed(evt);
             }
         });
-        nv.add(sip, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 363, 90, -1));
+        nv.add(sip, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 90, 40));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LoginImage/logo pet (1) (2).png"))); // NOI18N
-        nv.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 240, 230));
+        nv.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 240, 230));
 
         jLabel2Registration2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2Registration2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2Registration2.setForeground(new java.awt.Color(102, 255, 255));
+        jLabel2Registration2.setForeground(new java.awt.Color(0, 204, 204));
         jLabel2Registration2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2Registration2.setText("Hello Welcome Back,");
         jLabel2Registration2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -302,11 +310,11 @@ public class Login extends javax.swing.JFrame {
                 jLabel2Registration2MouseClicked(evt);
             }
         });
-        nv.add(jLabel2Registration2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 210, 30));
+        nv.add(jLabel2Registration2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 260, 210, 30));
 
         jLabel2Registration3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2Registration3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2Registration3.setForeground(new java.awt.Color(102, 255, 255));
+        jLabel2Registration3.setForeground(new java.awt.Color(0, 204, 204));
         jLabel2Registration3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2Registration3.setText("Choose your Pet here!");
         jLabel2Registration3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -315,7 +323,7 @@ public class Login extends javax.swing.JFrame {
                 jLabel2Registration3MouseClicked(evt);
             }
         });
-        nv.add(jLabel2Registration3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 230, 30));
+        nv.add(jLabel2Registration3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 230, 30));
 
         getContentPane().add(nv);
         nv.setBounds(0, 0, 270, 460);
@@ -379,7 +387,7 @@ public class Login extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_usersMouseClicked
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+    private void siginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siginActionPerformed
 
         if (LoginAcc(uname.getText(),ps.getText() ) ){
             if (!status.equals("Active")){
@@ -409,7 +417,7 @@ public class Login extends javax.swing.JFrame {
         }  else {
             JOptionPane.showMessageDialog(null,"Invalid Account!");
         }
-    }//GEN-LAST:event_loginActionPerformed
+    }//GEN-LAST:event_siginActionPerformed
 
     private void showpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpassActionPerformed
 
@@ -426,14 +434,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_unameActionPerformed
 
     private void sipMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sipMouseEntered
-         Color nc=new Color(0,102,205);
-      
+         
+       sip.setBackground(nc);
       
     }//GEN-LAST:event_sipMouseEntered
 
     private void sipMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sipMouseExited
-       
-          sip.setBackground(sp);
+        sip.setBackground(hc);
+         
     }//GEN-LAST:event_sipMouseExited
 
     private void jLabel2Registration2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2Registration2MouseClicked
@@ -443,6 +451,16 @@ public class Login extends javax.swing.JFrame {
     private void jLabel2Registration3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2Registration3MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2Registration3MouseClicked
+
+    private void siginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_siginMouseEntered
+
+           sigin.setBackground(nc);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_siginMouseEntered
+
+    private void siginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_siginMouseExited
+           sigin.setBackground(hc);
+    }//GEN-LAST:event_siginMouseExited
     
     /**
      * @param args the command line arguments
@@ -493,10 +511,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JButton login;
     private javax.swing.JPanel nv;
     private javax.swing.JPasswordField ps;
     private javax.swing.JCheckBox showpass;
+    private javax.swing.JButton sigin;
     private javax.swing.JButton sip;
     private javax.swing.JTextField uname;
     private javax.swing.JLabel username;

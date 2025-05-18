@@ -79,6 +79,9 @@ public class petForm extends javax.swing.JFrame {
         header6 = new javax.swing.JPanel();
         U_id = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        U_id2 = new javax.swing.JLabel();
+        print = new javax.swing.JPanel();
+        U_id4 = new javax.swing.JLabel();
         clear = new javax.swing.JPanel();
         addlabel1 = new javax.swing.JLabel();
         delete = new javax.swing.JPanel();
@@ -87,9 +90,6 @@ public class petForm extends javax.swing.JFrame {
         addlabel2 = new javax.swing.JLabel();
         add = new javax.swing.JPanel();
         addlabel = new javax.swing.JLabel();
-        U_id2 = new javax.swing.JLabel();
-        print = new javax.swing.JPanel();
-        U_id4 = new javax.swing.JLabel();
         uid = new javax.swing.JLabel();
         pid = new javax.swing.JTextField();
         username1 = new javax.swing.JLabel();
@@ -132,7 +132,7 @@ public class petForm extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel3.setText("USERS FORM");
+        jLabel3.setText("PET FORM");
         Uback.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 170, 60));
 
         getContentPane().add(Uback);
@@ -160,7 +160,7 @@ public class petForm extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(ptable);
 
-        body.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 310, 400));
+        body.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 320, 400));
 
         header6.setBackground(new java.awt.Color(0, 152, 153));
         header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -181,118 +181,6 @@ public class petForm extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user-removebg-preview (1).png"))); // NOI18N
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         header6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 100));
-
-        clear.setBackground(new java.awt.Color(0, 152, 153));
-        clear.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clearMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                clearMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                clearMouseExited(evt);
-            }
-        });
-        clear.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        addlabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        addlabel1.setForeground(new java.awt.Color(255, 255, 255));
-        addlabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        addlabel1.setText("CLEAR");
-        addlabel1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        addlabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addlabel1MouseClicked(evt);
-            }
-        });
-        clear.add(addlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 50, 10));
-
-        header6.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 130, 30));
-
-        delete.setBackground(new java.awt.Color(0, 152, 153));
-        delete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                deleteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                deleteMouseExited(evt);
-            }
-        });
-        delete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        addlabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        addlabel3.setForeground(new java.awt.Color(255, 255, 255));
-        addlabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        addlabel3.setText("DELETE");
-        addlabel3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        addlabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addlabel3MouseClicked(evt);
-            }
-        });
-        delete.add(addlabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 60, 10));
-
-        header6.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 130, 30));
-
-        update.setBackground(new java.awt.Color(0, 152, 153));
-        update.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updateMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                updateMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                updateMouseExited(evt);
-            }
-        });
-        update.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        addlabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        addlabel2.setForeground(new java.awt.Color(255, 255, 255));
-        addlabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        addlabel2.setText("UPDATE");
-        addlabel2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        addlabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addlabel2MouseClicked(evt);
-            }
-        });
-        update.add(addlabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 60, 10));
-
-        header6.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 130, 30));
-
-        add.setBackground(new java.awt.Color(0, 152, 153));
-        add.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                addMouseExited(evt);
-            }
-        });
-        add.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        addlabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        addlabel.setForeground(new java.awt.Color(255, 255, 255));
-        addlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        addlabel.setText("ADD");
-        addlabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        addlabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addlabelMouseClicked(evt);
-            }
-        });
-        add.add(addlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 50, 10));
-
-        header6.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 130, 30));
 
         U_id2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         U_id2.setForeground(new java.awt.Color(255, 255, 255));
@@ -330,9 +218,121 @@ public class petForm extends javax.swing.JFrame {
                 U_id4MouseClicked(evt);
             }
         });
-        print.add(U_id4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 50, 10));
+        print.add(U_id4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 50, 10));
 
-        header6.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 130, 30));
+        header6.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 130, 50));
+
+        clear.setBackground(new java.awt.Color(0, 152, 153));
+        clear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                clearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                clearMouseExited(evt);
+            }
+        });
+        clear.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        addlabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        addlabel1.setForeground(new java.awt.Color(255, 255, 255));
+        addlabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addlabel1.setText("CLEAR");
+        addlabel1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        addlabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addlabel1MouseClicked(evt);
+            }
+        });
+        clear.add(addlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 50, 10));
+
+        header6.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 130, 40));
+
+        delete.setBackground(new java.awt.Color(0, 152, 153));
+        delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                deleteMouseExited(evt);
+            }
+        });
+        delete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        addlabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        addlabel3.setForeground(new java.awt.Color(255, 255, 255));
+        addlabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addlabel3.setText("DELETE");
+        addlabel3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        addlabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addlabel3MouseClicked(evt);
+            }
+        });
+        delete.add(addlabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 60, 10));
+
+        header6.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 130, 40));
+
+        update.setBackground(new java.awt.Color(0, 152, 153));
+        update.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                updateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                updateMouseExited(evt);
+            }
+        });
+        update.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        addlabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        addlabel2.setForeground(new java.awt.Color(255, 255, 255));
+        addlabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addlabel2.setText("UPDATE");
+        addlabel2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        addlabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addlabel2MouseClicked(evt);
+            }
+        });
+        update.add(addlabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 60, 10));
+
+        header6.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 130, 40));
+
+        add.setBackground(new java.awt.Color(0, 152, 153));
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addMouseExited(evt);
+            }
+        });
+        add.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        addlabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        addlabel.setForeground(new java.awt.Color(255, 255, 255));
+        addlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addlabel.setText("ADD");
+        addlabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        addlabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addlabelMouseClicked(evt);
+            }
+        });
+        add.add(addlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 50, 10));
+
+        header6.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 130, 40));
 
         body.add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 420));
 
@@ -365,7 +365,7 @@ public class petForm extends javax.swing.JFrame {
 
         ptype.setBackground(new java.awt.Color(204, 204, 204));
         ptype.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ptype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Pet", "German Dog", "Austillian Dog", "Bulldog", "Labrador Retriever", "Golden Retriever", "Beagle", "Poodle", "Chihuahua" }));
+        ptype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Dog", " ", "German Dog", "Austillian Dog", "Bulldog", "Labrador Retriever", "Golden Retriever", "Beagle", "Poodle", "Chihuahua" }));
         body.add(ptype, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 160, 30));
 
         User_status.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -384,12 +384,12 @@ public class petForm extends javax.swing.JFrame {
         });
         body.add(pstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 160, 30));
 
-        header8.setBackground(new java.awt.Color(0, 153, 153));
+        header8.setBackground(new java.awt.Color(0,0,0,60));
         header8.setLayout(null);
         header8.add(image);
-        image.setBounds(20, 10, 230, 170);
+        image.setBounds(30, 10, 230, 170);
 
-        body.add(header8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 270, 190));
+        body.add(header8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 280, 200));
 
         select.setBackground(new java.awt.Color(0, 204, 255));
         select.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -416,7 +416,7 @@ public class petForm extends javax.swing.JFrame {
                 removeActionPerformed(evt);
             }
         });
-        body.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 110, 40));
+        body.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 110, 40));
 
         pprice.setBackground(new java.awt.Color(204, 204, 204));
         pprice.addActionListener(new java.awt.event.ActionListener() {

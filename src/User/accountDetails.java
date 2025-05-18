@@ -34,10 +34,6 @@ public class accountDetails extends javax.swing.JFrame {
     private void initComponents() {
 
         header6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        Acc_fname = new javax.swing.JLabel();
-        Acc_lname = new javax.swing.JLabel();
         Unavbar = new javax.swing.JPanel();
         lastname = new javax.swing.JLabel();
         lname = new javax.swing.JTextField();
@@ -58,7 +54,13 @@ public class accountDetails extends javax.swing.JFrame {
         nu = new javax.swing.JTextField();
         jpanelEmail2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
+        header1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        header2 = new javax.swing.JPanel();
+        logout1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        Acc_fname = new javax.swing.JLabel();
+        Acc_lname = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -68,39 +70,10 @@ public class accountDetails extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        header6.setBackground(new java.awt.Color(51, 102, 255));
+        header6.setBackground(new java.awt.Color(255, 255, 255));
         header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Back");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        header6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 110, 80));
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user-removebg-preview (1).png"))); // NOI18N
-        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 110, 80));
-
-        Acc_fname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Acc_fname.setText("FirstName:");
-        Acc_fname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header6.add(Acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 110, 40));
-
-        Acc_lname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Acc_lname.setText("LastName:");
-        Acc_lname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header6.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 110, 40));
-
-        Unavbar.setBackground(new java.awt.Color(0,0,0,60));
+        Unavbar.setBackground(new java.awt.Color(0, 0, 51));
         Unavbar.setForeground(new java.awt.Color(102, 102, 102));
         Unavbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -229,7 +202,7 @@ public class accountDetails extends javax.swing.JFrame {
         });
         changepass.add(a_request, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 7, 110, 20));
 
-        Unavbar.add(changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 200, 40));
+        Unavbar.add(changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 200, 40));
 
         nu.setBackground(new java.awt.Color(204, 204, 204));
         nu.addActionListener(new java.awt.event.ActionListener() {
@@ -248,24 +221,66 @@ public class accountDetails extends javax.swing.JFrame {
         header6.add(Unavbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 530, 380));
         header6.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 750, -1));
 
-        jLabel4.setBackground(new java.awt.Color(0,0,0,60));
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("ACCOUNT INFORMATION");
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        header6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 250, 60));
+        header1.setBackground(new java.awt.Color(102, 102, 255));
+        header1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Back");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        header1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 110, 80));
+
+        header6.add(header1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 80));
+
+        header2.setBackground(new java.awt.Color(0,0,0,60));
+        header2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logout1.setBackground(new java.awt.Color(83, 203, 209));
+        logout1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logout1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logout1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logout1MouseExited(evt);
+            }
+        });
+        logout1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        header2.add(logout1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 80, 40));
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user-removebg-preview (1).png"))); // NOI18N
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 110, 80));
+
+        Acc_fname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Acc_fname.setText("FirstName:");
+        Acc_fname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header2.add(Acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 110, 40));
+
+        Acc_lname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Acc_lname.setText("LastName:");
+        Acc_lname.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        header2.add(Acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 110, 40));
+
+        header6.add(header2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 200, 400));
 
         getContentPane().add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 480));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-                 UsersDashboard ud = new UsersDashboard();
-        ud.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel1MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Session ses = Session.getInstance();
@@ -333,6 +348,24 @@ public class accountDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lnameActionPerformed
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        UsersDashboard ud = new UsersDashboard();
+        ud.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void logout1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logout1MouseClicked
+
+    private void logout1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logout1MouseEntered
+
+    private void logout1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logout1MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -379,15 +412,17 @@ public class accountDetails extends javax.swing.JFrame {
     public javax.swing.JTextField email;
     private javax.swing.JLabel firstname;
     public javax.swing.JTextField fname;
+    private javax.swing.JPanel header1;
+    private javax.swing.JPanel header2;
     private javax.swing.JPanel header6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel jpanelEmail1;
     private javax.swing.JLabel jpanelEmail2;
     private javax.swing.JLabel lastname;
     public javax.swing.JTextField lname;
+    private javax.swing.JPanel logout1;
     public javax.swing.JTextField nu;
     public javax.swing.JTextField u_id;
     private javax.swing.JLabel uid;
