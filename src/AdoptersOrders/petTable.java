@@ -20,6 +20,10 @@ import net.proteanit.sql.DbUtils;
  * @author CYBER SECURITY
  */
 public class petTable extends javax.swing.JFrame {
+
+    private static void setModel(TableModel resultSetToTableModel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
      
     /**
      * Creates new form adminDashboard
@@ -40,22 +44,19 @@ public class petTable extends javax.swing.JFrame {
        Color nc=new Color(0,152,153);
       
         
-        void displayData(){
+       public void displayData(){
         try{
             dbConnect dbc = new dbConnect();
-            ResultSet rst = dbc.getData("SELECT * FROM pet");
-            ptable.setModel(DbUtils.resultSetToTableModel(rst));
-             rst.close();
+            ResultSet rs = dbc.getData("SELECT * FROM pet");
+            ptable.setModel(DbUtils.resultSetToTableModel(rs));
+             rs.close();
         }catch(SQLException ex){
             System.out.println("Errors: "+ex.getMessage());
-
+        
         }
         
-        
-        
-
+    
     }
-       
     
           
     
@@ -80,6 +81,7 @@ public class petTable extends javax.swing.JFrame {
         header6 = new javax.swing.JPanel();
         cancel = new javax.swing.JLabel();
         select = new javax.swing.JLabel();
+        cancel1 = new javax.swing.JLabel();
         header1 = new javax.swing.JPanel();
 
         header.setBackground(new java.awt.Color(204, 204, 204));
@@ -168,6 +170,18 @@ public class petTable extends javax.swing.JFrame {
         });
         body.add(select, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 40));
 
+        cancel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        cancel1.setForeground(new java.awt.Color(255, 255, 255));
+        cancel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cancel1.setText("CANCEL");
+        cancel1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        cancel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancel1MouseClicked(evt);
+            }
+        });
+        body.add(cancel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 130, 40));
+
         getContentPane().add(body);
         body.setBounds(0, 60, 680, 310);
 
@@ -240,9 +254,13 @@ public class petTable extends javax.swing.JFrame {
               adb.setVisible(true);
               this.dispose();
         
-        
+        }    
     }//GEN-LAST:event_selectMouseClicked
-    }
+
+    private void cancel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancel1MouseClicked
+    
     /**
      * @param args the command line arguments
      */
@@ -409,6 +427,7 @@ public class petTable extends javax.swing.JFrame {
     private javax.swing.JPanel Uback;
     private javax.swing.JPanel body;
     private javax.swing.JLabel cancel;
+    private javax.swing.JLabel cancel1;
     private javax.swing.JPanel header;
     private javax.swing.JPanel header1;
     private javax.swing.JPanel header6;

@@ -79,8 +79,6 @@ public class UsersForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         p_add = new javax.swing.JPanel();
         U_id1 = new javax.swing.JLabel();
-        print = new javax.swing.JPanel();
-        U_id4 = new javax.swing.JLabel();
         edit = new javax.swing.JPanel();
         U_id3 = new javax.swing.JLabel();
         header1 = new javax.swing.JPanel();
@@ -138,7 +136,8 @@ public class UsersForm extends javax.swing.JFrame {
 
         body.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 560, 280));
 
-        header6.setBackground(new java.awt.Color(0, 0, 51));
+        header6.setBackground(new java.awt.Color(153, 153, 255));
+        header6.setForeground(new java.awt.Color(153, 153, 255));
         header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         U_id.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -186,34 +185,6 @@ public class UsersForm extends javax.swing.JFrame {
 
         header6.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 130, 30));
 
-        print.setBackground(new java.awt.Color(0, 0, 51));
-        print.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                printMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                printMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                printMouseExited(evt);
-            }
-        });
-        print.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        U_id4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        U_id4.setForeground(new java.awt.Color(255, 255, 255));
-        U_id4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        U_id4.setText("PRINT");
-        U_id4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        U_id4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                U_id4MouseClicked(evt);
-            }
-        });
-        print.add(U_id4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 50, 10));
-
-        header6.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 130, 30));
-
         edit.setBackground(new java.awt.Color(0, 0, 51));
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -240,7 +211,7 @@ public class UsersForm extends javax.swing.JFrame {
         });
         edit.add(U_id3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 80, 10));
 
-        header6.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 130, 30));
+        header6.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 130, 30));
 
         body.add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 150, 280));
 
@@ -368,50 +339,6 @@ public class UsersForm extends javax.swing.JFrame {
          edit.setBackground(hc);
     }//GEN-LAST:event_editMouseExited
 
-    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
-        print.setBackground(hc);
-    }//GEN-LAST:event_printMouseExited
-
-    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
-        print.setBackground(nc);
-    }//GEN-LAST:event_printMouseEntered
-
-    private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-     int rowIndex  = usersTable.getSelectedRow();
-           if(rowIndex < 0){
-               JOptionPane.showMessageDialog(null,"Please Select Item!");
-           }else{
-               
-               try{
-               dbConnect dbc = new dbConnect();
-                 TableModel tbl= usersTable.getModel();
-              ResultSet rs=dbc.getData("SELECT * FROM accounts WHERE a_id ='"+tbl.getValueAt(rowIndex, 0)+"'"); 
-            if(rs.next()){  
-                 individualPrinting ipt = new individualPrinting ();
-              ipt.u_id.setText(""+rs.getInt("a_id"));
-              ipt.fname.setText(""+rs.getString("firstname"));
-              ipt.lname.setText(""+rs.getString("lastname"));
-              ipt.em.setText(""+rs.getString("email"));
-              ipt.ustatus.setText(""+rs.getString("status"));
-              ipt.utype.setText(""+rs.getString("type"));
-              ipt.uname.setText(""+rs.getString("username"));
-             
-              ipt.image.setIcon(ipt.ResizeImage(rs.getString("u_image"), null, ipt.image));
-              
-              ipt.setVisible(true);
-               this.dispose();
-               }
-               }catch(SQLException ex){
-                   System.out.println("Connection Error!"+ex);
-               }
-           }
-       
-    }//GEN-LAST:event_printMouseClicked
-
-    private void U_id4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_U_id4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_U_id4MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -452,7 +379,6 @@ public class UsersForm extends javax.swing.JFrame {
     private javax.swing.JLabel U_id;
     private javax.swing.JLabel U_id1;
     private javax.swing.JLabel U_id3;
-    private javax.swing.JLabel U_id4;
     private javax.swing.JPanel Uback;
     private javax.swing.JPanel body;
     private javax.swing.JPanel edit;
@@ -465,7 +391,6 @@ public class UsersForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel p_add;
-    private javax.swing.JPanel print;
     private javax.swing.JTable usersTable;
     // End of variables declaration//GEN-END:variables
 }

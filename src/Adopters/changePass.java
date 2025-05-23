@@ -65,7 +65,7 @@ public class changePass extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        header6.setBackground(new java.awt.Color(102, 102, 255));
+        header6.setBackground(new java.awt.Color(0, 153, 153));
         header6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Unavbar.setBackground(new java.awt.Color(0,0,0,60));

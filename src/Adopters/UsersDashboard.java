@@ -39,6 +39,8 @@ public class UsersDashboard extends javax.swing.JFrame {
         header1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         header2 = new javax.swing.JPanel();
+        approval = new javax.swing.JPanel();
+        users2 = new javax.swing.JLabel();
         account = new javax.swing.JPanel();
         users1 = new javax.swing.JLabel();
         view_pet = new javax.swing.JPanel();
@@ -94,6 +96,33 @@ public class UsersDashboard extends javax.swing.JFrame {
 
         header2.setBackground(new java.awt.Color(102, 102, 255));
         header2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        approval.setBackground(new java.awt.Color(102, 102, 255));
+        approval.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                approvalMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                approvalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                approvalMouseExited(evt);
+            }
+        });
+        approval.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        users2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        users2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        users2.setText("CHECK APPROVAL");
+        users2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        users2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                users2MouseClicked(evt);
+            }
+        });
+        approval.add(users2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, 20));
+
+        header2.add(approval, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 160, 60));
 
         account.setBackground(new java.awt.Color(102, 102, 255));
         account.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -367,6 +396,26 @@ public class UsersDashboard extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel11MouseClicked
 
+    private void approvalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_approvalMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_approvalMouseExited
+
+    private void approvalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_approvalMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_approvalMouseEntered
+
+    private void approvalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_approvalMouseClicked
+
+           checkAdminApproval acd = new checkAdminApproval ();
+        acd.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_approvalMouseClicked
+
+    private void users2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_users2MouseClicked
+
+    }//GEN-LAST:event_users2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -406,6 +455,7 @@ public class UsersDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel Acc_fname;
     private javax.swing.JLabel Acc_lname;
     private javax.swing.JPanel account;
+    private javax.swing.JPanel approval;
     private javax.swing.JPanel header1;
     private javax.swing.JPanel header11;
     private javax.swing.JPanel header12;
@@ -431,6 +481,7 @@ public class UsersDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel users;
     private javax.swing.JLabel users1;
+    private javax.swing.JLabel users2;
     private javax.swing.JPanel view_pet;
     // End of variables declaration//GEN-END:variables
 }

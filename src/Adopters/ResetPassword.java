@@ -13,6 +13,9 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -25,7 +28,12 @@ public class ResetPassword extends javax.swing.JFrame {
 
    private boolean updatePassword(String newPassword) {
     String uid = Session.getInstance().getA_id() + "";
-    String hashedNewPassword = hashPassword(newPassword);
+    String hashedNewPassword = null;
+        try {
+            hashedNewPassword = hashPassword(newPassword);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(ResetPassword.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     if (hashedNewPassword == null) {
         return false;
@@ -45,21 +53,12 @@ public class ResetPassword extends javax.swing.JFrame {
     }
     return false;
 }
-public static String hashPassword(String password) {
-    try {
+ public static String hashPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
-        byte[] hashedBytes = md.digest(password.getBytes());
-
-        StringBuilder hexString = new StringBuilder();
-        for (byte b : hashedBytes) {
-            hexString.append(String.format("%02x", b));
-        }
-        return hexString.toString();
-    } catch (NoSuchAlgorithmException e) {
-        e.printStackTrace();
-        return null;
+        byte[] hashBytes = md.digest(password.getBytes());
+        String encoded = Base64.getEncoder().encodeToString(hashBytes);
+        return encoded;
     }
-}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -77,7 +76,6 @@ public static String hashPassword(String password) {
         confirmpassword = new javax.swing.JPasswordField();
         oldpassword = new javax.swing.JPasswordField();
         newpassword = new javax.swing.JPasswordField();
-        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -94,9 +92,9 @@ public static String hashPassword(String password) {
         jPanel2.setForeground(new java.awt.Color(102, 102, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        acc_id.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        acc_id.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         acc_id.setText("id");
-        jPanel2.add(acc_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(934, 6, 40, -1));
+        jPanel2.add(acc_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
         BackButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BackButton.setText("Back");
@@ -105,11 +103,13 @@ public static String hashPassword(String password) {
                 BackButtonMouseClicked(evt);
             }
         });
-        jPanel2.add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 50, 43));
+        jPanel2.add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 50, 43));
 
+        jLabel4.setBackground(new java.awt.Color(204, 204, 0));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel4.setText("Reset your password");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 6, 420, -1));
+        jLabel4.setForeground(new java.awt.Color(204, 204, 0));
+        jLabel4.setText("RESET PASSWORD");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 360, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, -1));
 
@@ -119,7 +119,7 @@ public static String hashPassword(String password) {
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setText("Confirm Password:");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 420, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 420, -1));
 
         verify.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         verify.setText("Change");
@@ -128,41 +128,33 @@ public static String hashPassword(String password) {
                 verifyActionPerformed(evt);
             }
         });
-        jPanel3.add(verify, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 130, 30));
+        jPanel3.add(verify, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 130, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel5.setText("Old Password:");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 420, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 420, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setText("New Password:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 420, -1));
-        jPanel3.add(confirmpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 530, 30));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 420, -1));
+        jPanel3.add(confirmpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 530, 30));
 
         oldpassword.setEditable(false);
         oldpassword.setText("asdasdsadadda");
-        jPanel3.add(oldpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 530, 30));
-        jPanel3.add(newpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 530, 30));
+        jPanel3.add(oldpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 530, 30));
+        jPanel3.add(newpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 530, 30));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 610, 330));
-
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel7.setText("Change your password:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 420, -1));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 610, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 979, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
         );
 
         pack();
@@ -265,7 +257,6 @@ public static String hashPassword(String password) {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

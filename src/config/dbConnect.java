@@ -11,13 +11,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author CYBER SECURITY
  */
 public class dbConnect {
+
+    
           
     private Connection connect;
              public Connection getConnection() {
@@ -32,6 +33,9 @@ public class dbConnect {
                     System.out.println("Can't connect to database: "+ex.getMessage());
             }
         }
+        
+           
+    
          
           //Function to save data
         public int insertData(String sql){
@@ -56,19 +60,35 @@ public class dbConnect {
             return rst;
         }
          //Function to update data
-        public void updateData(String sql){
-            try{
-                PreparedStatement pst = connect.prepareStatement(sql);
-                    int rowsUpdated = pst.executeUpdate();
-                        if(rowsUpdated > 0){
-                            JOptionPane.showMessageDialog(null, "Data Updated Successfully!");
-                        }else{
-                            System.out.println("Data Update Failed!");
-                        }
-                        pst.close();
-            }catch(SQLException ex){
-                System.out.println("Connection Error: "+ex);
+        public boolean updateData(String sql){ // Changed from 'public void updateData(String sql)'
+        PreparedStatement pst = null;
+        try{
+            pst = connect.prepareStatement(sql);
+            int rowsAffected = pst.executeUpdate();
+             
+            return rowsAffected > 0;  
+        }catch(SQLException ex){
+            System.out.println("Error executing update in dbConnect: "+ex.getMessage());  
+            
+            return false;  
+        } finally {
+            try {
+                if (pst != null) pst.close();
+            } catch (SQLException e) {
+                System.out.println("Error closing PreparedStatement: " + e.getMessage());
             }
-        
         }
+    }
+
+       public void closeConnection() {
+        if (connect != null) {
+            try {
+                connect.close();
+                System.out.println("Database connection closed.");
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+       }
 }

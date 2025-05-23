@@ -4,6 +4,7 @@ package LoginRegister;
 
 import Adopters.ForgotPassword;
 import Adopters.UsersDashboard;
+import Config.Logs;
 import admin.AdminDashboard;
 import config.Session;
 import config.dbConnect;
@@ -396,19 +397,19 @@ public class Login extends javax.swing.JFrame {
             }else{
 
                 if (atype.equals("Admin")){
-                    JOptionPane.showMessageDialog(null, "Login Succesfully!");
+                     Logs.logFunctionCall( "Admin logged in successfully");;
                     AdminDashboard ut = new AdminDashboard();
                     ut.setVisible(true);
                     this.dispose();
                 }else if (atype.equals("User")){
-                    JOptionPane.showMessageDialog(null, "Login Succesfully!");
+                     Logs.logFunctionCall( " User logged in successfully");
                     UsersDashboard adb = new UsersDashboard();
                     adb.setVisible(true);
                     this.dispose();
                 }else {
                     JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin");
                 }
-
+              
             }
         }else if (uname.getText().isEmpty() || ps.getText().isEmpty()) {
 
@@ -495,6 +496,7 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

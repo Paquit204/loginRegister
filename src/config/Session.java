@@ -19,9 +19,13 @@ public class Session {
     private String username;
     private String status;     
     private String contact;
-        private String password;
+            private String password;
             private String sq;
             private String ans;
+              private String adoption_id;
+            private String p_id;
+            private String date;
+              
     
     
     private Session(){
@@ -29,6 +33,30 @@ public class Session {
         
     }
 
+    public String getAdoption_id() {
+        return adoption_id;
+    }
+
+    public void setAdoption_id(String adoption_id) {
+        this.adoption_id = adoption_id;
+    }
+
+    public String getP_id() {
+        return p_id;
+    }
+
+    public void setP_id(String p_id) {
+        this.p_id = p_id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+     
     public String getPassword() {
         return password;
     }

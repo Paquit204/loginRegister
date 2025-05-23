@@ -276,7 +276,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         u_cancel.setBackground(new java.awt.Color(0, 153, 153));
         u_cancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         u_cancel.setForeground(new java.awt.Color(255, 255, 255));
-        u_cancel.setText("CANCEl");
+        u_cancel.setText("BACK");
         u_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 u_cancelActionPerformed(evt);
@@ -590,6 +590,8 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
                 + ",contact ='"+nu.getText()+"'"
                 + ",status ='"+ustatus.getSelectedItem()+"'"
                 + ",u_image='"+destination+"' WHERE a_id = '"+u_id.getText()+"'  ");
+               JOptionPane.showMessageDialog(null, "Admin Updated User Account Successfully"); 
+              Logs.logFunctionCall( "Admin Updated a User Account successfully");
 
             if (destination.isEmpty()){
                 File existingFile = new File (oldpath);
@@ -609,7 +611,67 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
     }//GEN-LAST:event_u_updateActionPerformed
 
     private void u_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_deleteActionPerformed
-        // TODO add your handling code here:
+              int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this user?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
+        String userId = u_id.getText(); // <-- This is where userId gets its value
+        if (userId.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please select a user to delete.");
+            return;
+        }
+         dbConnect dbc = new dbConnect(); // Create an instance of dbConnect
+String imagePathToDelete = "";
+
+// First, retrieve the image path before deleting the user record
+try {
+    String selectImageQuery = "SELECT u_image FROM accounts WHERE a_id = '" + userId + "'";
+    ResultSet rs = dbc.getData(selectImageQuery);
+    if (rs.next()) {
+        imagePathToDelete = rs.getString("u_image");
+    }
+    // IMPORTANT: Close the ResultSet after fetching the data
+    if (rs != null) {
+        rs.close();
+    }
+} catch (SQLException ex) {
+    System.out.println("Error fetching image path: " + ex.getMessage());
+}
+
+try {
+    // Delete the user record from the database
+    String deleteQuery = "DELETE FROM accounts WHERE a_id = '" + userId + "'";
+
+    // Call the existing updateData method for deletion
+    boolean success = dbc.updateData(deleteQuery);
+
+    if (success) {
+        JOptionPane.showMessageDialog(null, "User deleted successfully!");
+        Logs.logFunctionCall("Admin deleted a user account: User ID " + userId);
+
+        // Delete the associated image file if it exists
+        if (!imagePathToDelete.isEmpty()) {
+            File imageFile = new File(imagePathToDelete);
+            if (imageFile.exists()) {
+                if (imageFile.delete()) {
+                    System.out.println("Associated image deleted successfully: " + imagePathToDelete);
+                } else {
+                    System.out.println("Failed to delete associated image: " + imagePathToDelete);
+                }
+            }
+        }
+
+        // Navigate back to the UsersForm
+        UsersForm uf = new UsersForm();
+        uf.setVisible(true);
+        this.dispose();
+    } else {
+        JOptionPane.showMessageDialog(null, "Failed to delete user. User not found or an error occurred.");
+    }
+} catch (Exception ex) { // Catching a general Exception here is fine for now
+    JOptionPane.showMessageDialog(null, "Error deleting user: " + ex.getMessage());
+}  
+
+    }    
     }//GEN-LAST:event_u_deleteActionPerformed
 
     private void u_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_cancelActionPerformed
@@ -628,74 +690,74 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
 
     private void a_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a_addActionPerformed
 
-        dbConnect conf=new dbConnect();
+     dbConnect conf = new dbConnect();
 
-       
-        if(fname.getText().isEmpty()
-                || lname.getText().isEmpty()
-                || em.getText().isEmpty()
-                || uname.getText().isEmpty()
-                || password.getText().isEmpty()
-                || nu.getText().isEmpty()) {
+    if (fname.getText().isEmpty()
+            || lname.getText().isEmpty()
+            || em.getText().isEmpty()
+            || uname.getText().isEmpty()
+            || password.getText().isEmpty()
+            || nu.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "All Fields are Required!");
+        return;
+    }
 
+    if (password.getText().length() < 8) {
+        password.setText("");
+        JOptionPane.showMessageDialog(null, "Password Must be longer than 8!");
+        return;
+    }
 
-            JOptionPane.showMessageDialog(null, "All Fields are Required!");
-            return;
-        }
+    String emailss = this.em.getText();
+    String emailRegexs = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+    Pattern patternEmails = Pattern.compile(emailRegexs);
+    Matcher matcherEmails = patternEmails.matcher(emailss);
 
-        if(password.getText().length() < 8) {
-            password.setText("");
+    if (!matcherEmails.matches()) {
+        JOptionPane.showMessageDialog(this, "Invalid email format. Please use a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+        this.em.setText("");
+        this.em.requestFocus();
+        return;
+    }
 
-            JOptionPane.showMessageDialog(null, "Password Must be longer than 8!");
-            return;
-        }
+    if (duplicateCheck()) {
+        System.out.println("Duplicate Exist!");
+        return;
+    }
 
-        String emailss = this.em.getText();
-        String emailRegexs = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
-        Pattern patternEmails = Pattern.compile(emailRegexs);
-        Matcher matcherEmails = patternEmails.matcher(emailss);
+    try {
+        // Construct the SQL INSERT statement
+        String sql = "INSERT INTO accounts (firstname, lastname, email, username, contact, password, type, status, u_image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement pst = conf.getConnection().prepareStatement(sql);
 
-        if (!matcherEmails.matches()) {
+        pst.setString(1, fname.getText());
+        pst.setString(2, lname.getText());
+        pst.setString(3, em.getText());
+        pst.setString(4, uname.getText());
+        pst.setString(5, nu.getText());
+        pst.setString(6, password.getText());
+        pst.setString(7, utype.getSelectedItem().toString());
+        pst.setString(8, ustatus.getSelectedItem().toString());
+        pst.setString(9, destination); // Assuming 'destination' holds the image path
 
-            JOptionPane.showMessageDialog(this, "Invalid email format. Please use a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-            this.em.setText("");
-            this.em.requestFocus();
-            return;
-        }
+        int results = pst.executeUpdate(); // This executes the insert statement
 
-        
-
-        if (duplicateCheck()) {
-
-            System.out.println("Duplicate Exist!");
-            return;
-        }
-  
-     int results = conf.insertData("INSERT INTO accounts (firstname, lastname, type, email, username, password, contact, status, u_image) "
-        + "VALUES ('"+fname.getText()+"', '"+lname.getText()+"', '"
-        + utype.getSelectedItem() + "', '" + em.getText() + "', '" + uname.getText() + "', '"
-        + password.getText() + "', '" + nu.getText() + "', '" + ustatus.getSelectedItem() + "', '" + destination + "')");
-     
-     
-     
-        if (results == 1) {
-            try {
+        if (results > 0) {
+            JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+              Logs.logFunctionCall( "Admin Add a User  successfully ! " + fname );;
+            if (!destination.isEmpty()) {
                 Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
-
-
-                Logs.logFunctionCall("Admin Registered a user succesfully" + fname);
-                JOptionPane.showMessageDialog(null, "Registered Successfully!");
-                UsersForm login = new UsersForm();
-                login.setVisible(true);
-                this.dispose();
-
-            } catch (IOException ex) {
-                Logs.logFunctionCall("File Copy Error");
-                System.out.println("Insert Error: " + ex);
             }
+            UsersForm uf = new UsersForm();
+            uf.setVisible(true);
+            this.dispose();
         } else {
-            Logs.logFunctionCall("a_addActionPerformed- Insert Failed");
+            JOptionPane.showMessageDialog(null, "Failed to insert user!");
         }
+    } catch (SQLException | IOException ex) {
+        JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        
+    }
     }//GEN-LAST:event_a_addActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed

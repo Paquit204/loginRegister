@@ -5,11 +5,13 @@
  */
 package admin;
 
+import Config.Logs;
 import config.Session;
 import config.dbConnect;
 import java.awt.Color;
 import static java.awt.Color.black;
 import static java.awt.Color.red;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -80,8 +82,6 @@ public class petForm extends javax.swing.JFrame {
         U_id = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         U_id2 = new javax.swing.JLabel();
-        print = new javax.swing.JPanel();
-        U_id4 = new javax.swing.JLabel();
         clear = new javax.swing.JPanel();
         addlabel1 = new javax.swing.JLabel();
         delete = new javax.swing.JPanel();
@@ -194,34 +194,6 @@ public class petForm extends javax.swing.JFrame {
         });
         header6.add(U_id2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 40));
 
-        print.setBackground(new java.awt.Color(0, 152, 153));
-        print.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                printMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                printMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                printMouseExited(evt);
-            }
-        });
-        print.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        U_id4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        U_id4.setForeground(new java.awt.Color(255, 255, 255));
-        U_id4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        U_id4.setText("PRINT");
-        U_id4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        U_id4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                U_id4MouseClicked(evt);
-            }
-        });
-        print.add(U_id4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 50, 10));
-
-        header6.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 130, 50));
-
         clear.setBackground(new java.awt.Color(0, 152, 153));
         clear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -248,7 +220,7 @@ public class petForm extends javax.swing.JFrame {
         });
         clear.add(addlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 50, 10));
 
-        header6.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 130, 40));
+        header6.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 130, 40));
 
         delete.setBackground(new java.awt.Color(0, 152, 153));
         delete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -276,7 +248,7 @@ public class petForm extends javax.swing.JFrame {
         });
         delete.add(addlabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 60, 10));
 
-        header6.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 130, 40));
+        header6.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 130, 40));
 
         update.setBackground(new java.awt.Color(0, 152, 153));
         update.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -304,7 +276,7 @@ public class petForm extends javax.swing.JFrame {
         });
         update.add(addlabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 60, 10));
 
-        header6.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 130, 40));
+        header6.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 130, 40));
 
         add.setBackground(new java.awt.Color(0, 152, 153));
         add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -332,7 +304,7 @@ public class petForm extends javax.swing.JFrame {
         });
         add.add(addlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 50, 10));
 
-        header6.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 130, 40));
+        header6.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 130, 40));
 
         body.add(header6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 420));
 
@@ -386,8 +358,10 @@ public class petForm extends javax.swing.JFrame {
 
         header8.setBackground(new java.awt.Color(0,0,0,60));
         header8.setLayout(null);
+
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add.png"))); // NOI18N
         header8.add(image);
-        image.setBounds(30, 10, 230, 170);
+        image.setBounds(30, 10, 240, 180);
 
         body.add(header8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 280, 200));
 
@@ -488,6 +462,7 @@ public class petForm extends javax.swing.JFrame {
                 dbConnect dbc=new dbConnect();
                 dbc.insertData("INSERT INTO pet (p_type , p_price, p_status,p_image)VALUES ('"+ptype.getSelectedItem()+"', '"+pprice.getText()+"','"+pstatus.getSelectedItem()+"','') ");
                  JOptionPane.showMessageDialog(null,"Added Successfully!");
+                   Logs.logFunctionCall("Admin Added pet with ID: " );  
                  displayData();
                     checkadd=true; 
                  addlabel.setForeground(black);
@@ -504,22 +479,6 @@ public class petForm extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_addMouseClicked
-
-    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
-        print.setBackground(hc);
-    }//GEN-LAST:event_printMouseExited
-
-    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
-        print.setBackground(nc);
-    }//GEN-LAST:event_printMouseEntered
-
-    private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-     
-    }//GEN-LAST:event_printMouseClicked
-
-    private void U_id4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_U_id4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_U_id4MouseClicked
 
     private void pidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pidActionPerformed
         // TODO add your handling code here:
@@ -609,7 +568,7 @@ public class petForm extends javax.swing.JFrame {
     private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
             
                     if(pid.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(print,"Please select a pet first!");
+                    JOptionPane.showMessageDialog(null,"Please select a pet first!");
     }else{
                     if(pprice.getText().isEmpty() || ptype.getSelectedIndex()==0){
                     JOptionPane.showMessageDialog(null,"All fields are required!");
@@ -617,7 +576,8 @@ public class petForm extends javax.swing.JFrame {
                    dbConnect dbc = new dbConnect();
                    dbc.updateData("UPDATE pet SET p_type = '"+ptype.getSelectedItem()+"', p_price = '"+pprice.getText()+"'"
                     + ",p_status = '"+pstatus.getSelectedItem()+"' WHERE p_id = '"+pid.getText()+"'  ");
-                    
+                   JOptionPane.showMessageDialog(null,"Updated Successfully!");
+                    Logs.logFunctionCall("Admin Updated a pet with ID: "+ptype );  
                      displayData();
                     checkadd=true; 
                     addlabel.setForeground(black);
@@ -644,7 +604,76 @@ public class petForm extends javax.swing.JFrame {
     }//GEN-LAST:event_addlabel3MouseClicked
 
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-        // TODO add your handling code here:
+       String idToDeleteString = pid.getText().trim(); // Use pid.getText() since this is petForm
+
+    if (idToDeleteString.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Please select a pet to delete.", "Input Required", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    int idToDelete;
+    try {
+        idToDelete = Integer.parseInt(idToDeleteString);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Invalid ID format. Please select a valid pet.", "Input Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Removed the confirmation dialog as requested
+
+    dbConnect db = new dbConnect();
+    java.sql.Connection connection = null;
+    PreparedStatement pstmt = null;
+
+    try {
+        connection = db.getConnection();
+
+        if (connection == null || connection.isClosed()) {
+            JOptionPane.showMessageDialog(this, "Database connection is not available.", "Database Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+         
+        String sql = "DELETE FROM pet WHERE p_id = ?";
+
+        pstmt = connection.prepareStatement(sql);
+        pstmt.setInt(1, idToDelete);
+
+        int rowsAffected = pstmt.executeUpdate();
+
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(this, "Pet with ID " + idToDelete + " deleted successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            Logs.logFunctionCall("Admin deleted pet with ID: " + idToDelete);  
+
+             
+            pid.setText("");
+            pprice.setText("");
+            ptype.setSelectedIndex(0);
+            pstatus.setSelectedIndex(0);
+            
+            displayData();  
+
+        } else {
+            JOptionPane.showMessageDialog(this, "No pet found with ID " + idToDelete + " or deletion failed.", "Deletion Failed", JOptionPane.WARNING_MESSAGE);
+        }
+
+    } catch (SQLException e) {
+        System.err.println("SQL Error during pet deletion: " + e.getMessage());
+        JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+    } finally {
+        try {
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();  
+            }
+        } catch (SQLException e) {
+            System.err.println("Error closing resources: " + e.getMessage());
+        }
+    }
+        
+        
     }//GEN-LAST:event_deleteMouseClicked
 
     private void deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseEntered
@@ -696,7 +725,6 @@ public class petForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel U_id;
     private javax.swing.JLabel U_id2;
-    private javax.swing.JLabel U_id4;
     private javax.swing.JPanel Uback;
     private javax.swing.JLabel User_status;
     private javax.swing.JPanel add;
@@ -719,7 +747,6 @@ public class petForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTextField pid;
     public javax.swing.JTextField pprice;
-    private javax.swing.JPanel print;
     public javax.swing.JComboBox<String> pstatus;
     private javax.swing.JTable ptable;
     public javax.swing.JComboBox<String> ptype;

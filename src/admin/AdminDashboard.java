@@ -49,10 +49,10 @@ public class AdminDashboard extends javax.swing.JFrame {
         logout = new javax.swing.JPanel();
         users1 = new javax.swing.JLabel();
         header2 = new javax.swing.JPanel();
+        request = new javax.swing.JPanel();
+        a_request2 = new javax.swing.JLabel();
         Report = new javax.swing.JPanel();
         a_request1 = new javax.swing.JLabel();
-        Request = new javax.swing.JPanel();
-        a_request = new javax.swing.JLabel();
         addoption = new javax.swing.JPanel();
         adoption = new javax.swing.JLabel();
         p_add = new javax.swing.JPanel();
@@ -131,6 +131,41 @@ public class AdminDashboard extends javax.swing.JFrame {
         header2.setBackground(new java.awt.Color(28, 155, 142));
         header2.setLayout(null);
 
+        request.setBackground(new java.awt.Color(28, 155, 142));
+        request.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                requestMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                requestMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                requestMouseExited(evt);
+            }
+        });
+        request.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        a_request2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        a_request2.setForeground(new java.awt.Color(255, 255, 255));
+        a_request2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        a_request2.setText("VIEW USER REQUEST");
+        a_request2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        a_request2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                a_request2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                a_request2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                a_request2MouseExited(evt);
+            }
+        });
+        request.add(a_request2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 150, -1));
+
+        header2.add(request);
+        request.setBounds(0, 230, 170, 50);
+
         Report.setBackground(new java.awt.Color(28, 155, 142));
         Report.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -165,41 +200,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         header2.add(Report);
         Report.setBounds(0, 370, 170, 50);
-
-        Request.setBackground(new java.awt.Color(28, 155, 142));
-        Request.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RequestMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RequestMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                RequestMouseExited(evt);
-            }
-        });
-        Request.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        a_request.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        a_request.setForeground(new java.awt.Color(255, 255, 255));
-        a_request.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        a_request.setText("ADOPTION REQUEST");
-        a_request.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        a_request.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                a_requestMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                a_requestMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                a_requestMouseExited(evt);
-            }
-        });
-        Request.add(a_request, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, 20));
-
-        header2.add(Request);
-        Request.setBounds(0, 240, 170, 50);
 
         addoption.setBackground(new java.awt.Color(28, 155, 142));
         addoption.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -463,56 +463,6 @@ public class AdminDashboard extends javax.swing.JFrame {
           adoption.setBackground(hc);
     }//GEN-LAST:event_adoptionMouseExited
 
-    private void a_requestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_requestMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_requestMouseClicked
-
-    private void a_requestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_requestMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_requestMouseEntered
-
-    private void a_requestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_requestMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_requestMouseExited
-
-    private void RequestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RequestMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RequestMouseClicked
-
-    private void RequestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RequestMouseEntered
-       
-          Request.setBackground(nc);
-        
-    }//GEN-LAST:event_RequestMouseEntered
-
-    private void RequestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RequestMouseExited
-         Request.setBackground(hc);
-    }//GEN-LAST:event_RequestMouseExited
-
-    private void a_request1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_request1MouseClicked
-
-    private void a_request1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_request1MouseEntered
-
-    private void a_request1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_a_request1MouseExited
-
-    private void ReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReportMouseClicked
-
-    private void ReportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMouseEntered
-        Report.setBackground(nc);
-    }//GEN-LAST:event_ReportMouseEntered
-
-    private void ReportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMouseExited
-         Report.setBackground(hc);
-    }//GEN-LAST:event_ReportMouseExited
-
     private void users1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_users1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_users1MouseClicked
@@ -561,6 +511,56 @@ public class AdminDashboard extends javax.swing.JFrame {
     private void petMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_petMouseExited
           pet.setBackground(nc);
     }//GEN-LAST:event_petMouseExited
+
+    private void ReportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMouseExited
+        Report.setBackground(hc);
+    }//GEN-LAST:event_ReportMouseExited
+
+    private void ReportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMouseEntered
+        Report.setBackground(nc);
+    }//GEN-LAST:event_ReportMouseEntered
+
+    private void ReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReportMouseClicked
+
+    private void a_request1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_a_request1MouseExited
+
+    private void a_request1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_a_request1MouseEntered
+
+    private void a_request1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_a_request1MouseClicked
+
+    private void a_request2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_a_request2MouseClicked
+
+    private void a_request2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_a_request2MouseEntered
+
+    private void a_request2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_a_request2MouseExited
+
+    private void requestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestMouseClicked
+       requestForm pf = new  requestForm ();
+               pf.setVisible(true);
+               this.dispose();
+    }//GEN-LAST:event_requestMouseClicked
+
+    private void requestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_requestMouseEntered
+
+    private void requestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_requestMouseExited
         
     /**
      * @param args the command line arguments
@@ -602,9 +602,8 @@ public class AdminDashboard extends javax.swing.JFrame {
     public javax.swing.JLabel Acc_fname;
     public javax.swing.JLabel Acc_lname;
     private javax.swing.JPanel Report;
-    private javax.swing.JPanel Request;
-    public javax.swing.JLabel a_request;
-    public javax.swing.JLabel a_request1;
+    private javax.swing.JLabel a_request1;
+    public javax.swing.JLabel a_request2;
     private javax.swing.JPanel addoption;
     public javax.swing.JLabel adoption;
     private javax.swing.JPanel body;
@@ -632,6 +631,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel logout;
     private javax.swing.JPanel p_add;
     private javax.swing.JLabel pet;
+    private javax.swing.JPanel request;
     private javax.swing.JLabel users;
     private javax.swing.JLabel users1;
     // End of variables declaration//GEN-END:variables

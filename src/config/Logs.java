@@ -15,13 +15,13 @@ public class Logs{
     private static final String DB_PASSWORD = "";
 
     
-    public static void logFunctionCall(String date) {
-        String sql = "INSERT INTO logs (date) VALUES (?)";
+    public static void logFunctionCall(String action) {
+        String sql = "INSERT INTO logs (action) VALUES (?)";
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, date);
+            stmt.setString(1, action);
             stmt.executeUpdate();
 
         } catch (SQLException e) {
