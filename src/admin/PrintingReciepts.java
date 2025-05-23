@@ -62,11 +62,11 @@ public class PrintingReciepts extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         Status = new javax.swing.JLabel();
-        u_id = new javax.swing.JLabel();
-        lname = new javax.swing.JLabel();
-        em = new javax.swing.JLabel();
-        uname = new javax.swing.JLabel();
-        ustatus = new javax.swing.JLabel();
+        adoption_id = new javax.swing.JLabel();
+        a_id = new javax.swing.JLabel();
+        p_id = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
+        status = new javax.swing.JLabel();
         print = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -136,26 +136,25 @@ public class PrintingReciepts extends javax.swing.JFrame {
         Status.setText("Adoption Status:");
         page.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 120, 25));
 
-        u_id.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        u_id.setForeground(new java.awt.Color(255, 255, 255));
-        u_id.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        page.add(u_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 170, 25));
+        adoption_id.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        adoption_id.setForeground(new java.awt.Color(255, 255, 255));
+        page.add(adoption_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 170, 25));
 
-        lname.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lname.setForeground(new java.awt.Color(255, 255, 255));
-        page.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 168, 25));
+        a_id.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        a_id.setForeground(new java.awt.Color(255, 255, 255));
+        page.add(a_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 168, 25));
 
-        em.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        em.setForeground(new java.awt.Color(255, 255, 255));
-        page.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 168, 25));
+        p_id.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        p_id.setForeground(new java.awt.Color(255, 255, 255));
+        page.add(p_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 168, 25));
 
-        uname.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        uname.setForeground(new java.awt.Color(255, 255, 255));
-        page.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 168, 25));
+        date.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
+        page.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 168, 25));
 
-        ustatus.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        ustatus.setForeground(new java.awt.Color(255, 255, 255));
-        page.add(ustatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 168, 25));
+        status.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        status.setForeground(new java.awt.Color(255, 255, 255));
+        page.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 168, 25));
 
         header8.add(page);
         page.setBounds(20, 110, 520, 410);
@@ -199,7 +198,7 @@ public class PrintingReciepts extends javax.swing.JFrame {
 
         requestForm adf = new   requestForm  ();
         adf.setVisible(true);
-        this.dispose();
+        this.dispose(); 
 
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -249,7 +248,9 @@ public class PrintingReciepts extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Status;
-    public javax.swing.JLabel em;
+    public javax.swing.JLabel a_id;
+    public javax.swing.JLabel adoption_id;
+    public javax.swing.JLabel date;
     private javax.swing.JPanel header7;
     private javax.swing.JPanel header8;
     private javax.swing.JLabel jLabel1;
@@ -261,11 +262,9 @@ public class PrintingReciepts extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lastname;
-    public javax.swing.JLabel lname;
+    public javax.swing.JLabel p_id;
     private javax.swing.JPanel page;
     public javax.swing.JButton print;
-    public javax.swing.JLabel u_id;
-    public javax.swing.JLabel uname;
-    public javax.swing.JLabel ustatus;
+    public javax.swing.JLabel status;
     // End of variables declaration//GEN-END:variables
 }

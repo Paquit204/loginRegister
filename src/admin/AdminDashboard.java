@@ -555,11 +555,11 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_requestMouseClicked
 
     private void requestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestMouseEntered
-        // TODO add your handling code here:
+        request.setBackground(nc);
     }//GEN-LAST:event_requestMouseEntered
 
     private void requestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestMouseExited
-        // TODO add your handling code here:
+       request.setBackground(hc);
     }//GEN-LAST:event_requestMouseExited
         
     /**

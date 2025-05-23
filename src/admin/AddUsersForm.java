@@ -724,7 +724,7 @@ try {
         System.out.println("Duplicate Exist!");
         return;
     }
-
+ 
     try {
         // Construct the SQL INSERT statement
         String sql = "INSERT INTO accounts (firstname, lastname, email, username, contact, password, type, status, u_image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";

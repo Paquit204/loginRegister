@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
 
@@ -400,11 +401,37 @@ public class requestForm extends javax.swing.JFrame {
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
           
-          PrintingReciepts af=new PrintingReciepts();
-                af.setVisible(true);
-                this.dispose();
+          
                 
-                
+                 int rowIndex  = usersTable.getSelectedRow();
+           if(rowIndex < 0){
+               JOptionPane.showMessageDialog(null,"Please Select Item!");
+           }else{
+                    TableModel model= usersTable.getModel();
+                     PrintingReciepts  adf = new  PrintingReciepts ();
+               try{
+               dbConnect dbc = new dbConnect();
+                 TableModel tbl= usersTable.getModel();
+              ResultSet rs=dbc.getData("SELECT * FROM adoption WHERE adoption_id ='"+tbl.getValueAt(rowIndex, 0)+"'"); 
+            if(rs.next()){  
+                  
+              adf.adoption_id.setText(""+rs.getInt("adoption_id"));
+              adf.a_id.setText(""+rs.getString("a_id"));
+              adf.p_id.setText(""+rs.getString("p_id"));
+              adf.date.setText(""+rs.getString("date"));
+              adf.status.setText(""+rs.getString("a_status"));
+           
+               
+            
+              adf.setVisible(true);
+              this.dispose();
+              
+              
+               }
+               }catch(SQLException ex){
+                   System.out.println("Connection Error!"+ex);
+               }
+           }
                  
         
     }//GEN-LAST:event_printMouseClicked
