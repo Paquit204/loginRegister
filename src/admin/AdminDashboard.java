@@ -552,6 +552,7 @@ public class AdminDashboard extends javax.swing.JFrame {
        requestForm pf = new  requestForm ();
                pf.setVisible(true);
                this.dispose();
+               
     }//GEN-LAST:event_requestMouseClicked
 
     private void requestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestMouseEntered
