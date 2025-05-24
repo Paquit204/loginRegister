@@ -41,20 +41,27 @@ public class requestForm extends javax.swing.JFrame {
        Color hc=new Color(0,0,51);
        
         void displayData(){
-        try{
-            dbConnect dbc = new dbConnect();
-            ResultSet rst = dbc.getData("SELECT * FROM adoption");
-            usersTable.setModel(DbUtils.resultSetToTableModel(rst));
-             rst.close();
-        }catch(SQLException ex){
-            System.out.println("Errors: "+ex.getMessage());
+         try{
+             dbConnect dbc = new dbConnect();
+             // Changed this SELECT to include pet type and account names for display in the table,
+             // assuming you want to see them directly in the usersTable as well.
+             // If not, revert to "SELECT * FROM adoption"
+             ResultSet rst = dbc.getData("SELECT ad.adoption_id, ad.a_id, ad.p_id, ad.date, ad.a_status, " +
+                                         "p.p_type AS pet_type_display, " + // Alias for display purposes
+                                         "CONCAT(acc.firstname, ' ', acc.lastname) AS Costumer_name_display " + // Alias for display purposes
+                                         "FROM adoption AS ad " +
+                                         "LEFT JOIN pet AS p ON ad.p_id = p.p_id " +
+                                         "LEFT JOIN accounts AS acc ON ad.a_id = acc.a_id");
+             usersTable.setModel(DbUtils.resultSetToTableModel(rst));
+              rst.close();
+         }catch(SQLException ex){
+             System.out.println("Errors: "+ex.getMessage());
 
-        }
-        
-        
-        
+         }
+
 
     }
+  
           
     
     
@@ -401,37 +408,55 @@ public class requestForm extends javax.swing.JFrame {
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
           
-          
-                
-                 int rowIndex  = usersTable.getSelectedRow();
-           if(rowIndex < 0){
-               JOptionPane.showMessageDialog(null,"Please Select Item!");
-           }else{
-                    TableModel model= usersTable.getModel();
-                     PrintingReciepts  adf = new  PrintingReciepts ();
-               try{
-               dbConnect dbc = new dbConnect();
-                 TableModel tbl= usersTable.getModel();
-              ResultSet rs=dbc.getData("SELECT * FROM adoption WHERE adoption_id ='"+tbl.getValueAt(rowIndex, 0)+"'"); 
-            if(rs.next()){  
-                  
-              adf.adoption_id.setText(""+rs.getInt("adoption_id"));
-              adf.a_id.setText(""+rs.getString("a_id"));
-              adf.p_id.setText(""+rs.getString("p_id"));
-              adf.date.setText(""+rs.getString("date"));
-              adf.status.setText(""+rs.getString("a_status"));
-           
-               
-            
-              adf.setVisible(true);
-              this.dispose();
-              
-              
-               }
-               }catch(SQLException ex){
-                   System.out.println("Connection Error!"+ex);
-               }
-           }
+          int rowIndex  = usersTable.getSelectedRow();
+        if(rowIndex < 0){
+            JOptionPane.showMessageDialog(null,"Please Select Item!");
+        }else{
+            TableModel model= usersTable.getModel();
+            PrintingReciepts  adf = new  PrintingReciepts ();
+            try{
+                dbConnect dbc = new dbConnect();
+                TableModel tbl= usersTable.getModel();
+
+                // Modified SQL query to join with pets and accounts tables
+                // Now using 'p_type' from 'pets' and 'first_name', 'last_name' from 'accounts'
+                String sql = "SELECT ad.adoption_id, ad.date, ad.a_status, " +
+                             "p.p_type, acc.firstname, acc.lastname " +
+                             "FROM adoption AS ad " +
+                             "JOIN pet AS p ON ad.p_id = p.p_id " +
+                             "JOIN accounts AS acc ON ad.a_id = acc.a_id " +
+                             "WHERE ad.adoption_id = ?";
+                PreparedStatement pst = dbc.getConnection().prepareStatement(sql);
+                pst.setInt(1, Integer.parseInt(tbl.getValueAt(rowIndex, 0).toString()));
+                ResultSet rs = pst.executeQuery();
+
+                if(rs.next()){
+                    adf.adoption_id.setText(""+rs.getInt("adoption_id"));
+                    adf.date.setText(""+rs.getString("date"));
+                    adf.status.setText(""+rs.getString("a_status"));
+
+                    // Set the pet type and applicant name using the new column names
+                    // Still assuming 'p_id' JLabel for pet type and 'a_id' JLabel for applicant name
+                    // REMINDER: It is strongly recommended to rename these JLabels in PrintingReciepts for clarity
+                    adf.p_id.setText(""+rs.getString("p_type")); // Now getting "p_type" from ResultSet
+                    adf.a_id.setText(rs.getString("firstname") + " " + rs.getString("lastname")); // Now getting "first_name" and "last_name"
+
+                    adf.setVisible(true);
+                    this.dispose();
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "No data found for the selected adoption ID.");
+                }
+                rs.close();
+                pst.close();
+            }catch(SQLException ex){
+                System.out.println("Connection Error! "+ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Database Error: " + ex.getMessage());
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid Adoption ID format in table: " + e.getMessage());
+            }
+        }
+
                  
         
     }//GEN-LAST:event_printMouseClicked

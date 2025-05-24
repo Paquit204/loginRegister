@@ -67,6 +67,12 @@ public class PrintingReciepts extends javax.swing.JFrame {
         p_id = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         status = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         print = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,7 +91,6 @@ public class PrintingReciepts extends javax.swing.JFrame {
         header7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 290, 50));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("BACK");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -101,67 +106,82 @@ public class PrintingReciepts extends javax.swing.JFrame {
         page.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ST. CECELIA'S COLLEGE  - CEBU, INC.");
         page.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 17, 440, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Patag, City of Naga, Cebu");
         page.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 45, 428, -1));
 
-        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        page.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 520, 10));
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        page.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 520, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel6.setText("Adoption ID:");
-        page.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 102, 25));
+        page.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 102, 25));
 
         lastname.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        lastname.setText("User ID:");
-        page.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 82, 25));
+        lastname.setText("Costumer Name :");
+        page.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 120, 25));
 
         jLabel8.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel8.setText("Pet ID:");
-        page.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 102, 25));
+        jLabel8.setText("Pet Type:");
+        page.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 102, 25));
 
         jLabel9.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel9.setText("Date:");
-        page.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 102, 25));
+        page.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 102, 25));
 
         Status.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         Status.setText("Adoption Status:");
-        page.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 120, 25));
+        page.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, 25));
 
         adoption_id.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         adoption_id.setForeground(new java.awt.Color(255, 255, 255));
-        page.add(adoption_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 170, 25));
+        page.add(adoption_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 170, 25));
 
         a_id.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         a_id.setForeground(new java.awt.Color(255, 255, 255));
-        page.add(a_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 168, 25));
+        page.add(a_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 168, 25));
 
         p_id.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         p_id.setForeground(new java.awt.Color(255, 255, 255));
-        page.add(p_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 168, 25));
+        page.add(p_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 168, 25));
 
         date.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         date.setForeground(new java.awt.Color(255, 255, 255));
-        page.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 168, 25));
+        page.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 168, 25));
 
         status.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         status.setForeground(new java.awt.Color(255, 255, 255));
-        page.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 168, 25));
+        page.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 168, 25));
+
+        jLabel4.setText("from any liability for issues that may arise after the adoption.");
+        page.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 480, 20));
+
+        jLabel7.setText(" ☐ The applicant acknowledges that the pet is adopted \"as is,\" with no guarantees");
+        page.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 450, 20));
+
+        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+        page.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 520, -1));
+
+        jLabel10.setText("  regarding its behavior, health, or adaptability. The current owner makes no promises,");
+        page.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 480, 20));
+
+        jLabel11.setText(" expressed or implied, about the animal’s future conduct or compatibility. The applicant");
+        page.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 480, 20));
+
+        jLabel12.setText("accepts full responsibility for the pet’s care and well-being.The current owner is released");
+        page.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 500, 20));
 
         header8.add(page);
-        page.setBounds(20, 110, 520, 410);
+        page.setBounds(20, 110, 520, 420);
 
         print.setBackground(new java.awt.Color(0, 204, 255));
         print.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        print.setForeground(new java.awt.Color(255, 255, 255));
         print.setText("PRINT");
         print.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,13 +274,19 @@ public class PrintingReciepts extends javax.swing.JFrame {
     private javax.swing.JPanel header7;
     private javax.swing.JPanel header8;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lastname;
     public javax.swing.JLabel p_id;
     private javax.swing.JPanel page;
