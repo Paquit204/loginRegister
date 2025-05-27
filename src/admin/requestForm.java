@@ -417,7 +417,7 @@ public class requestForm extends javax.swing.JFrame {
             try{
                 dbConnect dbc = new dbConnect();
                 TableModel tbl= usersTable.getModel();
-
+ 
                 // Modified SQL query to join with pets and accounts tables
                 // Now using 'p_type' from 'pets' and 'first_name', 'last_name' from 'accounts'
                 String sql = "SELECT ad.adoption_id, ad.date, ad.a_status, " +
@@ -462,11 +462,11 @@ public class requestForm extends javax.swing.JFrame {
     }//GEN-LAST:event_printMouseClicked
 
     private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
-        // TODO add your handling code here:
+          print.setBackground(nc);
     }//GEN-LAST:event_printMouseEntered
 
     private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
-        // TODO add your handling code here:
+        print.setBackground(hc);
     }//GEN-LAST:event_printMouseExited
 
     /**

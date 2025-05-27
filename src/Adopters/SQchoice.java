@@ -193,7 +193,7 @@ private void resetPassword() {
     }//GEN-LAST:event_formWindowActivated
 
     private void BackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMouseClicked
-        SQchoice lf = new SQchoice();
+        RecoveryChoice lf = new  RecoveryChoice ();
         lf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackButtonMouseClicked

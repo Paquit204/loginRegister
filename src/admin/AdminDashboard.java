@@ -521,7 +521,9 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_ReportMouseEntered
 
     private void ReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMouseClicked
-        // TODO add your handling code here:
+       PrintingReciepts pr = new PrintingReciepts();
+       pr.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_ReportMouseClicked
 
     private void a_request1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a_request1MouseExited
